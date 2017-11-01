@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     avatar: DataTypes.STRING,
     last_logged_in: DataTypes.DATE,
     blurb: DataTypes.STRING
-  }, {timestamps: false});
+  }, {timestamps: true});
 
     User.associate = (models) => {
       User.hasMany(models.Message, {

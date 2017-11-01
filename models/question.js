@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   var Question = sequelize.define('Question', {
     content: DataTypes.STRING,
     category_id: DataTypes.INTEGER
-  }, {timestamps: false});
+  }, {timestamps: true});
   
     Question.associate= (models) => {
       Question.belongsTo(models.Category, {

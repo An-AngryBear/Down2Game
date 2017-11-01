@@ -1,0 +1,69 @@
+{
+    "Users": [
+      {
+        "screen_name": "Jim",
+        "email": "Smith@smith.com",
+        "password": " $2a$08$RaOAbDlDOvFouFTRgct0XeeYCqHd.lIVVy4z0InbMssVr.uSGm18G",
+        "birthdate": "2017-11-06 18:00:00-06",
+        "language": "English",
+        "timezone": "-06:00",
+        "avatar": null,
+        "last_logged_in": "2017-11-01 00:17:54.783-05",
+        "blurb": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+    },
+      {
+        "screen_name": "jonesie",
+        "email": "hello@hello.com",
+        "password": " $2a$08$RaOAbDlDOvFouFTRgct0XeeYCqHd.lIVVy4z0InbMssVr.uSGm18G",
+        "birthdate": "2017-11-06 18:00:00-06",
+        "language": "English",
+        "timezone": "-00:00",
+        "avatar": null,
+        "last_logged_in": "2017-11-01 00:17:54.783-05",
+        "blurb": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "screen_name": "Jan",
+        "email": "ram@ram.com",
+        "password": " $2a$08$RaOAbDlDOvFouFTRgct0XeeYCqHd.lIVVy4z0InbMssVr.uSGm18G",
+        "birthdate": "2017-11-06 18:00:00-06",
+        "language": "English",
+        "timezone": "-06:00",
+        "avatar": null,
+        "last_logged_in": "2017-11-01 00:17:54.783-05",
+        "blurb": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "screen_name": "lake",
+        "email": "lake@lake.com",
+        "password": " $2a$08$RaOAbDlDOvFouFTRgct0XeeYCqHd.lIVVy4z0InbMssVr.uSGm18G",
+        "birthdate": "1987-11-06 18:00:00-06",
+        "language": "German",
+        "timezone": "-02:00",
+        "avatar": null,
+        "last_logged_in": "1996-11-01 00:17:54.783-05",
+        "blurb": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "screen_name": "angrybear",
+        "email": "123@123.com",
+        "password": " $2a$08$RaOAbDlDOvFouFTRgct0XeeYCqHd.lIVVy4z0InbMssVr.uSGm18G",
+        "birthdate": "1988-11-06 18:00:00-06",
+        "language": "English",
+        "timezone": "-06:00",
+        "avatar": null,
+        "last_logged_in": "1988-11-01 00:17:54.783-05",
+        "blurb": "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      }
+    ]
+}

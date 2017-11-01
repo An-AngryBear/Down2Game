@@ -55,3 +55,5 @@ app.use(routes);
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
+
+// https://api-2445582011268.apicast.io/games/?search=warcraft&fields=name,game_modes&filter[game_modes][eq]=2&filter[version_parent][not_exists]=1

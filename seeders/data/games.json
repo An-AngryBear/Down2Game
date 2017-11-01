@@ -1,0 +1,19 @@
+{
+    "Games": [
+      {
+        "name": "Overwatch",
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "name": "Counter-Strike: Global Offensive",
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "name": "Rocket League",
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      }
+    ]
+}

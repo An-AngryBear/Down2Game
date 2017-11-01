@@ -1,0 +1,124 @@
+{
+    "Questions": [
+      {
+        "content": "Do you use a mic?",
+        "category_id": 1,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Do you have an issue with racist jokes?",
+        "category_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Do you ever play under the influence of alcohol?",
+        "category_id": 3,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Do you ever play under the influence of marijuana?",
+        "category_id": 3,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Do you prefer to play casually or competitively?",
+        "category_id": 3,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Would you consider your play more strategic or improvisational?",
+        "category_id": 3,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Would you prefer to play with a more serious team or a funny team?",
+        "category_id": 3,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Do you find yourself getting upset when members of your team play poorly?",
+        "category_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "What time of day do you typically play?",
+        "category_id": 1,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Do you enjoy dirty jokes?",
+        "category_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Do you have an issue with sexist comments/jokes? Example: Women belong in the kitchen, etc",
+        "category_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Are you looking to form a guild or clan?",
+        "category_id": 1,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "How often do you curse or use foul language?",
+        "category_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Would you consider your personality 'wild'?",
+        "category_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "How important is it that your teammates are a similar skill level as you?",
+        "category_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "How often do you play?",
+        "category_id": 1,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Do you ever taunt the enemy team?",
+        "category_id": 3,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "What platform do you play on?",
+        "category_id": 1,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "Do you consider yourself 'nerdy'?",
+        "category_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "content": "If your teammate was using a soundboard (putting canned sounds like music, sound effects, quotes, etc into voice chat), in general, would that be more annoying or funny?",
+        "category_id": 3,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      }
+    ]
+}

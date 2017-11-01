@@ -1,0 +1,28 @@
+{
+    "UserMatches": [
+      {
+        "User_one_id": 1,
+        "User_two_id": 2
+      },
+      {
+        "User_one_id": 2,
+        "User_two_id": 3
+      },
+      {
+        "User_one_id": 1,
+        "User_two_id": 3
+      },
+      {
+        "User_one_id": 2,
+        "User_two_id": 4
+      },
+      {
+        "User_one_id": 4,
+        "User_two_id": 3
+      },
+      {
+        "User_one_id": 5,
+        "User_two_id": 1
+      }
+    ]
+  }

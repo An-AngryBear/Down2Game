@@ -1,0 +1,292 @@
+{
+    "Answers": [
+      {
+        "ans_content": "Yes",
+        "question_id": 1,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 1,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes",
+        "question_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 2,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes",
+        "question_id": 3,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 3,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes",
+        "question_id": 4,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 4,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Casually",
+        "question_id": 5,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Competitively",
+        "question_id": 5,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Strategic",
+        "question_id": 6,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Improvisational",
+        "question_id": 6,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Serious",
+        "question_id": 7,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Funny",
+        "question_id": 7,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes",
+        "question_id": 8,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 8,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Between 8am and 2pm",
+        "question_id": 9,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Between 2pm and 8pm",
+        "question_id": 9,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Between 8pm and 2am",
+        "question_id": 9,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Between 2am and 8am",
+        "question_id": 9,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes",
+        "question_id": 10,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 10,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes",
+        "question_id": 11,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 11,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes",
+        "question_id": 12,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 12,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes",
+        "question_id": 13,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 13,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes, I can be rowdy",
+        "question_id": 14,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No, I'm calm as a clam",
+        "question_id": 14,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Important",
+        "question_id": 15,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Not very important",
+        "question_id": 15,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "I play pretty much everyday",
+        "question_id": 16,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "I play most days",
+        "question_id": 16,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "I play a few days a week",
+        "question_id": 16,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "I play once or twice a week",
+        "question_id": 16,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes, how else would you tilt them?",
+        "question_id": 17,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No, I keep things classy",
+        "question_id": 17,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "PC/Apple/Linux",
+        "question_id": 18,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Xbox One",
+        "question_id": 18,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Xbox 360",
+        "question_id": 18,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "PS3",
+        "question_id": 18,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "PS4",
+        "question_id": 18,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Nintendo Switch",
+        "question_id": 18,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Yes",
+        "question_id": 19,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "No",
+        "question_id": 19,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Soundboards are usually annoying",
+        "question_id": 20,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "ans_content": "Soundboards are pretty funny",
+        "question_id": 20,
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      }
+    ]
+}

@@ -24,11 +24,11 @@ module.exports = (sequelize, DataTypes) => {
       });
       User.belongsToMany(models.User, {
         through: 'UserMatches',
-        as: "user_one_id"
+        as: "User_one_id"
       });
       User.belongsToMany(models.User, {
         through: 'UserMatches',
-        as: "user_two_id"
+        as: "User_two_id"
       });
     }
   return User;

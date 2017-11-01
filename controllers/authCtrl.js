@@ -8,19 +8,22 @@ module.exports.displayRegister = (req, res) => {
 };
 
 module.exports.register = (req, res, next) => {
-  if (req.body.password === req.body.confirmation) {
-    passport.authenticate('local-signup', (err, user, msgObj) => { //pipes through passport strategy
-      if (err) { console.log(err); }
-      if (!user) { return res.render('register', msgObj); }
-      req.logIn(user, (err) => { //logs user in
-        if (err) { return next(err); }
-        req.flash('registerMsg', `Welcome to Down2Game, ${user.screen_name}!`);
-        res.redirect('/');
-      });
-    })(req, res, next);
-  } else {
+    console.log("register function triggered");
+    console.log(req.body)
+    if (req.body.password === req.body.confirmation) {
+        console.log("password confirmed");
+        passport.authenticate('local-signup', (err, user, msgObj) => { //pipes through passport strategy
+        if (err) { console.log(err); }
+        if (!user) { return res.render('register', msgObj); }
+        req.logIn(user, (err) => { //logs user in
+            if (err) { return next(err); }
+            req.flash('registerMsg', `Welcome to Down2Game, ${user.screen_name}!`);
+            res.redirect('/');
+        });
+        })(req, res, next);
+    } else {
     res.render('register', { message: 'Password & password confirmation do not match' })
-  }
+    }
 };
 
 // logging in existing users

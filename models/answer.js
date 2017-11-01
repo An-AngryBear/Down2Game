@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   var Answer = sequelize.define('Answer', {
     ans_content: DataTypes.STRING,
     question_id: DataTypes.INTEGER
-  }, {timestamps: false});
+  }, {timestamps: true});
 
     Answer.associate= (models) => {
       Answer.belongsTo(models.Question, {

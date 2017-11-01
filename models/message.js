@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     sender_id: DataTypes.INTEGER,
     recipient_id: DataTypes.INTEGER,
     request: DataTypes.BOOLEAN
-  }, {timestamps: false});
+  }, {timestamps: true});
   
     Message.associate= (models) => {
       Message.belongsTo(models.User, {

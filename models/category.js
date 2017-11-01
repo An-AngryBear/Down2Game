@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   var Category = sequelize.define('Category', {
     name: DataTypes.STRING
-  }, {timestamps: false});
+  }, {timestamps: true});
 
     Category.associate = (models) => {
       Category.hasMany(models.Question, {

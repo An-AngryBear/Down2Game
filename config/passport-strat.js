@@ -37,7 +37,7 @@ const RegistrationStrategy = new Strategy(
               language: req.body.language,
               timezone: req.body.timezone,
               avatar: null,
-              last_logged_in: null,
+              last_logged_in: new Date(),
               blurb: null,
             };
           User.create(data).then( (newUser, created) => {

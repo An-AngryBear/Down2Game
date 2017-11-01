@@ -5,17 +5,18 @@ block content
     div(class="loginForm")
         form(action="/register", method="post")
             label(for="screenname") Screen Name: 
-            input(type="text" id="screenname" placeholder="Screen Name" name="screen_name")
+            input(type="text" id="screenname" placeholder="Screen Name" name="screen_name", required)
             label(for="email") Email: 
-            input(type="text" id="email" placeholder="Email" name="email")
+            input(type="text" id="email" placeholder="Email" name="email", required)
             label(for="password") Password: 
-            input(type="password" id="password" placeholder="Password")
+            input(type="password" id="password" placeholder="Password" name="password", required)
             label(for="password-confirm") Confirm Password: 
-            input(type="password" id="password-confirm" placeholder="Confirm Password" name="confirmation")
+            input(type="password" id="password-confirm" placeholder="Confirm Password" name="confirmation", required)
             label(for="birthdate") Birthdate: 
-            input(type="date" id="birthdate" placeholder="Birthdate" name="birthdate")
+            input(type="date" id="birthdate" placeholder="Birthdate" name="birthdate", required)
             label(for="language") Language: 
-            select(id="language" name="language")
+            select(id="language" name="language", required)
+                option()
                 option(value="English") English
                 option(value="Afrikanns") Afrikanns
                 option(value="Albanian") Albanian
@@ -89,7 +90,8 @@ block content
                 option(value="Welsh") Welsh
                 option(value="Xhosa") Xhosa
             label(for="timezone") Timezone:
-            select(id="timezone" name="timezone")
+            select(id="timezone" name="timezone", required)
+                option()
                 option(value="-12:00") (GMT -12:00) Eniwetok, Kwajalein
                 option(value="-11:00") (GMT -11:00) Midway Island, Samoa
                 option(value="-10:00") (GMT -10:00) Hawaii

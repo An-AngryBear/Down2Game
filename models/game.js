@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   var Game = sequelize.define('Game', {
     name: DataTypes.STRING
-  }, {timestamps: false});
+  }, {timestamps: true});
   
     Game.associate= (models) => {
       Game.belongsToMany(models.User, {

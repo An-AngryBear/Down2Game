@@ -1,0 +1,7 @@
+body {
+    background-color: palegreen
+}
+
+.hidden-email, .hidden-blurb, .hidden-language, .hidden-timezone {
+    display: none
+}

@@ -1,0 +1,46 @@
+extends index.pug
+
+block content
+    h1 #{screen_name}
+    .pic-and-blurb
+        .blurb-edit
+            form(method='POST', action=`/user?_method=PUT`)
+                h4 About:
+                if loggedUser
+                    if blurb
+                        p(class="blurb") #{blurb}
+                        textarea(class="hidden-blurb blurb-input" name="blurb") #{blurb}
+                    else
+                        p(class="blurb") Give a brief description of yourself...
+                        textarea(class="hidden-blurb blurb-input" name="blurb")
+                    button(id="edit-blurb" class="edit") Edit
+                    button(type="submit" class="submit-blurb edit-submit hidden-blurb") Submit
+                else
+                    p(class="blurb") #{blurb}
+    .account-info
+        .email-edit
+            form(method='POST', action=`/user?_method=PUT`)
+                h4(class="email") Email: #{email}
+                input(class="hidden-email email-input" type="text" name="email" value=email) 
+                if loggedUser
+                    button(id="edit-email" class="edit") Edit
+                    button(type="submit" class="submit-email edit-submit hidden-email") Submit
+        h4 Birthdate: #{birthdate}
+        .language-edit
+            form(method='POST', action=`/user?_method=PUT`)
+                h4(class="language") Language: #{language}
+                if loggedUser
+                    .hidden-language.language-input
+                        include partials/language
+                    button(id="edit-language" class="edit") Edit
+                    button(type="submit" class="submit-language edit-submit hidden-language") Submit
+        .timezone-edit
+            form(method='POST', action=`/user?_method=PUT`)
+                h4(class="timezone") Timezone: #{timezone}
+                if loggedUser
+                    .hidden-timezone.timezone-input
+                        include partials/timezone.pug
+                    button(id="edit-timezone" class="edit") Edit
+                    button(type="submit" class="submit-timezone edit-submit hidden-timezone") Submit
+    .games
+

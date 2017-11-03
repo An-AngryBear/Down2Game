@@ -1,46 +1,59 @@
 extends index.pug
 
 block content
-    h1 #{screen_name}
-    .pic-and-blurb
-        .blurb-edit
-            form(method='POST', action=`/user?_method=PUT`)
-                h4 About:
-                if loggedUser
-                    if blurb
-                        p(class="blurb") #{blurb}
-                        textarea(class="hidden-blurb blurb-input" name="blurb") #{blurb}
-                    else
-                        p(class="blurb") Give a brief description of yourself...
-                        textarea(class="hidden-blurb blurb-input" name="blurb")
-                    button(id="edit-blurb" class="edit") Edit
-                    button(type="submit" class="submit-blurb edit-submit hidden-blurb") Submit
-                else
-                    p(class="blurb") #{blurb}
-    .account-info
-        .email-edit
-            form(method='POST', action=`/user?_method=PUT`)
-                h4(class="email") Email: #{email}
-                input(class="hidden-email email-input" type="text" name="email" value=email) 
-                if loggedUser
-                    button(id="edit-email" class="edit") Edit
-                    button(type="submit" class="submit-email edit-submit hidden-email") Submit
-        h4 Birthdate: #{birthdate}
-        .language-edit
-            form(method='POST', action=`/user?_method=PUT`)
-                h4(class="language") Language: #{language}
-                if loggedUser
-                    .hidden-language.language-input
-                        include partials/language
-                    button(id="edit-language" class="edit") Edit
-                    button(type="submit" class="submit-language edit-submit hidden-language") Submit
-        .timezone-edit
-            form(method='POST', action=`/user?_method=PUT`)
-                h4(class="timezone") Timezone: #{timezone}
-                if loggedUser
-                    .hidden-timezone.timezone-input
-                        include partials/timezone.pug
-                    button(id="edit-timezone" class="edit") Edit
-                    button(type="submit" class="submit-timezone edit-submit hidden-timezone") Submit
-    .games
-
+    h2(class="account-head") Account Info for #{screen_name}
+    .container
+        .row.equal
+            .pic-and-blurb.col-md-4
+                .img
+                    img(src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg")
+                .blurb-edit
+                    form(method='POST', action=`/user?_method=PUT`)
+                        h4 About:
+                        if loggedUser
+                            if blurb
+                                p(class="blurb user-info") #{blurb}
+                                textarea(class="input hidden-blurb blurb-input form-control" rows="3" name="blurb") #{blurb}
+                            else
+                                p(class="blurb user-info") Give a brief description of yourself...
+                                textarea(class="input hidden-blurb blurb-input user-info" rows="3" name="blurb")
+                            span(id="edit-blurb" role="button" class="edit glyphicon glyphicon-pencil")
+                        else
+                            p(class="blurb") #{blurb}
+            .account-info.col-md-4
+                .email-edit
+                    form(method='POST', action=`/user?_method=PUT`)
+                        h4 Email
+                        p(class="user-info email") #{email}
+                        input(id="email-input" class="input hidden-email email-input form-control" type="text" name="email" value=email) 
+                        if loggedUser
+                            span(id="edit-email" role="button" class="edit glyphicon glyphicon-pencil")
+                    h4 Birthdate
+                p(class="user-info") #{birthdate}
+                .language-edit
+                    form(method='POST', action=`/user?_method=PUT`)
+                        h4(class="language") Language
+                        p(class="user-info") #{language}
+                        if loggedUser
+                            .hidden-language.language-input.input
+                                include partials/language
+                            span(id="edit-language" role="button" class="edit glyphicon glyphicon-pencil")
+                            button(type="submit" id="lang-submit" class="submit-language edit-submit hidden-language-submit") Submit
+                .timezone-edit
+                    form(method='POST', action=`/user?_method=PUT`)
+                        h4(class="timezone") Timezone
+                        p(class="user-info") #{timezone}
+                        if loggedUser
+                            .hidden-timezone.timezone-input.input
+                                include partials/timezone.pug
+                            span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
+                            button(type="submit" id="timezone-submit" class="submit-timezone edit-submit hidden-timezone-submit") Submit
+            .games.col-md-4
+                h4 Games
+                    form(method='POST', action='/games')
+                        input(id="gameSearch" class="form-control" type='text')
+                        input(id="hidden-gamesearch", class="hidden-game" name="game")
+                        ul(id="game-list")
+                            each game in storedGames
+                                li(class="game-options hidden-list"): a(class="game-name") #{game.name}
+                        button(id="hidden-game-submit" class="hidden-game" type="submit")

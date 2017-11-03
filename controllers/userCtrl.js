@@ -18,7 +18,8 @@ module.exports.getUserInfo = (req, res, next) => {
             timezone,
             avatar: data.avatar,
             blurb: data.blurb ? data.blurb : null,
-            loggedUser
+            loggedUser,
+            storedGames: res.locals.storedGames
         })
     });
 }
@@ -46,13 +47,6 @@ module.exports.editUserInfo = (req, res, next) => {
         res.redirect(`/user/${req.session.passport.user.id}`)
     });
 }
-// buyer_id:req.session.passport.user.id,
-// payment_id: req.body.payment_id,
-// order_date: req.body.order_date,
-// createdAt:null,
-// updatedAt:null
-// }, {where:{id: req.params.id}})
-
 
 //converts long date to xx/xx/xxxx format
 let dateConverter = (date) => {

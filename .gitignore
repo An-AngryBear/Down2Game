@@ -1,3 +1,5 @@
 config/config.json
 node_modules
 .env
+public/lib
+public/values

@@ -18,7 +18,7 @@ module.exports.register = (req, res, next) => {
         req.logIn(user, (err) => { //logs user in
             if (err) { return next(err); }
             req.flash('registerMsg', `Welcome to Down2Game, ${user.screen_name}!`);
-            res.redirect('/');
+            res.redirect(`/user/${req.session.passport.user.id}`);
         });
         })(req, res, next);
     } else {
@@ -41,7 +41,7 @@ module.exports.login = (req, res, next) => {
     req.logIn(user, err => {
       if (err) { return next(err) }
       req.flash('welcomeBackMsg',`Welcome back, `);
-      res.redirect('/');
+      res.redirect(`/user/${req.session.passport.user.id}`);
     });
   })(req, res, next);
 };

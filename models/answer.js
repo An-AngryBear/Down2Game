@@ -1,8 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Answer = sequelize.define('Answer', {
-    ans_content: DataTypes.STRING,
-    question_id: DataTypes.INTEGER
+    ansContent: DataTypes.STRING,
+    QuestionId: DataTypes.INTEGER
   }, {timestamps: true});
 
     Answer.associate= (models) => {

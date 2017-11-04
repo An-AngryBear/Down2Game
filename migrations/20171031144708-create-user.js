@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      screen_name: {
+      screenName: {
         type: Sequelize.STRING
       },
       email: {
@@ -29,7 +29,7 @@ module.exports = {
       avatar: {
         type: Sequelize.STRING
       },
-      last_logged_in: {
+      lastLoggedIn: {
         type: Sequelize.DATE
       },
       blurb: {

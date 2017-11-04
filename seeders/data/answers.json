@@ -1,290 +1,290 @@
 {
     "Answers": [
       {
-        "ans_content": "Yes",
-        "question_id": 1,
+        "ansContent": "Yes",
+        "QuestionId": 1,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 1,
+        "ansContent": "No",
+        "QuestionId": 1,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes",
-        "question_id": 2,
+        "ansContent": "Yes",
+        "QuestionId": 2,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 2,
+        "ansContent": "No",
+        "QuestionId": 2,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes",
-        "question_id": 3,
+        "ansContent": "Yes",
+        "QuestionId": 3,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 3,
+        "ansContent": "No",
+        "QuestionId": 3,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes",
-        "question_id": 4,
+        "ansContent": "Yes",
+        "QuestionId": 4,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 4,
+        "ansContent": "No",
+        "QuestionId": 4,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Casually",
-        "question_id": 5,
+        "ansContent": "Casually",
+        "QuestionId": 5,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Competitively",
-        "question_id": 5,
+        "ansContent": "Competitively",
+        "QuestionId": 5,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Strategic",
-        "question_id": 6,
+        "ansContent": "Strategic",
+        "QuestionId": 6,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Improvisational",
-        "question_id": 6,
+        "ansContent": "Improvisational",
+        "QuestionId": 6,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Serious",
-        "question_id": 7,
+        "ansContent": "Serious",
+        "QuestionId": 7,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Funny",
-        "question_id": 7,
+        "ansContent": "Funny",
+        "QuestionId": 7,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes",
-        "question_id": 8,
+        "ansContent": "Yes",
+        "QuestionId": 8,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 8,
+        "ansContent": "No",
+        "QuestionId": 8,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Between 8am and 2pm",
-        "question_id": 9,
+        "ansContent": "Between 8am and 2pm",
+        "QuestionId": 9,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Between 2pm and 8pm",
-        "question_id": 9,
+        "ansContent": "Between 2pm and 8pm",
+        "QuestionId": 9,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Between 8pm and 2am",
-        "question_id": 9,
+        "ansContent": "Between 8pm and 2am",
+        "QuestionId": 9,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Between 2am and 8am",
-        "question_id": 9,
+        "ansContent": "Between 2am and 8am",
+        "QuestionId": 9,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes",
-        "question_id": 10,
+        "ansContent": "Yes",
+        "QuestionId": 10,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 10,
+        "ansContent": "No",
+        "QuestionId": 10,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes",
-        "question_id": 11,
+        "ansContent": "Yes",
+        "QuestionId": 11,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 11,
+        "ansContent": "No",
+        "QuestionId": 11,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes",
-        "question_id": 12,
+        "ansContent": "Yes",
+        "QuestionId": 12,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 12,
+        "ansContent": "No",
+        "QuestionId": 12,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes",
-        "question_id": 13,
+        "ansContent": "Yes",
+        "QuestionId": 13,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 13,
+        "ansContent": "No",
+        "QuestionId": 13,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes, I can be rowdy",
-        "question_id": 14,
+        "ansContent": "Yes, I can be rowdy",
+        "QuestionId": 14,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No, I'm calm as a clam",
-        "question_id": 14,
+        "ansContent": "No, I'm calm as a clam",
+        "QuestionId": 14,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Important",
-        "question_id": 15,
+        "ansContent": "Important",
+        "QuestionId": 15,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Not very important",
-        "question_id": 15,
+        "ansContent": "Not very important",
+        "QuestionId": 15,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "I play pretty much everyday",
-        "question_id": 16,
+        "ansContent": "I play pretty much everyday",
+        "QuestionId": 16,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "I play most days",
-        "question_id": 16,
+        "ansContent": "I play most days",
+        "QuestionId": 16,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "I play a few days a week",
-        "question_id": 16,
+        "ansContent": "I play a few days a week",
+        "QuestionId": 16,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "I play once or twice a week",
-        "question_id": 16,
+        "ansContent": "I play once or twice a week",
+        "QuestionId": 16,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes, how else would you tilt them?",
-        "question_id": 17,
+        "ansContent": "Yes, how else would you tilt them?",
+        "QuestionId": 17,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No, I keep things classy",
-        "question_id": 17,
+        "ansContent": "No, I keep things classy",
+        "QuestionId": 17,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "PC/Apple/Linux",
-        "question_id": 18,
+        "ansContent": "PC/Apple/Linux",
+        "QuestionId": 18,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Xbox One",
-        "question_id": 18,
+        "ansContent": "Xbox One",
+        "QuestionId": 18,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Xbox 360",
-        "question_id": 18,
+        "ansContent": "Xbox 360",
+        "QuestionId": 18,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "PS3",
-        "question_id": 18,
+        "ansContent": "PS3",
+        "QuestionId": 18,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "PS4",
-        "question_id": 18,
+        "ansContent": "PS4",
+        "QuestionId": 18,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Nintendo Switch",
-        "question_id": 18,
+        "ansContent": "Nintendo Switch",
+        "QuestionId": 18,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Yes",
-        "question_id": 19,
+        "ansContent": "Yes",
+        "QuestionId": 19,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "No",
-        "question_id": 19,
+        "ansContent": "No",
+        "QuestionId": 19,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Soundboards are usually annoying",
-        "question_id": 20,
+        "ansContent": "Soundboards are usually annoying",
+        "QuestionId": 20,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "ans_content": "Soundboards are pretty funny",
-        "question_id": 20,
+        "ansContent": "Soundboards are pretty funny",
+        "QuestionId": 20,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       }

@@ -2,10 +2,14 @@ doctype html
 html
   head
     title Down2Game
+    link(rel="stylesheet" href="/public/lib/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/public/css/main.css")
+
   body
-    //- include partials/nav.pug
-
+    include partials/nav.pug
     block content
-
-    script
-    //- include ../client/client.js
+    
+    script(src="/public/lib/jquery/dist/jquery.min.js")
+    script(src="/public/lib/bootstrap/dist/js/bootstrap.min.js")
+    script(src="/public/js/profile.js")
+    script(src="/public/js/questions.js")

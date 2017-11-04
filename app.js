@@ -20,12 +20,13 @@ app.use(function(req, res, next) {
 //expands the type of methods a form can submit
 app.use(methodOverride('_method'));
 
-//access to public folder
-app.use(express.static(__dirname + '/public'));
 
 //settings
 app.set('models', require('./models'));
 app.set('view engine', 'pug');
+
+//access to public folder
+app.use('/public', express.static(__dirname + '/public'));
 
 let routes = require('./routes/');
 

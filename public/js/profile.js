@@ -1,3 +1,5 @@
+'use strict';
+
 // edit button functionality
 $('#edit-blurb').click( function() {
     event.preventDefault();

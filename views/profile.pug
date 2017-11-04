@@ -59,7 +59,7 @@ block content
             .games.col-md-4
                 h4(class="search-games") Games
                 form(method='POST', action='/games')
-                    input(id="gameSearch" class="form-control" placeholder="Search multiplayer games..." type='text')
+                    input(id="gameSearch" autocomplete="off" class="form-control" placeholder="Search multiplayer games..." type='text')
                     input(id="hidden-gamesearch", class="hidden-game" name="game")
                     ul(id="game-list")
                     button(id="hidden-game-submit" class="hidden-game" type="submit")

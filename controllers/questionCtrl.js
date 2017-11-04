@@ -34,3 +34,16 @@ module.exports.getAnswers = (req, res, next) => {
         next();
     });
 }
+
+module.exports.postUserAnswer = (req, res, next) => {
+    console.log("attempting answer post");
+    const { User } = req.app.get('models');
+    console.log(req.body);
+    User.findById(req.session.passport.user.id)
+    .then( (user) => {
+        user.addAnswer(req.body.AnswerId)
+        .then( (data) => {
+            console.log("user answer complete");
+        });
+    });
+}

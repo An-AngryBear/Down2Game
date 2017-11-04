@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      ans_content: {
+      ansContent: {
         type: Sequelize.STRING
       },
-      question_id: {
+      QuestionId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

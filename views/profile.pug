@@ -1,7 +1,7 @@
 extends index.pug
 
 block content
-    h2(class="account-head") Account Info for #{screen_name}
+    h2(id="user-name" data=userId class="account-head") Account Info for #{screen_name}
     .container
         .row.equal
             .pic-and-blurb.col-md-4
@@ -20,8 +20,10 @@ block content
                             span(id="edit-blurb" role="button" class="edit glyphicon glyphicon-pencil")
                         else
                             p(class="blurb") #{blurb}
+                .questions-link
+                    h4: a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!
             .account-info.col-md-4
-                .email-edit
+                .email-edit 
                     form(method='POST', action=`/user?_method=PUT`)
                         h4 Email
                         p(class="user-info email") #{email}
@@ -48,12 +50,16 @@ block content
                                 include partials/timezone.pug
                             span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
                             button(type="submit" id="timezone-submit" class="submit-timezone edit-submit hidden-timezone-submit") Submit
+                .owned-games
+                    h4(class="saved-games") Saved Games
+                    ul(id="saved-games-list" class="saved-games-list")
+                        if userGames
+                            each game in userGames
+                                li(class="user-game-list") #{game.name}
             .games.col-md-4
-                h4 Games
-                    form(method='POST', action='/games')
-                        input(id="gameSearch" class="form-control" type='text')
-                        input(id="hidden-gamesearch", class="hidden-game" name="game")
-                        ul(id="game-list")
-                            each game in storedGames
-                                li(class="game-options hidden-list"): a(class="game-name") #{game.name}
-                        button(id="hidden-game-submit" class="hidden-game" type="submit")
+                h4(class="search-games") Games
+                form(method='POST', action='/games')
+                    input(id="gameSearch" class="form-control" placeholder="Search multiplayer games..." type='text')
+                    input(id="hidden-gamesearch", class="hidden-game" name="game")
+                    ul(id="game-list")
+                    button(id="hidden-game-submit" class="hidden-game" type="submit")

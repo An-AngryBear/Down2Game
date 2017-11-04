@@ -1,19 +1,20 @@
 
 .hidden-email, .hidden-blurb, .hidden-language, .hidden-timezone, .hidden-game,
-.hidden-language-submit, .hidden-timezone-submit {
+.hidden-language-submit, .hidden-timezone-submit, .hidden-answer-submit {
     display: none;
 }   
 
 .game-options {
     list-style-type: none;
     cursor:pointer;
+    text-align: center;
 }
 
 .hidden-list {
     display: none;
 }
 
-.account-info, .pic-and-blurb {
+.account-info, .pic-and-blurb, .search-games {
     text-align:center;
 }
 
@@ -51,6 +52,7 @@
     padding: 25px;
     border-radius: 10px;
     box-shadow: black 2px 2px 10px;
+    color: white;
 }
 
 .prof-select option:hover {
@@ -71,4 +73,38 @@
     display: flex;
     display: -webkit-flex;
     flex-wrap: wrap;
+}
+
+.user-game-list {
+    list-style-type: none;
+    text-align: left;
+    font-size: .8em;
+}
+
+#saved-games-list {
+    text-align: left;
+}
+
+.saved-games {
+    padding-bottom: 5px;
+}
+
+/* question page styling */
+.quest-col {
+    max-height: 30%;
+    min-height: 30%;
+}
+
+.row.eq-col-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.eq-col-height > [class*='col-'] {
+    flex-grow: 1;
+}
+
+.radio-label {
+    padding-left: 10px;
+    padding-right: 10px;
 }

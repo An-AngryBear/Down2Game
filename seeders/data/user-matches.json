@@ -1,28 +1,28 @@
 {
     "UserMatches": [
       {
-        "User_one_id": 1,
-        "User_two_id": 2
+        "UserOneId": 1,
+        "UserTwoId": 2
       },
       {
-        "User_one_id": 2,
-        "User_two_id": 3
+        "UserOneId": 2,
+        "UserTwoId": 3
       },
       {
-        "User_one_id": 1,
-        "User_two_id": 3
+        "UserOneId": 1,
+        "UserTwoId": 3
       },
       {
-        "User_one_id": 2,
-        "User_two_id": 4
+        "UserOneId": 2,
+        "UserTwoId": 4
       },
       {
-        "User_one_id": 4,
-        "User_two_id": 3
+        "UserOneId": 4,
+        "UserTwoId": 3
       },
       {
-        "User_one_id": 5,
-        "User_two_id": 1
+        "UserOneId": 5,
+        "UserTwoId": 1
       }
     ]
   }

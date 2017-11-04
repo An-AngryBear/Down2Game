@@ -11,7 +11,7 @@ module.exports.getUserInfo = (req, res, next) => {
         let loggedUser;
         req.params.id == req.session.passport.user.id ? loggedUser = true : loggedUser = false
         res.render('profile', {
-            screen_name: data.screen_name,
+            screenName: data.screen_name,
             email: data.email,
             birthdate,
             language: data.language,
@@ -19,9 +19,15 @@ module.exports.getUserInfo = (req, res, next) => {
             avatar: data.avatar,
             blurb: data.blurb ? data.blurb : null,
             loggedUser,
-            storedGames: res.locals.storedGames
+            storedGames: res.locals.storedGames,
+            userId: req.session.passport.user.id,
+            viewedUser: req.params.id
         })
     });
+}
+
+module.exports.getUserId = (req, res, next) => {
+    res.redirect(`/user/${req.session.passport.user.id}`);
 }
 
 module.exports.editUserInfo = (req, res, next) => {
@@ -31,14 +37,14 @@ module.exports.editUserInfo = (req, res, next) => {
     .then( (data) => {
         console.log("data", data)
         return User.update({
-        screen_name: req.body.screen_name ? req.body.screen_name : data.screen_name,
+        screenName: req.body.screenName ? req.body.screenName : data.screenName,
         email: req.body.email ? req.body.email : data.email,
         password: data.password,
         birthdate: data.birthdate,
         language: req.body.language ? req.body.language : data.language,
         timezone: req.body.timezone ? req.body.timezone : data.timezone,
         avatar: req.body.avatar ? req.body.avatar : data.avatar,
-        last_logged_in: data.last_logged_in,
+        lastLoggedIn: data.lastLoggedIn,
         blurb: req.body.blurb ? req.body.blurb : data.blurb,
         }, {where: {id: req.session.passport.user.id}})
     })

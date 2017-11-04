@@ -8,13 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      msg_content: {
+      msgContent: {
         type: Sequelize.STRING
       },
-      sender_id: {
+      senderId: {
         type: Sequelize.INTEGER
       },
-      recipient_id: {
+      recipientId: {
         type: Sequelize.INTEGER
       },
       request: {

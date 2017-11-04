@@ -1,7 +1,7 @@
 extends index.pug
 
 block content
-    .container.quest-container
+    div(class="container quest-container" id="quest-container" data=userId)
         .row.eq-col-height
             each question in questions
                 .col-sm-6.col-md-4.quest-col
@@ -9,13 +9,12 @@ block content
                         div(class="panel-heading" id="q_" + question.id)
                             h5 #{question.content}
                         .panel-body
-                            form(method="POST" action="/user/" + question.id + "/questions")
+                            form(method="POST" action="/user/" + viewedUser + "/questions")
                                 each answer in answers
                                     if answer.QuestionId == question.id
                                             .label-input
-                                                <input type="radio" name="answer" id="ans_" + answer.id/>
-                                                <label for="ans_" + answer.id class="radio-label"> #{answer.ansContent}                                 
-                                                </label>
+                                                input(type="radio" class="radio-input" name="answer" value=answer.id id="ans_" + answer.id)
+                                                label(class="radio-label" for="ans_" + answer.id) #{answer.ansContent}                                 
                                                 button(type="submit" class="hidden-answer-submit")
 
     

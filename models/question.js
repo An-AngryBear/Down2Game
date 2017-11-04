@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   var Question = sequelize.define('Question', {
     content: DataTypes.STRING,
-    category_id: DataTypes.INTEGER
+    CategoryId: DataTypes.INTEGER
   }, {timestamps: true});
   
     Question.associate= (models) => {
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         foreign_key: 'id'
       });
       Question.hasMany(models.Answer, {
-        foreign_key: 'question_id'
+        foreign_key: 'QuestionId'
       });
     }
   return Question;

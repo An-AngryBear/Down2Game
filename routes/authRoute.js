@@ -18,7 +18,7 @@ router.post('/register', register);
 router.get('/login', displayLogin);
 router.post('/login', login);
 
-router.post('/logout', logout);
+router.get('/logout', logout);
 
 // log in authentication
 function isLoggedIn(req, res, next) {

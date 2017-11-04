@@ -3,8 +3,14 @@ nav(class="navbar navbar-inverse")
         a(class="navbar-brand" href="#">Down2Game)
         h3(class="app-title") down2game
         ul(class="nav navbar-nav navbar-right")
+            li: span.glyphicon.glyphicon-envelope
             li(class="dropdown")
                 a(class="dropdown-toggle" data-toggle="dropdown")
                     span.glyphicon.glyphicon-menu-hamburger
                 ul(class="dropdown-menu")
-                    li ok
+                    li: a(href="/user") Profile
+                    if !session.passport
+                        li: a(href="/register") Register
+                        li: a(href="/login") Login
+                    if session.passport
+                        li: a(href="/logout") Logout

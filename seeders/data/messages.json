@@ -1,25 +1,25 @@
 {
     "Messages": [
       {
-        "msg_content": "Hey",
-        "sender_id": 1,
-        "recipient_id": 2,
+        "msgContent": "Hey",
+        "senderId": 1,
+        "recipientId": 2,
         "request": false,
         "createdAt": "2016-11-01 14:14:12.314-05",
         "updatedAt": "2016-11-01 14:14:12.314-05"
       },
       {
-        "msg_content": "Yo",
-        "sender_id": 1,
-        "recipient_id": 4,
+        "msgContent": "Yo",
+        "senderId": 1,
+        "recipientId": 4,
         "request": true,
         "createdAt": "2015-11-01 14:14:12.314-05",
         "updatedAt": "2015-11-01 14:14:12.314-05"
       },
       {
-        "msg_content": "wassup dude?",
-        "sender_id": 4,
-        "recipient_id": 3,
+        "msgContent": "wassup dude?",
+        "senderId": 4,
+        "recipientId": 3,
         "request": false,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"

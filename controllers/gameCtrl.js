@@ -31,7 +31,7 @@ module.exports.getUserGames = (req, res, next) => {
 module.exports.checkGames = (req, res, next) => {
     console.log("checkgames");
     console.log("locals", res.locals.storedGames)
-    res.status(200);
+    res.status(200).end();
 }
 
 module.exports.getIGDBgames = (req, res, next) => {

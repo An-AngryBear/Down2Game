@@ -3,10 +3,10 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getUserAnswers, getQuestions, getAnswers, postUserAnswer } = require('../controllers/questionCtrl')
+const { getUserAnswers, getQuestions, getAnswers, postUserAnswer, renderQuestPage } = require('../controllers/questionCtrl')
 
-router.get('/user/:id/questions', isLoggedIn, getQuestions, getAnswers, getUserAnswers);
-router.post('/user/:id/questions', isLoggedIn, postUserAnswer);
+router.get('/user/:id/questions', isLoggedIn, getQuestions, getAnswers, getUserAnswers, renderQuestPage);
+router.post('/user/:id/questions', isLoggedIn, getQuestions, postUserAnswer);
 
 // log in authentication
 function isLoggedIn(req, res, next) {

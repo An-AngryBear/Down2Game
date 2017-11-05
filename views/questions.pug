@@ -4,17 +4,30 @@ block content
     div(class="container quest-container" id="quest-container" data=userId)
         .row.eq-col-height
             each question in questions
+             if userId == viewedUser
                 .col-sm-6.col-md-4.quest-col
                     .panel.panel-danger
-                        div(class="panel-heading" id="q_" + question.id)
+                        div(class="panel-heading" id=question.id + "_q")
                             h5 #{question.content}
                         .panel-body
                             form(method="POST" action="/user/" + viewedUser + "/questions")
                                 each answer in answers
                                     if answer.QuestionId == question.id
-                                            .label-input
-                                                input(type="radio" class="radio-input" name="answer" value=answer.id id="ans_" + answer.id)
-                                                label(class="radio-label" for="ans_" + answer.id) #{answer.ansContent}                                 
-                                                button(type="submit" class="hidden-answer-submit")
+                                        .label-input
+                                            input(type="radio" class="radio-input" name="answer" value=answer.id id="ans_" + answer.id)
+                                            label(class="radio-label" for="ans_" + answer.id) #{answer.ansContent}                                 
+                                            button(type="submit" class="hidden-answer-submit")
+            else
+                .col-sm-6.col-md-4.quest-col
+                    .panel.panel-primary
+                        div(class="panel-heading" id="q_" + question.id)
+                            h5 #{question.content}
+                        .panel-body
+                            each answer in answers
+                                if answer.QuestionId == question.id
+
+                                        
+
+
 
     

@@ -2,6 +2,10 @@ extends index.pug
 
 block content
     div(class="container quest-container" id="quest-container" data=userId)
+        if usersAnswers.length === questions.length && userId == viewedUser
+            .row
+                .col.lg-12
+                    a(class="see-matches-link" href="/user/" + userId + "/matches") See Your Matches!
         .row.eq-col-height
             each question in questions
                 if userId == viewedUser
@@ -9,7 +13,6 @@ block content
                         each userAnswer in usersAnswers
                             if userAnswer.QuestionId == question.id
                                 .col-sm-6.col-md-4.quest-col
-                                    -console.log("QUESTION IDS", userAnswer.QuestionId, question.id)
                                     .panel.panel-success
                                         div(class="panel-heading" id=question.id + "_q")
                                             h5 #{question.content}

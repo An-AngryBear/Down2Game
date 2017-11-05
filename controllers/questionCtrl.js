@@ -10,14 +10,14 @@ module.exports.getUserAnswers = (req, res, next) => {
             let ansIds = answers.map( (answer) => {
                 return answer.QuestionId;
             });
-            console.log("user answers", answers, ansIds)
-            let nonAnswered = res.locals.questions.filter( (question) => {
-                if(ansIds.indexOf(question.id) === -1) {
-                    return question
-                }
-            })
-            console.log("NON ANSWERED", nonAnswered);
-            res.locals.nonAnswered = nonAnswered;
+            if (res.locals.questions) {
+                let nonAnswered = res.locals.questions.filter( (question) => {
+                    if(ansIds.indexOf(question.id) === -1) {
+                        return question
+                    }
+                });
+                res.locals.nonAnswered = nonAnswered;
+            }
             res.locals.usersAnswers = answers;
             next();
         });
@@ -75,7 +75,11 @@ module.exports.postUserAnswer = (req, res, next) => {
                 userObj.addAnswer(+req.body.AnswerId)
                 .then( () => {
                     console.log("addcomplete")
-                    res.status(200).end();
+                    if(res.locals.nonAnswered.length === 1) {
+                        res.status(200).redirect(`user/${req.session.passport.user.id}/questions`)
+                    } else {
+                        res.status(200).end();
+                    }
                 });
             });
         } else {
@@ -83,7 +87,11 @@ module.exports.postUserAnswer = (req, res, next) => {
             userObj.addAnswer(+req.body.AnswerId)
             .then( () => {
                 console.log("addcomplete")
-                res.status(200).end();
+                if(res.locals.nonAnswered.length === 1) {
+                    res.status(200).redirect(`user/${req.session.passport.user.id}/questions`)
+                } else {
+                    res.status(200).end();
+                }
             });
         }
     });

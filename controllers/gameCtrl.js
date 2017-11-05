@@ -17,7 +17,7 @@ module.exports.getStoredGames = (req, res, next) => {
 //gets the user's games and sets to res.locals.userGames, passes to next method
 module.exports.getUserGames = (req, res, next) => {
     const { User } = req.app.get('models');    
-    User.findById(req.session.passport.user.id)
+    User.findById(req.params.id)
     .then( (user) => {
         user.getGames({raw:true})
         .then( (data) => {

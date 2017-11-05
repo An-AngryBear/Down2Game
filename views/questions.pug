@@ -1,21 +1,74 @@
 extends index.pug
 
 block content
-    .container.quest-container
+    div(class="container quest-container" id="quest-container" data=userId)
+        if usersAnswers.length === questions.length && userId == viewedUser
+            .row
+                .col.lg-12
+                    a(class="see-matches-link" href="/user/" + userId + "/matches") See Your Matches!
         .row.eq-col-height
             each question in questions
-                .col-sm-6.col-md-4.quest-col
-                    .panel.panel-danger
-                        div(class="panel-heading" id="q_" + question.id)
-                            h5 #{question.content}
-                        .panel-body
-                            form(method="POST" action="/user/" + question.id + "/questions")
-                                each answer in answers
+                if userId == viewedUser
+                    if usersAnswers.length > 0
+                        each userAnswer in usersAnswers
+                            if userAnswer.QuestionId == question.id
+                                .col-sm-6.col-md-4.quest-col
+                                    .panel.panel-success
+                                        div(class="panel-heading" id=question.id + "_q")
+                                            h5 #{question.content}
+                                        .panel-body
+                                            form(method="POST" action="/user/" + viewedUser + "/questions")
+                                                each answer in answers
+                                                    if answer.QuestionId == question.id
+                                                        if userAnswer.id == answer.id
+                                                            .label-input
+                                                                input(type="radio" checked="checked" class="radio-input" name="answer" value=answer.id id="ans_" + answer.id)
+                                                                label(class="radio-label" for="ans_" + answer.id) #{answer.ansContent}                                 
+                                                                button(type="submit" class="hidden-answer-submit")
+                                                        else
+                                                            .label-input
+                                                                input(type="radio" class="radio-input" name="answer" value=answer.id id="ans_" + answer.id)
+                                                                label(class="radio-label" for="ans_" + answer.id) #{answer.ansContent}                                 
+                                                                button(type="submit" class="hidden-answer-submit")
+                        else
+                            .panel.panel-danger
+                                div(class="panel-heading" id=question.id + "_q")
+                                    h5 #{question.content}
+                                .panel-body
+                                    form(method="POST" action="/user/" + viewedUser + "/questions")
+                                        each answer in answers
+                                            if answer.QuestionId == question.id
+                                                .label-input
+                                                    input(type="radio" class="radio-input" name="answer" value=answer.id id="ans_" + answer.id)
+                                                    label(class="radio-label" for="ans_" + answer.id) #{answer.ansContent}                                 
+                                                    button(type="submit" class="hidden-answer-submit")
+                else
+                    .col-sm-6.col-md-4.quest-col
+                        .panel.panel-primary
+                            div(class="panel-heading" id="q_" + question.id)
+                                h5 #{question.content}
+                            .panel-body
+                                each answer in usersAnswers
                                     if answer.QuestionId == question.id
-                                            .label-input
-                                                <input type="radio" name="answer" id="ans_" + answer.id/>
-                                                <label for="ans_" + answer.id class="radio-label"> #{answer.ansContent}                                 
-                                                </label>
-                                                button(type="submit" class="hidden-answer-submit")
+                                        .viewed-user-answers
+                                            h5 #{answer.ansContent}
+            each question in nonAnswered
+                if userId == viewedUser
+                    .col-sm-6.col-md-4.quest-col
+                        if usersAnswers.length > 0
+                            .panel.panel-danger
+                                div(class="panel-heading" id=question.id + "_q")
+                                    h5 #{question.content}
+                                .panel-body
+                                    form(method="POST" action="/user/" + viewedUser + "/questions")
+                                        each answer in answers
+                                            if answer.QuestionId == question.id
+                                                .label-input
+                                                    input(type="radio" class="radio-input" name="answer" value=answer.id id="ans_" + answer.id)
+                                                    label(class="radio-label" for="ans_" + answer.id) #{answer.ansContent}                                 
+                                                    button(type="submit" class="hidden-answer-submit")
+                                        
+
+
 
     

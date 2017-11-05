@@ -4,39 +4,37 @@ let request = require('request');
 const passport = require('passport');
 let { igdb } = require('../public/values/igdb-config');
 
+//gets all stored games and sets to res.locals.storedGames, passes to next method
 module.exports.getStoredGames = (req, res, next) => {
-    console.log("getStoredGames")
-    console.log(igdb().key);
     const { Game } = req.app.get('models');
     Game.findAll({raw:true})
     .then( (data) => {
         res.locals.storedGames = data;
-        next()
-    })
+        next();
+    });
 }
 
+//gets the user's games and sets to res.locals.userGames, passes to next method
 module.exports.getUserGames = (req, res, next) => {
     const { User } = req.app.get('models');    
-    console.log("getUserGames");
-    User.findById(req.session.passport.user.id)
+    User.findById(req.params.id)
     .then( (user) => {
         user.getGames({raw:true})
         .then( (data) => {
             res.locals.userGames = data;
             next();
-        })
-    })
+        });
+    });
 }
 
 module.exports.checkGames = (req, res, next) => {
-    console.log("checkgames");
     console.log("locals", res.locals.storedGames)
-    res.status(200);
+    res.status(200).end();
 }
 
+//Looks through IGDB API to find multiplayer games that match the user's search query
 module.exports.getIGDBgames = (req, res, next) => {
     let searchTerm = req.params.searchTerm;
-    console.log("getting igdb results", searchTerm)
     let options = {
         url: `https://api-2445582011268.apicast.io/games/?search=${searchTerm}&fields=name,game_modes&filter[game_modes][eq]=2&filter[version_parent][not_exists]=1`,
         headers: {
@@ -46,18 +44,17 @@ module.exports.getIGDBgames = (req, res, next) => {
     }
     request.get(options, function(error, igdbRes, body) {
         res.locals.igdbResults = body;
-        console.log(res.locals);
         res.status(200).send(body);
     });
 }
-
+//looks for game in DB, if not there: creates new tow in GAMES, and adds user-game association.
+//if there: adds user-game association
 module.exports.postUserGame = (req, res, next) => {
     const { User, Game } = req.app.get('models');
-    console.log("post user game");
     let savedGames = res.locals.storedGames;
     let gameNames = savedGames.map( (game) => {
         return game.name;
-    })
+    });
     let gameId;
     if(gameNames.indexOf(req.body.game) === -1) {
         Game.create({
@@ -65,14 +62,12 @@ module.exports.postUserGame = (req, res, next) => {
         })
         .then( (data) => {
             gameId = data.dataValues.id;
-            console.log("does not exist", gameId);
             return User.findById(req.session.passport.user.id)
         })
         .then( (user) => {
             return user.addGame(gameId);
         })
         .then( (data) => {
-            console.log("Success!")
             res.redirect(`/user/${req.session.passport.user.id}`)
         })
     } else {
@@ -82,12 +77,10 @@ module.exports.postUserGame = (req, res, next) => {
                 if(game.name === req.body.game) {
                     return game.id
                 }
-            })
-            console.log("does exist", gameId.id)
-            return user.addGame(gameId.id)
+            });
+            return user.addGame(gameId[0].id)
         })
         .then( (data) => {
-            console.log("Success!")
             res.redirect(`/user/${req.session.passport.user.id}`)
         })
     }

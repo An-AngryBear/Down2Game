@@ -3,10 +3,21 @@
 //gets all the user's answers and sets it to res.locals.usersAnswers, passes to next method
 module.exports.getUserAnswers = (req, res, next) => {
     const { User } = req.app.get('models');
-    User.findById(req.session.passport.user.id)
+    User.findById(req.params.id)
     .then( (user) => {
         user.getAnswers({raw: true})
         .then( (answers) => {
+            let ansIds = answers.map( (answer) => {
+                return answer.QuestionId;
+            });
+            console.log("user answers", answers, ansIds)
+            let nonAnswered = res.locals.questions.filter( (question) => {
+                if(ansIds.indexOf(question.id) === -1) {
+                    return question
+                }
+            })
+            console.log("NON ANSWERED", nonAnswered);
+            res.locals.nonAnswered = nonAnswered;
             res.locals.usersAnswers = answers;
             next();
         });
@@ -75,14 +86,6 @@ module.exports.postUserAnswer = (req, res, next) => {
                 res.status(200).end();
             });
         }
-        // if(answerIds.indexOf(+req.body.AnswerId) === -1) {
-        //     console.log("doesnt exist");
-        //     userObj.addAnswer(+req.body.AnswerId)
-        //     .then( () => {
-        //         console.log("addcomplete")
-        //         res.status(200);
-        //     });
-        // }
     });
 }
 

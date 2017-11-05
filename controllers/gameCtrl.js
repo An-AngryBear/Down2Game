@@ -4,6 +4,7 @@ let request = require('request');
 const passport = require('passport');
 let { igdb } = require('../public/values/igdb-config');
 
+//gets all stored games and sets to res.locals.storedGames, passes to next method
 module.exports.getStoredGames = (req, res, next) => {
     const { Game } = req.app.get('models');
     Game.findAll({raw:true})
@@ -13,6 +14,7 @@ module.exports.getStoredGames = (req, res, next) => {
     });
 }
 
+//gets the user's games and sets to res.locals.userGames, passes to next method
 module.exports.getUserGames = (req, res, next) => {
     const { User } = req.app.get('models');    
     User.findById(req.session.passport.user.id)
@@ -30,6 +32,7 @@ module.exports.checkGames = (req, res, next) => {
     res.status(200).end();
 }
 
+//Looks through IGDB API to find multiplayer games that match the user's search query
 module.exports.getIGDBgames = (req, res, next) => {
     let searchTerm = req.params.searchTerm;
     let options = {
@@ -44,7 +47,8 @@ module.exports.getIGDBgames = (req, res, next) => {
         res.status(200).send(body);
     });
 }
-
+//looks for game in DB, if not there: creates new tow in GAMES, and adds user-game association.
+//if there: adds user-game association
 module.exports.postUserGame = (req, res, next) => {
     const { User, Game } = req.app.get('models');
     let savedGames = res.locals.storedGames;

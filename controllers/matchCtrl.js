@@ -69,7 +69,7 @@ module.exports.matchAlgorithm = (req, res, next) => {
         let matchAdded = data.map( (user) => { //take the percentage for each user match and stick on the user objs
             for(let key in matchPercent) {
                 if( user.id == key) {
-                    user.matchPercent = matchPercent[key] * 100 + "%"; //turns into a whole number and adds % symbol
+                    user.matchPercent = Math.round(matchPercent[key] * 100) + "%"; //turns into a whole number and adds % symbol
                 }
             }
             return user

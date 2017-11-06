@@ -1,19 +1,19 @@
 extends index.pug
 
 block content
-    h2(id="user-name" data=userId class="account-head") Account Info for #{screen_name}
+    h2(id="user-name" data=userId class="account-head") Account Info for #{screenName}
     .container
         .row.equal
             .pic-and-blurb.col-md-4
                 .img
-                    img(src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg")
+                    img(src="/public/imgs/no-img-avail.svg")
                 .blurb-edit
                     form(method='POST', action=`/user?_method=PUT`)
                         h4 About:
                         if loggedUser
                             if blurb
                                 p(class="blurb user-info") #{blurb}
-                                textarea(class="input hidden-blurb blurb-input form-control" rows="3" name="blurb") #{blurb}
+                                textarea(class="input hidden-blurb blurb-input form-control" max-length="200" rows="4" name="blurb") #{blurb}
                             else
                                 p(class="blurb user-info") Give a brief description of yourself...
                                 textarea(class="input hidden-blurb blurb-input user-info" rows="3" name="blurb")

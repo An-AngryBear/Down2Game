@@ -1,5 +1,41 @@
 extends index.pug
 
 block content
-    .row.eq-col-height
-        .col-sm-6.col-md-4.
+    .container-fluid.filter-bar
+        div(id="slide")
+            .row.eq-col-height
+                .col-xs-6.col-md-4
+                    ul
+                        li filter one
+                        li filter two
+                        li filter three
+                .col-xs-6.col-md-4
+                    ul
+                        li filter one
+                        li filter two
+                        li f
+                .col-xs-6.col-md-4
+                    ul
+                        li filter one
+                        li filter two
+    .container.user-cards
+        .row.eq-col-height.flex-row
+            each user in usersToShow
+                .col-xs-12.col-sm-6.col-md-4.col-lg-3.user-coontainer
+                    .thumbnail
+                        if user.avatar
+                            img(src=user.avatar)
+                        else
+                            img(src="/public/imgs/no-img-avail.svg")
+                        .caption
+                            h2 #{user.matchPercent}
+                            h3 #{user.screenName}
+                            p(class="flex-text text-muted") #{user.blurb}
+                            a(class="btn btn-primary" href="#") link
+                    //- .user-container
+                        //- if user.avatar
+                        //-     img(src=user.avatar)
+                        //- else
+                        //-     img(src="/public/imgs/no-img-avail.svg")
+                    //-     h4 #{user.screenName}
+                    //-     h5 #{user.matchPercent}

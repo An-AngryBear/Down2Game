@@ -55,18 +55,17 @@ block content
             each question in nonAnswered
                 if userId == viewedUser
                     .col-sm-6.col-md-4.quest-col
-                        if usersAnswers.length > 0
-                            .panel.panel-danger
-                                div(class="panel-heading" id=question.id + "_q")
-                                    h5 #{question.content}
-                                .panel-body
-                                    form(method="POST" action="/user/" + viewedUser + "/questions")
-                                        each answer in answers
-                                            if answer.QuestionId == question.id
-                                                .label-input
-                                                    input(type="radio" class="radio-input" name="answer" value=answer.id id="ans_" + answer.id)
-                                                    label(class="radio-label" for="ans_" + answer.id) #{answer.ansContent}                                 
-                                                    button(type="submit" class="hidden-answer-submit")
+                        .panel.panel-danger
+                            div(class="panel-heading" id=question.id + "_q")
+                                h5 #{question.content}
+                            .panel-body
+                                form(method="POST" action="/user/" + viewedUser + "/questions")
+                                    each answer in answers
+                                        if answer.QuestionId == question.id
+                                            .label-input
+                                                input(type="radio" class="radio-input" name="answer" value=answer.id id="ans_" + answer.id)
+                                                label(class="radio-label" for="ans_" + answer.id) #{answer.ansContent}                                 
+                                                button(type="submit" class="hidden-answer-submit")
                                         
 
 

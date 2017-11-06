@@ -11,7 +11,7 @@ module.exports.getUserInfo = (req, res, next) => {
         let loggedUser;
         req.params.id == req.session.passport.user.id ? loggedUser = true : loggedUser = false
         res.render('profile', {
-            screenName: data.screen_name,
+            screenName: data.screenName,
             email: data.email,
             birthdate,
             language: data.language,

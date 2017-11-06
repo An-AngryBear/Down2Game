@@ -32,6 +32,8 @@
 }
 
 .navbar {
+
+    height: 10vh;
     background-color: #357DED;
 }
 
@@ -114,4 +116,54 @@
     text-align: center;
     margin: 1em auto;
     display: block;
+}
+
+/* ********* match page styling ************* */
+#slide {
+    border: 1px solid black;
+    height: 0px;
+    transition: height 500ms ease;
+    background-color: #6f3bbb;
+    overflow: hidden;
+}
+
+.filter-bar {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar-inverse {
+    margin: 0
+}
+
+.flex-row {
+    display: flex;
+	flex-wrap: wrap;
+}
+.flex-row > [class*='col-'] {
+    display: flex;
+	flex-direction: column;
+}
+
+.flex-row .thumbnail,
+.flex-row .caption {
+    flex-direction: column;
+	display: flex;
+	flex: 1 0 auto;
+	height: auto;
+	position: relative;
+}
+.flex-text {
+    flex-grow: 1;
+}
+.flex-row img {
+    min-width: 0;
+	width: 100%;
+}
+.user-cards, .quest-container {
+    margin-top: 1em;
+}
+
+user-container {
+    max-width: 300px;
 }

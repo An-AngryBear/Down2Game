@@ -3,7 +3,14 @@
 .hidden-email, .hidden-blurb, .hidden-language, .hidden-timezone, .hidden-game,
 .hidden-language-submit, .hidden-timezone-submit, .hidden-answer-submit {
     display: none;
-}   
+}
+
+.message-btn {
+    background-color: #576CA8;
+    margin: 0 auto;
+    display: block;
+    box-shadow: black 1px 2px 10px;
+}
 
 .game-options {
     list-style-type: none;
@@ -32,9 +39,10 @@
 }
 
 .navbar {
-
     height: 10vh;
-    background-color: #357DED;
+    background-color: #274690;
+    box-shadow: black 1px 2px 10px;
+    
 }
 
 .prof-select {
@@ -51,10 +59,10 @@
 }
 
 .account-info {
-    background-color: #6f3bbb;
+    background-color: #483A58;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: black 2px 2px 10px;
+    box-shadow: black 1px 2px 10px;
     color: white;
 }
 
@@ -119,12 +127,17 @@
 }
 
 /* ********* match page styling ************* */
+.filter-btn {
+    display: block;
+    margin: 1em auto;
+}
 #slide {
-    border: 1px solid black;
     height: 0px;
     transition: height 500ms ease;
-    background-color: #6f3bbb;
+    background-color: #483A58;
     overflow: hidden;
+    box-shadow: inset black 0px -1px 10px;
+    
 }
 
 .filter-bar {
@@ -160,10 +173,31 @@
     min-width: 0;
 	width: 100%;
 }
-.user-cards, .quest-container {
+.quest-container {
     margin-top: 1em;
 }
 
-user-container {
+/* user-container {
     max-width: 300px;
+} */
+
+/* ********** message and inbox styling ************ */
+.user-message {
+    list-style-type: none;
+    padding: 1em;
+    border-radius: 10px;
+    display: block;
+    border: 1px solid grey;
+    box-shadow: grey 1px 1px 5px;
+}
+
+.current-user-msg {
+    text-align: right;
+    background-color: lightblue;
+}
+
+.other-user-msg {
+    text-align: left;
+    background-color: lightpink
+
 }

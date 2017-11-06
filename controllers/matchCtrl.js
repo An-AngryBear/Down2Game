@@ -1,10 +1,7 @@
 'use strict';
 
 var Sequelize = require('sequelize');
-let request = require('request');
-const passport = require('passport');
 const Op = Sequelize.Op;
-
 
 //takes the IDs of the user's answers and searches for other users who have chosen the same answers
 //creates an object. the key is the answerID and the value is an array of users who have chosen that answer.

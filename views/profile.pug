@@ -7,7 +7,10 @@ block content
         .row.equal
             .pic-and-blurb.col-xs-6.col-md-4
                 .img
-                    img(src="/public/imgs/no-img-avail.svg")
+                    if avatar
+                        img(class="avatar" src=avatar)
+                    else
+                        img(src="/public/imgs/no-img-avail.svg")
                 .blurb-edit
                     form(method='POST', action=`/user?_method=PUT`)
                         h4 About:

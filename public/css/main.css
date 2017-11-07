@@ -201,3 +201,13 @@
     background-color: lightpink
 
 }
+
+.modal {
+    position:absolute;
+}
+
+.modal-body {
+    height:50vh;
+    overflow-y: scroll;
+}
+

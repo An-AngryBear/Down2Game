@@ -36,19 +36,17 @@ let sendMessage = (recipientId, msgContent) => {
 $('.message-btn').click( function() {
     let currentUser = parseInt($('#user-name').attr('data'));
     let userBeingMessaged = parseInt($(this).attr('id'));
-    console.log(currentUser);
     getMessages(userBeingMessaged)
     .then( (messages) => {
         messages.forEach( (message) => {
             if(message.senderId === currentUser) {
-                $('.msg-box').append(`<li class="user-message current-user-msg">${message.msgContent}</li><br>`)
+                $('.msg-box').append(`<li class="user-message current-user-msg">${message.msgContent}</li><br>`);
             } else {
-                $('.msg-box').append(`<li class="user-message other-user-msg">${message.msgContent}</li><br>`)
+                $('.msg-box').append(`<li class="user-message other-user-msg">${message.msgContent}</li><br>`);
             }
         });
-        
-    })
-})
+    });
+});
 
 let getMessages = (userBeingMessaged) => {
     return new Promise( (resolve, reject) => {
@@ -72,4 +70,7 @@ let getMessages = (userBeingMessaged) => {
 $(document).on('hide.bs.modal', '#msg-model', function (event) {
     console.log("hiding modal");
     $('.msg-box').empty();
+    $('#msg-content').val('');
 });
+
+

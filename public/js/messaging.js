@@ -85,6 +85,15 @@ $('.inbox-btn').click( function() {
     });
 });
 
+$(document).keypress( function() {
+    if(event.keyCode == 13 && $('#msg-content').is(':focus')) {
+        $('.send-msg').click();
+        $('.send-msg-inbox').click();
+        $('#msg-content').val('');
+        
+    }
+})
+
 let getMessages = (userBeingMessaged) => {
     return new Promise( (resolve, reject) => {
         $.ajax({
@@ -103,7 +112,6 @@ let getMessages = (userBeingMessaged) => {
         });
     });
 }
-
 
 $(document).on('hide.bs.modal', '#msg-model', function (event) {
     console.log("hiding modal");

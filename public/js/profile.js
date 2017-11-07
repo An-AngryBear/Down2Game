@@ -1,5 +1,9 @@
 'use strict';
 
+//user to user interaction
+
+
+
 // edit button functionality
 $('#edit-blurb').click( function() {
     event.preventDefault();
@@ -111,5 +115,7 @@ let getIgdbGames = () => {
         }); 
     });
 }
+
+
 
 

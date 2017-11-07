@@ -21,7 +21,8 @@ body {
 }
 
 .pix-header {
-    font-family: 'Press Start 2P', cursive;   
+    font-family: 'Press Start 2P', cursive; 
+    color: white;  
 }
 
 h3.pix-header {
@@ -34,7 +35,8 @@ h5.welcome-desc {
 
 .welcome-desc {
     font-family: 'Orbitron', sans-serif;
-    letter-spacing: .2em;    
+    letter-spacing: .2em;  
+    color: white;  
 }
 
 /*********** profile page styling ***********/
@@ -72,6 +74,14 @@ h5.welcome-desc {
     text-align:center;
 }
 
+.blurb-edit {
+    padding: 2em;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin: 1em auto;
+    box-shadow: black 1px 1px 10px;}
+
 .blurb {
     display:inline;
 }
@@ -83,7 +93,7 @@ h5.welcome-desc {
 .account-head {
     text-align: center;
 }
-
+/* ****navbar***** */
 .navbar {
     height: 10vh;
     background-color: black;
@@ -93,8 +103,6 @@ h5.welcome-desc {
 .nav span {
     font-size: 2em;
 }
-
-
 
 .prof-select {
     width: 250px;
@@ -114,7 +122,7 @@ h5.welcome-desc {
     text-align: center;
     color: white;
     height:50vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     margin: 1em auto;
     box-shadow: black 1px 1px 10px;
@@ -132,7 +140,7 @@ h5.welcome-desc {
 }
 
 .edit {
-    color: black;
+    color: white;
 }
 
 .user-info {
@@ -162,6 +170,31 @@ h5.welcome-desc {
 }
 
 /*********** question page styling **********/
+/* .panel-body {
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+} */
+
+.panel {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;   
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: .2em; 
+    font-size: .8em;
+}
+
+.panel-success > .panel-heading {
+    background: rgba(13, 52, 11, 0.7);
+    border-bottom: black;
+    color: white;
+}
+
+.panel-danger > .panel-heading {
+    background: rgba(52, 11, 11, 0.7);
+    border-bottom: black;
+    color: white;
+}
 .quest-col {
     max-height: 30%;
     min-height: 30%;
@@ -199,7 +232,6 @@ h5.welcome-desc {
     background-color: #483A58;
     overflow: hidden;
     box-shadow: inset black 0px -1px 10px;
-    
 }
 
 .filter-bar {

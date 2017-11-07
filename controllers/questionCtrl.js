@@ -1,5 +1,5 @@
 'use strict';
-
+//TODO line 9 looksfor answers if you go into the user route if a user that doesnt exist,errors
 //gets all the user's answers and sets it to res.locals.usersAnswers, passes to next method
 module.exports.getUserAnswers = (req, res, next) => {
     const { User } = req.app.get('models');
@@ -61,61 +61,40 @@ module.exports.postUserAnswer = (req, res, next) => {
     User.findById(req.session.passport.user.id)
     .then( (user) => {
         userObj = user;
-        return userObj.getAnswers({raw: true})
+        return userObj.getAnswers({raw: true}) //get user-answers
     }).then( (answers) => {
-        answerIds = answers.map( (answer) => {
+        answerIds = answers.map( (answer) => { //get IDs of answers
             return +answer.id;
         })
-        return deleteExistingAnswer(answers, req, userObj)
+        return getIdToRemove(answers, req, userObj)
     }).then( (idToRemove) => {
-        if(idToRemove) {
-            console.log("got something to remove")
-            userObj.removeAnswer(+idToRemove.id)
+        if(idToRemove) { //if the qeustion has already been answered
+            userObj.removeAnswer(+idToRemove.id) //remove the answer
             .then( () => {
-                userObj.addAnswer(+req.body.AnswerId)
+                userObj.addAnswer(+req.body.AnswerId) //then add the new answer
                 .then( () => {
-                    console.log("addcomplete")
-                    if(res.locals.nonAnswered.length === 1) {
-                        res.status(200).redirect(`user/${req.session.passport.user.id}/questions`)
-                    } else {
-                        res.status(200).end();
-                    }
+                    res.status(200).end();
                 });
             });
         } else {
-            console.log("nothing to remove")
-            userObj.addAnswer(+req.body.AnswerId)
+            userObj.addAnswer(+req.body.AnswerId) //if the question hasn't been answered, add the answer
             .then( () => {
-                console.log("addcomplete")
-                if(res.locals.nonAnswered.length === 1) {
-                    res.status(200).redirect(`user/${req.session.passport.user.id}/questions`)
-                } else {
-                    res.status(200).end();
-                }
+                res.status(200).end();
             });
         }
     });
 }
 
-let deleteExistingAnswer = (answers, request, userObj) => {
+
+let getIdToRemove = (answers, request, userObj) => {
     return new Promise( (resolve, reject) => {
         let idToRemove = answers.filter( (answerObj) => {
-            console.log("answers FOr each", +answerObj.id, +answerObj.QuestionId, +request.body.QuestionId)
             if(+answerObj.QuestionId === +request.body.QuestionId) {
-                console.log("removing", +answerObj.id )
                 return +answerObj.id
             }
         })
         resolve(idToRemove[0])
     })
 }
-// else {
-//     console.log("exists");
-//     userObj.setAnswers([req.body.AnswerId])
-//     .then( () => {
-//         console.log("setcomplete");
-//         res.status(200);
-//     });
-// }
 
         

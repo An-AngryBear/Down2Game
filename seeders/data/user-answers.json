@@ -159,6 +159,406 @@
       {
         "AnswerId": 47,
         "UserId": 2
+      },
+      {
+        "AnswerId": 1,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 3,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 6,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 7,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 9,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 11,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 14,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 15,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 18,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 21,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 23,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 25,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 27,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 29,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 31,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 33,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 37,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 39,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 45,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 48,
+        "UserId": 3
+      },
+      {
+        "AnswerId": 2,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 7,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 9,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 11,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 5,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 3,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 13,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 15,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 17,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 25,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 23,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 21,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 27,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 29,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 40,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 33,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 37,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 39,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 45,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 48,
+        "UserId": 4
+      },
+      {
+        "AnswerId": 1,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 7,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 9,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 11,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 5,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 3,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 13,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 15,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 17,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 25,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 23,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 21,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 27,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 29,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 40,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 33,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 37,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 39,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 45,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 47,
+        "UserId": 5
+      },
+      {
+        "AnswerId": 3,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 1,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 7,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 9,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 5,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 11,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 17,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 15,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 13,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 21,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 23,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 25,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 31,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 39,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 37,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 29,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 27,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 33,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 45,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 47,
+        "UserId": 6
+      },
+      {
+        "AnswerId": 3,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 1,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 7,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 9,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 5,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 11,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 17,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 15,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 13,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 21,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 23,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 25,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 31,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 39,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 37,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 29,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 27,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 33,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 45,
+        "UserId": 7
+      },
+      {
+        "AnswerId": 47,
+        "UserId": 7
       }
     ]
 }

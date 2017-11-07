@@ -30,7 +30,7 @@ const RegistrationStrategy = new Strategy(
           const userPassword = generateHash(password); 
           const data =
             {
-              screen_name: req.body.screen_name,
+              screenName: req.body.screenName,
               email,
               password: userPassword,
               birthdate: req.body.birthdate,

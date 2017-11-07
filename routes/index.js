@@ -10,9 +10,8 @@ router.get('/', (req, res, next) => {
 
 // route modules
 router.use(require('./authRoute'));
-// router.use(require('./answerRoute'));
 router.use(require('./gameRoute'));
-// router.use(require('./messageRoute'));
+router.use(require('./messageRoute'));
 router.use(require('./questionRoute'));
 router.use(require('./userRoute'));
 

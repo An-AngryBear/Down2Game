@@ -103,7 +103,6 @@ module.exports.getInbox = (req, res, next) => {
 //a list of the last messsages sent between two users for each user that has messaged
 
 let getUserMessageList = (currentUser, messages) => {
-    console.log("messages from getusermessagelist", messages)
     let uniqueUsers = messages.reduce( (acc, cur) => {
         acc.push(cur.senderId)
         acc.push(cur.recipientId)

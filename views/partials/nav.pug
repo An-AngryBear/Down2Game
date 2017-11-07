@@ -1,14 +1,15 @@
 nav(class="navbar navbar-inverse")
     .container-fluid
-        ul(class="nav navbar-nav navbar-right")
-            li: span.glyphicon.glyphicon-envelope
-            li(class="dropdown")
-                a(class="dropdown-toggle" data-toggle="dropdown")
-                    span.glyphicon.glyphicon-menu-hamburger
-                ul(class="dropdown-menu")
-                    li: a(href="/user") Profile
-                    if !session.passport
-                        li: a(href="/register") Register
-                        li: a(href="/login") Login
-                    if session.passport
-                        li: a(href="/logout") Logout
+        .nav-link-container.pull-right
+            ul(class="nav navbar-nav")
+                li: span.glyphicon.glyphicon-envelope
+                li(class="dropdown")
+                    a(class="dropdown-toggle" data-toggle="dropdown")
+                        span.glyphicon.glyphicon-menu-hamburger
+                    ul(class="dropdown-menu")
+                        li: a(href="/user") Profile
+                        if !session.passport
+                            li: a(href="/register") Register
+                            li: a(href="/login") Login
+                        if session.passport
+                            li: a(href="/logout") Logout

@@ -10,4 +10,7 @@ div(class="modal fade" id="msg-model" tabindex="-1" role="dialog" aria-labelledb
       .modal-footer
         input(id="msg-content" maxlength="200" type="text" class="form-control")
         button(type="button" class="btn btn-default" data-dismiss="modal") Close
-        button(id=viewedUser + "-recipient-id" type="button" class="btn btn-primary send-msg") Send
+        if viewedUser
+          button(id=viewedUser + "-recipient-id" type="button" class="btn btn-primary send-msg") Send
+        else
+          button(type="button" class="btn btn-primary send-msg-inbox inbox-send-btn") Send

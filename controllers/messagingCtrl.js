@@ -48,11 +48,20 @@ module.exports.getUserInformation = (req, res, next) => {
                 }
 
             }
+            message.createdAt = dateConverter(message.createdAt)
         })
+        res.locals.latestMessages.reverse();
         console.log("HELLLLLLLO", res.locals.latestMessages)
         next();
     });
-    
+}
+
+let dateConverter = (date) => {
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+    let year = date.getFullYear();
+    let newDate = `${month}/${day}/${year}`;
+    return newDate;
 }
 
 module.exports.getInbox = (req, res, next) => {

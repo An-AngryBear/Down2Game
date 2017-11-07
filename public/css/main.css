@@ -211,3 +211,15 @@
     overflow-y: scroll;
 }
 
+.inbox {
+    margin-top: 2em;
+}
+
+li.inbox-btn {
+    text-align: center;
+    background-color: #f5eeff
+}
+
+li.inbox-btn:hover {
+    background-color: lightblue;
+}

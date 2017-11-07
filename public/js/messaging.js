@@ -1,11 +1,28 @@
 'use strict';
 
-//send-msg button
+//send-msg profile
 $('.send-msg').click( function() {
     let recipientId = parseInt($(this).attr('id'));
     let msgContent = $('#msg-content').val();
     console.log(recipientId, msgContent);
-    sendMessage(recipientId, msgContent);
+    sendMessage(recipientId, msgContent)
+    .then( (data) => {
+        $('.msg-box').append(`<li class="user-message current-user-msg">${msgContent}</li><br>`);
+        let objDiv = document.getElementById("msg-modal-body");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    })
+})
+//send-msg-inbox
+$('.send-msg-inbox').click( function() {
+    let recipientId = parseInt($(this).attr('id'));
+    let msgContent = $('#msg-content').val();
+    console.log(recipientId, msgContent);
+    sendMessage(recipientId, msgContent)
+    .then( (data) => {
+        $('.msg-box').append(`<li class="user-message current-user-msg">${msgContent}</li><br>`);
+        let objDiv = document.getElementById("msg-modal-body");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    })
 })
 
 let sendMessage = (recipientId, msgContent) => {
@@ -20,6 +37,7 @@ let sendMessage = (recipientId, msgContent) => {
             url: `/inbox/message`,
             success: function () {
                 console.log("successful message post");
+                
             },
             error: function () {
                 console.log("error posting message");
@@ -48,6 +66,25 @@ $('.message-btn').click( function() {
     });
 });
 
+
+
+//open modal inbox
+$('.inbox-btn').click( function() {
+    let currentUser = parseInt($('#inbox-container').attr('data'));
+    let userBeingMessaged = parseInt($(this).attr('id'));
+    getMessages(userBeingMessaged)
+    .then( (messages) => {
+        messages.forEach( (message) => {
+            if(message.senderId === currentUser) {
+                $('.msg-box').append(`<li class="user-message current-user-msg">${message.msgContent}</li><br>`);
+            } else {
+                $('.msg-box').append(`<li class="user-message other-user-msg">${message.msgContent}</li><br>`);
+            }
+        });
+        $('.send-msg-inbox').attr('id', `${userBeingMessaged}-recipient-id`);
+    });
+});
+
 let getMessages = (userBeingMessaged) => {
     return new Promise( (resolve, reject) => {
         $.ajax({
@@ -67,10 +104,16 @@ let getMessages = (userBeingMessaged) => {
     });
 }
 
+
 $(document).on('hide.bs.modal', '#msg-model', function (event) {
     console.log("hiding modal");
     $('.msg-box').empty();
     $('#msg-content').val('');
+    window.location.reload();
 });
 
-
+$(document).on('shown.bs.modal', '#msg-model', function (event) {
+    console.log("shown modal");
+    let objDiv = document.getElementById("msg-modal-body");
+    objDiv.scrollTop = objDiv.scrollHeight;
+});

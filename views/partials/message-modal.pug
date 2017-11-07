@@ -4,10 +4,10 @@ div(class="modal fade" id="msg-model" tabindex="-1" role="dialog" aria-labelledb
       .modal-header
         button(type="button" class="close" data-dismiss="modal" aria-label="Close"): span(aria-hidden="true")
         h4(class="modal-title" id="myModalLabel") Modal title
-      .modal-body
+      div(class="modal-body" id="msg-modal-body")
         ul.msg-box
 
       .modal-footer
-        input(id="msg-content" type="text" class="form-control")
+        input(id="msg-content" maxlength="200" type="text" class="form-control")
         button(type="button" class="btn btn-default" data-dismiss="modal") Close
         button(id=viewedUser + "-recipient-id" type="button" class="btn btn-primary send-msg") Send

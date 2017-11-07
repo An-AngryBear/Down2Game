@@ -5,8 +5,8 @@ block content
     div(id="inbox-container" class="container inbox" data=userId)
         .list-group
             each userMsg in latestMessages
-                if userMsg.recipientId === userId
-                    li(id=userMsg.senderId + "-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model")
+                if userMsg.senderId === userId
+                    li(id=userMsg.recipientId + "-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model")
                         .row
                             .col-md-4 
                                 p To: #{userMsg.screenName} 
@@ -15,7 +15,7 @@ block content
                             .col-md-4
                                 p #{userMsg.createdAt}
                 else
-                    li(id=userMsg.recipientId + "-user" role="button" class="list-group-item inbox-btn corresponding-users-post" data-toggle="modal" data-target="#msg-model") 
+                    li(id=userMsg.senderId + "-user" role="button" class="list-group-item inbox-btn corresponding-users-post" data-toggle="modal" data-target="#msg-model") 
                         .row
                             .col-md-4 
                                 p From: #{userMsg.screenName} 

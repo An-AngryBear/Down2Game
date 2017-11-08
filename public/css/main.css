@@ -261,7 +261,7 @@ h5.welcome-desc {
 .game-list {
     padding: 0;
     position: absolute;
-    background: rgba(0, 0, 0, 0.7);
+    background: black;
     margin: auto;
     width: 100%;
     display: block;
@@ -377,6 +377,22 @@ h5.welcome-desc {
 
 .navbar-inverse {
     margin: 0
+}
+
+.dropdown-menu {
+    background-color: black;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.dropdown-opt, .dropdown-opt li {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: .2em;
+    color: white !important;
+}
+
+.dropdown-opt:hover, .dropdown-opt li:hover {
+    color: black !important;
 }
 
 .flex-row {

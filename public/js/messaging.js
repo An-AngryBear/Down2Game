@@ -48,7 +48,7 @@ $('.send-msg-inbox').click( function(event) {
 // li(id=userMsg.recipientId + "-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model")
 
 
-})
+}) //TODO update modal header with screen name of other user
 
 let dateConverter = (date) => {
     let month = date.getMonth() + 1;

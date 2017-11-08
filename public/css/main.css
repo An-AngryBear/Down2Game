@@ -333,9 +333,9 @@ textarea.user-info {
     flex-wrap: wrap;
 }
 
-.row.eq-col-height > [class*='col-'] {
+/* .row.eq-col-height > [class*='col-'] {
     flex-grow: 1;
-}
+} */
 
 .radio-label {
     padding-left: 10px;

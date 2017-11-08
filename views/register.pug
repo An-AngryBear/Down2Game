@@ -2,18 +2,18 @@ extends index.pug
 
 block content
 
-    div(class="loginForm")
+    div(class="loginForm welcome")
         form(action="/register", method="post")
             label(for="screenname") Screen Name: 
-            input(type="text" id="screenname" placeholder="Screen Name" name="screenName", required)
+            input(class="form-control register-input" type="text" id="screenname" placeholder="Screen Name" name="screenName", required)
             label(for="email") Email: 
-            input(type="text" id="email" placeholder="Email" name="email", required)
+            input(class="form-control register-input" type="text" id="email" placeholder="Email" name="email", required)
             label(for="password") Password: 
-            input(type="password" id="password" placeholder="Password" name="password", required)
+            input(class="form-control register-input" type="password" id="password" placeholder="Password" name="password", required)
             label(for="password-confirm") Confirm Password: 
-            input(type="password" id="password-confirm" placeholder="Confirm Password" name="confirmation", required)
+            input(class="form-control register-input" type="password" id="password-confirm" placeholder="Confirm Password" name="confirmation", required)
             label(for="birthdate") Birthdate: 
-            input(type="date" id="birthdate" placeholder="Birthdate" name="birthdate", required)
+            input(class="form-control register-input" type="date" id="birthdate" placeholder="Birthdate" name="birthdate", required)
             label(for="language") Language: 
             include partials/language.pug
             label(for="timezone") Timezone:

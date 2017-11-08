@@ -4,7 +4,7 @@ block content
     h2(id="user-name" data=userId class="account-head pix-header") Account Info for #{screenName}
     include partials/message-modal
     .container.profile-cont
-        .row.equal
+        .row.equal.prof-row
             .col-sm-7.profile-card
                 .row
                     .pic-and-blurb.col-md-6
@@ -35,46 +35,50 @@ block content
                         .edit-forms
                             .email-edit 
                                 form(method='POST', action=`/user?_method=PUT`)
-                                    h4(class="welcome-desc") Email
-                                    p(class="user-info email") #{email}
-                                    input(id="email-input" class="input hidden-email email-input form-control" type="text" name="email" value=email) 
-                                    if loggedUser
-                                        span(id="edit-email" role="button" class="edit glyphicon glyphicon-pencil")
-                                h4(class="welcome-desc") Birthdate
-                            p(class="user-info") #{birthdate}
+                                    h4(class="welcome-desc form-headers") Email
+                                    .user-info-edit
+                                        p(class="user-info email") #{email}
+                                        input(id="email-input" class="input hidden-email email-input form-control" type="text" name="email" value=email) 
+                                        if loggedUser
+                                            span(id="edit-email" role="button" class="edit glyphicon glyphicon-pencil")
+                                h4(class="welcome-desc form-headers") Birthdate
+                                .user-info-edit
+                                    p(class="user-info") #{birthdate}
                             .language-edit
                                 form(method='POST', action=`/user?_method=PUT`)
-                                    h4(class="language welcome-desc") Language
-                                    p(class="user-info") #{language}
-                                    if loggedUser
-                                        .hidden-language.language-input.input
-                                            include partials/language
-                                        span(id="edit-language" role="button" class="edit glyphicon glyphicon-pencil")
-                                        button(type="submit" id="lang-submit" class="submit-language edit-submit hidden-language-submit") Submit
+                                    h4(class="language welcome-desc form-headers") Language
+                                    .user-info-edit
+                                        p(class="user-info") #{language}
+                                        if loggedUser
+                                            .hidden-language.language-input.input
+                                                include partials/language
+                                            span(id="edit-language" role="button" class="edit glyphicon glyphicon-pencil")
+                                            button(type="submit" id="lang-submit" class="submit-language edit-submit hidden-language-submit") Submit
                             .timezone-edit
                                 form(method='POST', action=`/user?_method=PUT`)
-                                    h4(class="timezone welcome-desc") Timezone
-                                    p(class="user-info") #{timezone}
-                                    if loggedUser
-                                        .hidden-timezone.timezone-input.input
-                                            include partials/timezone.pug
-                                        span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
-                                        button(type="submit" id="timezone-submit" class="submit-timezone edit-submit hidden-timezone-submit") Submit
+                                    h4(class="timezone welcome-desc form-headers") Timezone
+                                    .user-info-edit
+                                        p(class="user-info") #{timezone}
+                                        if loggedUser
+                                            .hidden-timezone.timezone-input.input
+                                                include partials/timezone.pug
+                                            span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
+                                            button(type="submit" id="timezone-submit" class="submit-timezone edit-submit hidden-timezone-submit") Submit
                             
                         if loggedUser
                             .questions-link
                                 h4(class="welcome-desc"): a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!
             .col-sm-4.users-games
+                if loggedUser
+                    .games
+                        h4(class="search-games welcome-desc")
+                        form(method='POST', action='/games' class="game-form")
+                            input(id="hidden-gamesearch", class="hidden-game" name="game")
+                            input(id="gameSearch" autocomplete="off" class="form-control game-add-input" placeholder="Add a game..." type='text')
+                            ul(class="game-list" id="game-list")
+                            button(id="hidden-game-submit" class="hidden-game" type="submit")
                 .owned-games
                     ul(id="saved-games-list" class="saved-games-list")
                         if userGames
                             each game in userGames
                                 li(class="user-game-list") #{game.name}
-                if loggedUser
-                    .games
-                        h4(class="search-games welcome-desc")
-                        form(method='POST', action='/games')
-                            input(id="gameSearch" autocomplete="off" class="form-control" placeholder="Add a game..." type='text')
-                            input(id="hidden-gamesearch", class="hidden-game" name="game")
-                            ul(id="game-list")
-                            button(id="hidden-game-submit" class="hidden-game" type="submit")

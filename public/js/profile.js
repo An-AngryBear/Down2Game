@@ -34,7 +34,7 @@ $('#gameSearch').focus( function() {
 
 $('.edit').mousedown( function() {
     $('.input').hide();
-    $('.user-info').show();
+    $('.blurb-display').show();
     $('.edit').show();
 });
 

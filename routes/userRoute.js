@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getUserInfo, editUserInfo, getUserId } = require('../controllers/userCtrl');
+const { getUserInfo, editUserInfo, getUserId, getScreenName } = require('../controllers/userCtrl');
 const { getStoredGames, getIGDBgames, getUserGames } = require('../controllers/gameCtrl');
 const { getUserAnswers } = require('../controllers/questionCtrl');
 const { renderMatchPage, getSimilarUsers, matchAlgorithm } = require('../controllers/matchCtrl');
@@ -11,6 +11,7 @@ const { renderMatchPage, getSimilarUsers, matchAlgorithm } = require('../control
 
 router.put('/user', isLoggedIn, editUserInfo, getStoredGames, getUserInfo)
 router.get('/user/:id', isLoggedIn, getStoredGames, getUserGames, getUserInfo)
+router.get('/user/:id/screenname', isLoggedIn, getScreenName)
 router.get('/user/:id/matches',isLoggedIn, isLoggedUser, getUserAnswers, getSimilarUsers, matchAlgorithm, renderMatchPage) //getUsers, getUserAnswers
 router.get('/user/:id/:searchTerm', isLoggedIn, getIGDBgames)
 router.get('/user', isLoggedIn, getUserId)

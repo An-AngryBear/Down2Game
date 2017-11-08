@@ -228,6 +228,13 @@ p.no-info {
     padding-right: 10px;
     margin: auto;
 }
+
+textarea.user-info {
+    color: black;
+    display: none;
+}
+
+
 .user-info-edit {
     display: block;
     width: 95%;
@@ -336,6 +343,7 @@ p.no-info {
 }
 
 .see-matches-link {
+    width: 300px;
     text-align: center;
     margin: 1em auto;
     display: block;
@@ -437,6 +445,7 @@ p.no-info {
 .thumbnail {
     background: rgba(0, 0, 0, 0.7);
     border: none;
+    height: 95%;
 }
 
 /* ********** message and inbox styling ************ */

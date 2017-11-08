@@ -8,7 +8,7 @@
 $('#edit-blurb').click( function() {
     event.preventDefault();
     $('.blurb-input').show();
-    $('.blurb').hide()
+    $('.blurb-display').hide()
     $('#edit-blurb').hide();
 });
 

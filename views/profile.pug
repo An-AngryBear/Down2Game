@@ -1,7 +1,7 @@
 extends index.pug
 
 block content
-    h2(id="user-name" data=userId class="account-head pix-header") Account Info for #{screenName}
+    h2(id="user-name" data=userId class="account-head pix-header") Account Info
     include partials/message-modal
     .container.profile-cont
         .row.equal.prof-row
@@ -9,6 +9,7 @@ block content
                 .row
                     .pic-and-blurb.col-md-6
                         .blurb-edit
+                            h5(class="pix-header") #{screenName}
                             .img
                                 if avatar
                                     img(class="avatar" src=avatar)
@@ -16,18 +17,20 @@ block content
                                     img(src="/public/imgs/no_image.jpg")
                             .blurb
                                 form(method='POST', action=`/user?_method=PUT`)
-                                    if (blurb && loggedUser) || (blurb)
-                                        h4(class="welcome-desc") About:
+                                    h4(class="welcome-desc") About:
                                     if loggedUser
                                         if blurb
-                                            p(class="blurb user-info welcome-desc") #{blurb}
-                                            textarea(class="input hidden-blurb blurb-input form-control" max-length="200" rows="4" name="blurb") #{blurb}
+                                            p(class="blurb-display user-info welcome-desc") #{blurb}
+                                            textarea(class="input hidden-blurb blurb-input form-control" maxlength="200" rows="4" name="blurb") #{blurb}
                                         else
-                                            p(class="blurb user-info welcome-desc") Give a brief description of yourself...
-                                            textarea(class="input hidden-blurb blurb-input user-info" rows="3" name="blurb")
+                                            p(class="blurb-display user-info welcome-desc") Give a brief description of yourself...
+                                            textarea(class="input hidden-blurb blurb-input user-info" maxlength="200" rows="4" name="blurb")
                                         span(id="edit-blurb" role="button" class="edit glyphicon glyphicon-pencil")
                                     else
-                                        p(class="blurb welcome-desc") #{blurb}
+                                        if blurb
+                                            p(class="blurb-display welcome-desc") #{blurb}
+                                        else
+                                            p(class="blurb-display welcome-desc no-info") (#{screenName} has not filled out this field)
                     .edits.col-md-6
                         if !loggedUser
                             .visitor-column

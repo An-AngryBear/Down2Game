@@ -4,13 +4,17 @@ html
     title Down2Game
     link(rel="stylesheet" href="/public/lib/bootstrap/dist/css/bootstrap.min.css")
     link(rel="stylesheet" href="/public/css/main.css")
+    link(href="https://fonts.googleapis.com/css?family=Orbitron|Press+Start+2P" rel="stylesheet")
 
-  body
+  body(id="body")
+    script(src="/public/lib/jquery/dist/jquery.min.js")
     include partials/nav.pug
     block content
-    
+      .welcome
+        h3(class="pix-header") Down2Game
+        h5(class="welcome-desc") Welcome to Down2Game! 
+        h6(class="welcome-desc") Log in or register to find other gamers, based on your personality, habits, platform, etc
     //- libraries
-    script(src="/public/lib/jquery/dist/jquery.min.js")
     script(src="/public/lib/bootstrap/dist/js/bootstrap.min.js")
 
     //- client modules
@@ -18,3 +22,4 @@ html
     script(src="/public/js/questions.js")
     script(src="/public/js/match.js")
     script(src="/public/js/messaging.js")
+    script(src="/public/js/image-handling.js")

@@ -20,16 +20,16 @@ block content
                         li filter two
     .container.user-cards
         button(class="filter-btn btn btn-info") Filters
-        .row.eq-col-height.flex-row
+        .row.eq-col-height.row-flex
             each user in usersToShow
-                .col-xs-12.col-sm-6.col-md-4.col-lg-3.user-coontainer
+                .col-xs-12.col-sm-6.col-md-4.col-lg-3.user-container
                     .thumbnail
                         if user.avatar
                             img(src=user.avatar)
                         else
                             img(src="/public/imgs/no-img-avail.svg")
                         .caption
-                            h2 #{user.matchPercent}
-                            h3 #{user.screenName}
-                            p(class="flex-text text-muted") #{user.blurb}
-                            a(class="btn btn-primary" href="/user/" + user.id) View profile
+                                h2(class="match-percent") #{user.matchPercent}
+                                h3(class="match-screen-name") #{user.screenName}
+                                p(class="flex-text text-muted match-blurb") #{user.blurb}
+                                a(class="btn btn-primary match-user-btn" href="/user/" + user.id) View profile

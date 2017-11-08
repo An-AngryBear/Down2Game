@@ -5,14 +5,12 @@ const Op = Sequelize.Op;
 
 //finalizes any database interaction and renders the match page with user info
 module.exports.renderInbox = (req, res, next) => {
-    console.log("latest messages", res.locals.latestMessages)
     res.render('inbox', {
         userId: req.session.passport.user.id
     });
 }
 
 module.exports.postNewMessage = (req, res, next) => {
-    console.log("sendMessage", req.body)
     res.json(req.body);
     const { Message } = req.app.get('models');
     Message.create({
@@ -23,7 +21,6 @@ module.exports.postNewMessage = (req, res, next) => {
     })
     .then( (data) => {
         res.status(200).end();
-        console.log("message created");
     });
 }
 
@@ -38,7 +35,6 @@ module.exports.getUserInformation = (req, res, next) => {
         }
     })
     .then( (users) => {
-        console.log("users", users)
         res.locals.userMsgObjs = res.locals.latestMessages.forEach( (message) => {
             for(let i = 0; i < users.length; i++) {
                 if(users[i].id === message.senderId) {
@@ -51,7 +47,6 @@ module.exports.getUserInformation = (req, res, next) => {
             message.createdAt = dateConverter(message.createdAt)
         })
         res.locals.latestMessages.reverse();
-        console.log("HELLLLLLLO", res.locals.latestMessages)
         next();
     });
 }
@@ -97,7 +92,6 @@ module.exports.getInbox = (req, res, next) => {
             .then( (userMsgs) => {
                 let latestMessage = userMsgs.reduce(function (a, b) { return a.createdAt > b.createdAt ? a : b; });
                 res.locals.latestMessages.push(latestMessage);
-                console.log(i, res.locals.userList.length)
                 if(i === res.locals.userList.length - 1) {
                     next()
                 }
@@ -111,6 +105,7 @@ module.exports.getInbox = (req, res, next) => {
 let getUserMessageList = (currentUser, messages) => {
     let uniqueUsers = messages.reduce( (acc, cur) => {
         acc.push(cur.senderId)
+        acc.push(cur.recipientId)
         return acc;
     }, [])
     .filter( (userId, i, arr) => {
@@ -118,7 +113,7 @@ let getUserMessageList = (currentUser, messages) => {
             return arr.indexOf(userId) == i;
         }
     });
-    console.log("uniqueUsers??", uniqueUsers)
+    console.log("unique users", uniqueUsers)
     return uniqueUsers
 }
 
@@ -141,7 +136,6 @@ module.exports.getMessages = (req, res, next) => {
         order: [ ['createdAt'] ]
     })
     .then( (data) => {
-        console.log("messages?", data);
         res.status(200).send(data);
     });
 }

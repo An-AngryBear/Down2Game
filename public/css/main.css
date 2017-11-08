@@ -52,6 +52,8 @@ h5.welcome-desc {
     margin: 1em auto;
 }
 
+
+
 .loginForm {
     margin-top: 1.4em;
     width: 30%;
@@ -177,7 +179,7 @@ p.no-info {
 }
 
 .prof-select {
-    width: 250px;
+    width: 90%;
     margin:1px auto;
     text-align: center;
     cursor: pointer;
@@ -223,7 +225,7 @@ p.no-info {
 }
 .user-info-edit {
     display: block;
-    width: 60%;
+    width: 95%;
     margin: auto;
     text-align: center;
 }

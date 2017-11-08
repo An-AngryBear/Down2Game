@@ -178,6 +178,11 @@ p.no-info {
     font-size: 2em;
 }
 
+.prof-btns {
+    display: block;
+    width: 90%;
+    margin: 1em auto;
+}
 .prof-select {
     width: 90%;
     margin:1px auto;

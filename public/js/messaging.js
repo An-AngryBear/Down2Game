@@ -117,8 +117,7 @@ $(document).on('hide.bs.modal', '#msg-model', function (event) {
     console.log("hiding modal");
     $('.msg-box').empty();
     $('#msg-content').val('');
-    window.location.reload();
-});
+}); //TODO fix inbox update when modal is closed
 
 $(document).on('shown.bs.modal', '#msg-model', function (event) {
     console.log("shown modal");

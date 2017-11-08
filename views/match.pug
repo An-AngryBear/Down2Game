@@ -29,7 +29,7 @@ block content
                         else
                             img(src="/public/imgs/no-img-avail.svg")
                         .caption
-                                h2 #{user.matchPercent}
-                                h3 #{user.screenName}
-                                p(class="flex-text text-muted") #{user.blurb}
-                                a(class="btn btn-primary" href="/user/" + user.id) View profile
+                                h2(class="match-percent") #{user.matchPercent}
+                                h3(class="match-screen-name") #{user.screenName}
+                                p(class="flex-text text-muted match-blurb") #{user.blurb}
+                                a(class="btn btn-primary match-user-btn" href="/user/" + user.id) View profile

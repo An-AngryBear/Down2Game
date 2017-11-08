@@ -3,73 +3,78 @@ extends index.pug
 block content
     h2(id="user-name" data=userId class="account-head pix-header") Account Info for #{screenName}
     include partials/message-modal
-    .container
+    .container.profile-cont
         .row.equal
-            .pic-and-blurb.col-xs-6.col-md-4
-                .img
-                    if avatar
-                        img(class="avatar" src=avatar)
-                    else
-                        img(src="/public/imgs/no-img-avail.svg")
-                .blurb-edit
-                    form(method='POST', action=`/user?_method=PUT`)
-                        if (blurb && loggedUser) || (blurb)
-                            h4(class="welcome-desc") About:
+            .col-sm-7.profile-card
+                .row
+                    .pic-and-blurb.col-md-6
+                        .blurb-edit
+                            .img
+                                if avatar
+                                    img(class="avatar" src=avatar)
+                                else
+                                    img(src="/public/imgs/no_image.jpg")
+                            .blurb
+                                form(method='POST', action=`/user?_method=PUT`)
+                                    if (blurb && loggedUser) || (blurb)
+                                        h4(class="welcome-desc") About:
+                                    if loggedUser
+                                        if blurb
+                                            p(class="blurb user-info welcome-desc") #{blurb}
+                                            textarea(class="input hidden-blurb blurb-input form-control" max-length="200" rows="4" name="blurb") #{blurb}
+                                        else
+                                            p(class="blurb user-info welcome-desc") Give a brief description of yourself...
+                                            textarea(class="input hidden-blurb blurb-input user-info" rows="3" name="blurb")
+                                        span(id="edit-blurb" role="button" class="edit glyphicon glyphicon-pencil")
+                                    else
+                                        p(class="blurb welcome-desc") #{blurb}
+                    .edits.col-md-6
+                        if !loggedUser
+                            .visitor-column
+                                button(id=viewedUser + "-msg-id" type="button" class="btn btn-primary message-btn" data-toggle="modal" data-target="#msg-model") Message This User!
+                        .edit-forms
+                            .email-edit 
+                                form(method='POST', action=`/user?_method=PUT`)
+                                    h4(class="welcome-desc") Email
+                                    p(class="user-info email") #{email}
+                                    input(id="email-input" class="input hidden-email email-input form-control" type="text" name="email" value=email) 
+                                    if loggedUser
+                                        span(id="edit-email" role="button" class="edit glyphicon glyphicon-pencil")
+                                h4(class="welcome-desc") Birthdate
+                            p(class="user-info") #{birthdate}
+                            .language-edit
+                                form(method='POST', action=`/user?_method=PUT`)
+                                    h4(class="language welcome-desc") Language
+                                    p(class="user-info") #{language}
+                                    if loggedUser
+                                        .hidden-language.language-input.input
+                                            include partials/language
+                                        span(id="edit-language" role="button" class="edit glyphicon glyphicon-pencil")
+                                        button(type="submit" id="lang-submit" class="submit-language edit-submit hidden-language-submit") Submit
+                            .timezone-edit
+                                form(method='POST', action=`/user?_method=PUT`)
+                                    h4(class="timezone welcome-desc") Timezone
+                                    p(class="user-info") #{timezone}
+                                    if loggedUser
+                                        .hidden-timezone.timezone-input.input
+                                            include partials/timezone.pug
+                                        span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
+                                        button(type="submit" id="timezone-submit" class="submit-timezone edit-submit hidden-timezone-submit") Submit
+                            
                         if loggedUser
-                            if blurb
-                                p(class="blurb user-info welcome-desc") #{blurb}
-                                textarea(class="input hidden-blurb blurb-input form-control" max-length="200" rows="4" name="blurb") #{blurb}
-                            else
-                                p(class="blurb user-info welcome-desc") Give a brief description of yourself...
-                                textarea(class="input hidden-blurb blurb-input user-info" rows="3" name="blurb")
-                            span(id="edit-blurb" role="button" class="edit glyphicon glyphicon-pencil")
-                        else
-                            p(class="blurb welcome-desc") #{blurb}
-                    if loggedUser
-                    .questions-link
-                        h4(class="welcome-desc"): a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!
-            .account-info.col-xs-12.col-md-4
-                .email-edit 
-                    form(method='POST', action=`/user?_method=PUT`)
-                        h4(class="welcome-desc") Email
-                        p(class="user-info email") #{email}
-                        input(id="email-input" class="input hidden-email email-input form-control" type="text" name="email" value=email) 
-                        if loggedUser
-                            span(id="edit-email" role="button" class="edit glyphicon glyphicon-pencil")
-                    h4(class="welcome-desc") Birthdate
-                p(class="user-info") #{birthdate}
-                .language-edit
-                    form(method='POST', action=`/user?_method=PUT`)
-                        h4(class="language welcome-desc") Language
-                        p(class="user-info") #{language}
-                        if loggedUser
-                            .hidden-language.language-input.input
-                                include partials/language
-                            span(id="edit-language" role="button" class="edit glyphicon glyphicon-pencil")
-                            button(type="submit" id="lang-submit" class="submit-language edit-submit hidden-language-submit") Submit
-                .timezone-edit
-                    form(method='POST', action=`/user?_method=PUT`)
-                        h4(class="timezone welcome-desc") Timezone
-                        p(class="user-info") #{timezone}
-                        if loggedUser
-                            .hidden-timezone.timezone-input.input
-                                include partials/timezone.pug
-                            span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
-                            button(type="submit" id="timezone-submit" class="submit-timezone edit-submit hidden-timezone-submit") Submit
+                            .questions-link
+                                h4(class="welcome-desc"): a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!
+            .col-sm-4.users-games
                 .owned-games
-                    h4(class="saved-games welcome-desc") Saved Games
                     ul(id="saved-games-list" class="saved-games-list")
                         if userGames
                             each game in userGames
                                 li(class="user-game-list") #{game.name}
-            if loggedUser
-                .games.col-xs-12.col-md-4
-                    h4(class="search-games welcome-desc") Games
-                    form(method='POST', action='/games')
-                        input(id="gameSearch" autocomplete="off" class="form-control" placeholder="Search multiplayer games..." type='text')
-                        input(id="hidden-gamesearch", class="hidden-game" name="game")
-                        ul(id="game-list")
-                        button(id="hidden-game-submit" class="hidden-game" type="submit")
-            else
-                .visitor-column.col-xs-12.col-md-4
-                    button(id=viewedUser + "-msg-id" type="button" class="btn btn-primary btn-lg message-btn" data-toggle="modal" data-target="#msg-model") Message This User!
+                if loggedUser
+                    .games
+                        h4(class="search-games welcome-desc")
+                        form(method='POST', action='/games')
+                            input(id="gameSearch" autocomplete="off" class="form-control" placeholder="Add a game..." type='text')
+                            input(id="hidden-gamesearch", class="hidden-game" name="game")
+                            ul(id="game-list")
+                            button(id="hidden-game-submit" class="hidden-game" type="submit")

@@ -37,7 +37,8 @@ h5.welcome-desc {
 .welcome-desc {
     font-family: 'Orbitron', sans-serif;
     letter-spacing: .2em;  
-    color: white;  
+    color: white;
+    text-align: center;
 }
 
 /* *******login******** */
@@ -80,10 +81,11 @@ h5.welcome-desc {
     background: rgba(0, 0, 0, 0.7);    
     border-radius: 10px;
     box-shadow: 1px 1px 10px black;
+    overflow: auto;
 }
 
 .prof-row {
-    max-height: 400px;
+    max-height: 450px;
 }
 
 .games {
@@ -148,6 +150,7 @@ h5.welcome-desc {
 
 .blurb {
     display:inline;
+    font-size: .8em;
 }
 
 .app-title {
@@ -246,13 +249,10 @@ h5.welcome-desc {
 
 .user-game-list {
     list-style-type: none;
-    text-align: left;
-    font-size: .8em;
+    text-align: center;
+    color: white;
 }
 
-.owned-games {
-    overflow: auto;
-}
 
 .game-form {
     position:relative;

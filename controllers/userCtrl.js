@@ -68,3 +68,13 @@ let timezoneTextParser = (timezoneString) => {
     let timezoneArr = timezoneString.split(/[0-9]+/);
     return timezoneArr[2];
 }
+
+module.exports.getScreenName = (req, res, next) => {
+    console.log("get screen name");
+    const { User } = req.app.get('models');
+    User.findById(req.params.id)
+    .then( (data) => {
+        console.log(data.screenName);
+        res.send(data.screenName);
+    });
+}

@@ -8,19 +8,19 @@ block content
             each userMsg in latestMessages
                 if userMsg.senderId === userId
                     li(id=userMsg.recipientId + "-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model")
-                        .row
-                            .col-md-4 
-                                p To: #{userMsg.screenName} 
+                        .row.inbox-messages
                             .col-md-4
-                                p Last Message: #{userMsg.msgContent}
+                                p(class="screen-name-inbox" data=userId) To: #{userMsg.screenName} 
                             .col-md-4
-                                p #{userMsg.createdAt}
+                                p(class="message-content-inbox" data=userMsg.screenName) Last Message: #{userMsg.msgContent}
+                            .col-md-4
+                                p(class="timestamp-inbox") #{userMsg.createdAt}
                 else
                     li(id=userMsg.senderId + "-user" role="button" class="list-group-item inbox-btn corresponding-users-post" data-toggle="modal" data-target="#msg-model") 
-                        .row
+                        .row.inbox-messages
                             .col-md-4 
-                                p From: #{userMsg.screenName} 
+                                p(class="screen-name-inbox" data=userId) From: #{userMsg.screenName} 
                             .col-md-4
-                                p Last Message: #{userMsg.msgContent}
+                                p(class="message-content-inbox") Last Message: #{userMsg.msgContent}
                             .col-md-4
-                                p #{userMsg.createdAt}
+                                p(class="timestamp-inbox") #{userMsg.createdAt}

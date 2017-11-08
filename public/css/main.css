@@ -86,6 +86,7 @@ h5.welcome-desc {
 
 .prof-row {
     max-height: 450px;
+    min-height: 350px;
 }
 
 .games {
@@ -94,8 +95,9 @@ h5.welcome-desc {
     width: 90%;
 }
 
-
-
+p.no-info {
+    font-size: .8em;
+}
 .game-add-input {
     margin: auto;
 }
@@ -144,14 +146,16 @@ h5.welcome-desc {
 .blurb-edit {
     padding: 2em;
     color: white;
-    margin: 1em auto;
+    margin: auto;
     border-right: 2px solid rgba(0, 0, 0, 0.7);
 }
 
-.blurb {
+.blurb-display {
     display:inline;
-    font-size: .8em;
+    font-size: .6em;
 }
+
+
 
 .app-title {
     display: inline;

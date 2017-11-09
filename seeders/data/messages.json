@@ -23,6 +23,54 @@
         "request": false,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "msgContent": "hey man, wanna game??",
+        "senderId": 4,
+        "recipientId": 21,
+        "request": false,
+        "createdAt": "2016-12-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "msgContent": "What do you main in Overwatch?",
+        "senderId": 21,
+        "recipientId": 4,
+        "request": false,
+        "createdAt": "2017-1-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "msgContent": "Cool bear pic, bro",
+        "senderId": 4,
+        "recipientId": 21,
+        "request": false,
+        "createdAt": "2017-6-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "msgContent": "Yo!",
+        "senderId": 4,
+        "recipientId": 21,
+        "request": false,
+        "createdAt": "2017-9-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "msgContent": "fuzzy wuzzy wuz a bear",
+        "senderId": 4,
+        "recipientId": 21,
+        "request": false,
+        "createdAt": "2017-10-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "msgContent": "fuzzy wuzzy had no hair",
+        "senderId": 21,
+        "recipientId": 4,
+        "request": false,
+        "createdAt": "2017-10-02 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
       }
     ]
 }

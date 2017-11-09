@@ -259,6 +259,19 @@
         "blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
+      },
+      {
+        "screenName": "bear",
+        "email": "bear@bear.com",
+        "password": "$2a$08$wgXgKNnMMA7UDnl4rzS/meVKJiu6RgKhC9waeo14LR1W7tnavS6G2",
+        "birthdate": "1988-11-06 18:00:00-06",
+        "language": "English",
+        "timezone": "-03:00 Brazil, Buenos Aires, Georgetown",
+        "avatar": "https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai_400x400.jpeg",
+        "lastLoggedIn": "1988-11-01 00:17:54.783-05",
+        "blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "createdAt": "2017-11-01 14:14:12.314-05",
+        "updatedAt": "2017-11-01 14:14:12.314-05"
       }
     ]
 }

@@ -5,10 +5,6 @@
         "UserId": 1
       },
       {
-        "GameId": 2,
-        "UserId": 1
-      },
-      {
         "GameId": 3,
         "UserId": 1
       },
@@ -105,10 +101,6 @@
         "UserId": 11
       },
       {
-        "GameId": 1,
-        "UserId": 12
-      },
-      {
         "GameId": 2,
         "UserId": 12
       },
@@ -134,10 +126,6 @@
       },
       {
         "GameId": 2,
-        "UserId": 14
-      },
-      {
-        "GameId": 3,
         "UserId": 14
       },
       {

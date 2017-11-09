@@ -20,8 +20,10 @@ module.exports.getUserAnswers = (req, res, next) => {
             }
             res.locals.usersAnswers = answers;
             next();
-        });
-    });
+        })
+        .catch( (err) => next(err));
+    })
+    .catch( (err) => next(err));
 }
 
 //finalizes any database interaction and renders the questions page, sets user info to res.locals
@@ -39,7 +41,8 @@ module.exports.getQuestions = (req, res, next) => {
     .then( (questions) => {
         res.locals.questions = questions;
         next();
-    });
+    })
+    .catch( (err) => next(err));
 }
 
 //gets all possible answers and sets it to res.locals.answers, passes to next method
@@ -49,7 +52,8 @@ module.exports.getAnswers = (req, res, next) => {
     .then( (answers) => {
         res.locals.answers = answers;
         next();
-    });
+    })
+    .catch( (err) => next(err));
 }
 
 //posts user's answers
@@ -62,27 +66,33 @@ module.exports.postUserAnswer = (req, res, next) => {
     .then( (user) => {
         userObj = user;
         return userObj.getAnswers({raw: true}) //get user-answers
-    }).then( (answers) => {
+    })
+    .then( (answers) => {
         answerIds = answers.map( (answer) => { //get IDs of answers
             return +answer.id;
         })
         return getIdToRemove(answers, req, userObj)
-    }).then( (idToRemove) => {
+    })
+    .then( (idToRemove) => {
         if(idToRemove) { //if the qeustion has already been answered
             userObj.removeAnswer(+idToRemove.id) //remove the answer
             .then( () => {
                 userObj.addAnswer(+req.body.AnswerId) //then add the new answer
                 .then( () => {
                     res.status(200).end();
-                });
-            });
+                })
+                .catch( (err) => next(err));
+            })
+            .catch( (err) => next(err));
         } else {
             userObj.addAnswer(+req.body.AnswerId) //if the question hasn't been answered, add the answer
             .then( () => {
                 res.status(200).end();
-            });
+            })
+            .catch( (err) => next(err));
         }
-    });
+    })
+    .catch( (err) => next(err));
 }
 
 

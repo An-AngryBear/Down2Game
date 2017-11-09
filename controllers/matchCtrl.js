@@ -32,15 +32,12 @@ module.exports.getSimilarUsers = (req, res, next) => {
             if(counter === userAnswerIds.length) {
                 next();
             }
-        });
+        })
+        .catch( (err) => next(err));
     });
 }
 
-module.exports.matchAlgorithm = (req, res, next) => {
-    const { User } = req.app.get('models');
-    let answerObj = res.locals.userAnswerObj; //gets object with keys as question ids and the values are arrays of user Ids that answered the same
-    console.log("answer Obj", answerObj)
-    let matchedUsers = Object.values(answerObj); //pulls out all the userIDs from the object
+let getIDsToAnswersObj = (matchedUsers) => {
     let countObj = {};
     let userArr = matchedUsers.reduce( (acc, cur) => {  //joins all the ids together in a large array (with duplicates for counting)
         return acc.concat(cur);
@@ -49,17 +46,22 @@ module.exports.matchAlgorithm = (req, res, next) => {
         let num = userArr[i];
         countObj[num] = countObj[num] ? countObj[num] + 1 : 1;
     }
+    return countObj;
+}
+
+module.exports.matchAlgorithm = (req, res, next) => {
+    const { User } = req.app.get('models');
+    let answerObj = res.locals.userAnswerObj; //gets object with keys as question ids and the values are arrays of user Ids that answered the same
+    let matchedUsers = Object.values(answerObj); //pulls out all the userIDs from the object
+    let countObj = getIDsToAnswersObj(matchedUsers);
     let matchPercent = getPercentage(countObj, res.locals.usersAnswers.length); //gets the percentages of matching => (answered-questions / total questions)
-    //  TODO: only show users that have 20 questions answered;
     let usersToShow = Object.keys(matchPercent).map( (num) => { //gets all the user ids to show and converts to numbers
         return parseInt(num);
     });
     User.findAll({ 
         raw: true,
         where: {
-            id: {
-                [Op.in]: usersToShow //only get users if their IDs are provided
-            }
+            id: { [Op.in]: usersToShow } //only get users if their IDs are provided
         }
     })
     .then( (data) => {
@@ -73,14 +75,13 @@ module.exports.matchAlgorithm = (req, res, next) => {
         }).sort(function(a, b) { //sorts the users by highest match %
             return parseFloat(b.matchPercent) - parseFloat(a.matchPercent);
         });
-        console.log("match added", matchAdded)
         res.locals.usersToShow = matchAdded;
         next();
-    });
+    })
+    .catch( (err) => next(err));
 }
 
 let getPercentage = (countObj, questionCount) => {
-    console.log("countobj", countObj)
     for(let key in countObj) {
         countObj[key] = countObj[key] / questionCount;
     }

@@ -10,9 +10,11 @@ module.exports.getStoredGames = (req, res, next) => {
     Game.findAll({raw:true})
     .then( (data) => {
         res.locals.storedGames = data;
-        next();
+        return next();
     })
-    .catch( (err) => next(err));
+    .catch( (err) => {
+        return next(err);
+    });
 }
 
 //gets the user's games and sets to res.locals.userGames, passes to next method
@@ -24,14 +26,15 @@ module.exports.getUserGames = (req, res, next) => {
     })
     .then( (data) => {
         res.locals.userGames = data;
-        next();
+        return next();
     })
-    .catch( (err) => next(err));
-}
+    .catch( (err) => {
+        return next(err);
+    });}
 
 module.exports.checkGames = (req, res, next) => {
     console.log("locals", res.locals.storedGames)
-    res.status(200).end();
+    res.status(200).end()
 }
 
 //Looks through IGDB API to find multiplayer games that match the user's search query
@@ -70,9 +73,11 @@ module.exports.postUserGame = (req, res, next) => {
             return user.addGame(gameId);
         })
         .then( (data) => {
-            res.redirect(`/user/${req.session.passport.user.id}`)
+            return res.redirect(`/user/${req.session.passport.user.id}`)
         })
-        .catch( (err) => next(err));
+        .catch( (err) => {
+            return next(err);
+        });
     } else {
         User.findById(req.session.passport.user.id)
         .then( (user) => {
@@ -84,8 +89,10 @@ module.exports.postUserGame = (req, res, next) => {
             return user.addGame(gameId[0].id)
         })
         .then( (data) => {
-            res.redirect(`/user/${req.session.passport.user.id}`)
+            return res.redirect(`/user/${req.session.passport.user.id}`)
         })
-        .catch( (err) => next(err));
+        .catch( (err) => {
+            return next(err);
+        });    
     }
 }

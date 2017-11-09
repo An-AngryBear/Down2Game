@@ -23,7 +23,9 @@ module.exports.postNewMessage = (req, res, next) => {
     .then( (data) => {
         res.status(200).end();
     })
-    .catch( (err) => next(err));
+    .catch( (err) => {
+        return next(err);
+    });
 }
 
 module.exports.getUserInformation = (req, res, next) => {
@@ -48,9 +50,11 @@ module.exports.getUserInformation = (req, res, next) => {
         })
         console.log("latest messages(should be ordered by last created)", res.locals.latestMessages)
         res.locals.latestMessages.reverse();
-        next();
+        return next();
     })
-    .catch( (err) => next(err));
+    .catch( (err) => {
+        return next(err);
+    });
 } //TODO: fix the ordering of the inbox to be last created at the top
 
 let dateConverter = (date) => {
@@ -74,8 +78,12 @@ module.exports.getInbox = (req, res, next) => {
         }
     })
     .then( (messages) => {
+        if(messages.length === 0) {
+            res.render('inbox')
+        }
         res.locals.userList = getUserMessageList(req.session.passport.user.id, messages);
         res.locals.latestMessages = [];
+
         for(let i = 0; i < res.locals.userList.length; i++) {
             Message.findAll({
                 raw: true,
@@ -95,12 +103,17 @@ module.exports.getInbox = (req, res, next) => {
                     return acc.createdAt > cur.createdAt ? acc : cur;
                 });
                 res.locals.latestMessages.push(latestMessage);
-                if(i === res.locals.userList.length - 1) { next(); }
+                if(i === res.locals.userList.length - 1) { 
+                    return next();
+                }
             })
-            .catch( (err) => next(err));
-        }
+            .catch( (err) => {
+                return next(err);
+            });        }
     })
-    .catch( (err) => next(err));
+    .catch( (err) => {
+        return next(err);
+    });
 }
 
 //a list of the last messsages sent between two users for each user that has messaged
@@ -138,5 +151,6 @@ module.exports.getMessages = (req, res, next) => {
     .then( (data) => {
         res.status(200).send(data);
     })
-    .catch( (err) => next(err));
-}
+    .catch( (err) => {
+        return next(err);
+    });}

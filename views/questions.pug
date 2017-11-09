@@ -1,11 +1,13 @@
 extends index.pug
 
 block content
+    data(class="data-div question-length" data=questions.length)
+    data(class="data-div useranswer-length" data=usersAnswers.length)
     div(class="container quest-container" id="quest-container" data=userId)
         if usersAnswers.length === questions.length && userId == viewedUser
             .row
                 .col.lg-12
-                    a(class="see-matches-link" href="/user/" + userId + "/matches") See Your Matches!
+                    a(class="see-matches-link" href="/user/" + userId + "/matches"): button(class="btn btn-primary prof-btns") See Your Matches!
         .row.eq-col-height
             each question in questions
                 if userId == viewedUser

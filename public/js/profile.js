@@ -8,7 +8,7 @@
 $('#edit-blurb').click( function() {
     event.preventDefault();
     $('.blurb-input').show();
-    $('.blurb').hide()
+    $('.blurb-display').hide()
     $('#edit-blurb').hide();
 });
 
@@ -34,7 +34,7 @@ $('#gameSearch').focus( function() {
 
 $('.edit').mousedown( function() {
     $('.input').hide();
-    $('.user-info').show();
+    $('.blurb-display').show();
     $('.edit').show();
 });
 

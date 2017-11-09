@@ -53,8 +53,22 @@ app.use(flash());
 
 app.use(routes);
 
+//error handling
+app.use( (req, res, next) => {
+  let error = new Error('sorry, not found.');
+  error.status = 404;
+  next(error);
+});
+
+app.use( (err, req, res, next) => {
+  console.log(err)
+  res.status(err.status||500);
+  res.json({
+  message:"A problem occurred.",
+  err:err
+  });
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
-
-// https://api-2445582011268.apicast.io/games/?search=warcraft&fields=name,game_modes&filter[game_modes][eq]=2&filter[version_parent][not_exists]=1

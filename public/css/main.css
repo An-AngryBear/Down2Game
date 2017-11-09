@@ -1,7 +1,6 @@
 /* index */
 body { 
     background-color: black;
-    background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -52,6 +51,8 @@ h5.welcome-desc {
     margin: 1em auto;
 }
 
+
+
 .loginForm {
     margin-top: 1.4em;
     width: 30%;
@@ -85,7 +86,8 @@ h5.welcome-desc {
 }
 
 .prof-row {
-    max-height: 450px;
+    max-height: 550px;
+    min-height: 350px;
 }
 
 .games {
@@ -94,8 +96,9 @@ h5.welcome-desc {
     width: 90%;
 }
 
-
-
+p.no-info {
+    font-size: .8em;
+}
 .game-add-input {
     margin: auto;
 }
@@ -144,14 +147,16 @@ h5.welcome-desc {
 .blurb-edit {
     padding: 2em;
     color: white;
-    margin: 1em auto;
+    margin: auto;
     border-right: 2px solid rgba(0, 0, 0, 0.7);
 }
 
-.blurb {
+.blurb-display {
     display:inline;
-    font-size: .8em;
+    font-size: .6em;
 }
+
+
 
 .app-title {
     display: inline;
@@ -172,8 +177,13 @@ h5.welcome-desc {
     font-size: 2em;
 }
 
+.prof-btns {
+    display: block;
+    width: 90%;
+    margin: 1em auto;
+}
 .prof-select {
-    width: 250px;
+    width: 90%;
     margin:1px auto;
     text-align: center;
     cursor: pointer;
@@ -217,9 +227,17 @@ h5.welcome-desc {
     padding-right: 10px;
     margin: auto;
 }
+
+
+textarea.user-info {
+    color: black;
+    display: none;
+}
+
+
 .user-info-edit {
     display: block;
-    width: 60%;
+    width: 95%;
     margin: auto;
     text-align: center;
 }
@@ -261,7 +279,7 @@ h5.welcome-desc {
 .game-list {
     padding: 0;
     position: absolute;
-    background: rgba(0, 0, 0, 0.7);
+    background: black;
     margin: auto;
     width: 100%;
     display: block;
@@ -315,9 +333,9 @@ h5.welcome-desc {
     flex-wrap: wrap;
 }
 
-.row.eq-col-height > [class*='col-'] {
+/* .row.eq-col-height > [class*='col-'] {
     flex-grow: 1;
-}
+} */
 
 .radio-label {
     padding-left: 10px;
@@ -325,6 +343,7 @@ h5.welcome-desc {
 }
 
 .see-matches-link {
+    width: 300px;
     text-align: center;
     margin: 1em auto;
     display: block;
@@ -365,7 +384,7 @@ h5.welcome-desc {
 #slide {
     height: 0px;
     transition: height 500ms ease;
-    background-color: #483A58;
+    background: rgba(0, 0, 0, 0.5);    
     overflow: hidden;
     box-shadow: inset black 0px -1px 10px;
 }
@@ -377,6 +396,22 @@ h5.welcome-desc {
 
 .navbar-inverse {
     margin: 0
+}
+
+.dropdown-menu {
+    background-color: black;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.dropdown-opt, .dropdown-opt li {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: .2em;
+    color: white !important;
+}
+
+.dropdown-opt:hover, .dropdown-opt li:hover {
+    color: black !important;
 }
 
 .flex-row {
@@ -410,6 +445,7 @@ h5.welcome-desc {
 .thumbnail {
     background: rgba(0, 0, 0, 0.7);
     border: none;
+    height: 95%;
 }
 
 /* ********** message and inbox styling ************ */

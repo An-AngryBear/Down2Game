@@ -384,7 +384,7 @@ textarea.user-info {
 #slide {
     height: 0px;
     transition: height 500ms ease;
-    background-color: #483A58;
+    background: rgba(0, 0, 0, 0.5);    
     overflow: hidden;
     box-shadow: inset black 0px -1px 10px;
 }

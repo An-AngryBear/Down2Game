@@ -1,5 +1,4 @@
 'use strict';
-//TODO line 9 looksfor answers if you go into the user route if a user that doesnt exist,errors
 //gets all the user's answers and sets it to res.locals.usersAnswers, passes to next method
 module.exports.getUserAnswers = (req, res, next) => {
     const { User } = req.app.get('models');

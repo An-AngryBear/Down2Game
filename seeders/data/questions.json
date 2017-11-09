@@ -7,8 +7,8 @@
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "content": "Do you have an issue with racist jokes?",
-        "CategoryId": 2,
+        "content": "Are you looking to form a guild or clan?",
+        "CategoryId": 1,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
@@ -67,13 +67,13 @@
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "content": "Are you looking to form a guild or clan?",
-        "CategoryId": 1,
+        "content": "Do you have an issue with racist jokes?",
+        "CategoryId": 2,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
-        "content": "How often do you curse or use foul language?",
+        "content": "Do you often curse or use foul language?",
         "CategoryId": 2,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"

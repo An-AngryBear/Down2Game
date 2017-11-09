@@ -3,13 +3,14 @@
 var Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-//finalizes any database interaction and renders the match page with user info
+// finalizes any database interaction and renders the match page with user info
 module.exports.renderInbox = (req, res, next) => {
     res.render('inbox', {
         userId: req.session.passport.user.id
     });
 }
 
+// adds the current user's message to database, with userID as 'senderId'
 module.exports.postNewMessage = (req, res, next) => {
     res.json(req.body);
     const { Message } = req.app.get('models');
@@ -21,6 +22,9 @@ module.exports.postNewMessage = (req, res, next) => {
     })
     .then( (data) => {
         res.status(200).end();
+    })
+    .catch( (err) => {
+        return next(err);
     });
 }
 
@@ -29,9 +33,7 @@ module.exports.getUserInformation = (req, res, next) => {
     User.findAll({
         raw:true,
         where: {
-            id: {
-                [Op.in]: res.locals.userList
-            }
+            id: { [Op.in]: res.locals.userList }
         }
     })
     .then( (users) => {
@@ -46,10 +48,14 @@ module.exports.getUserInformation = (req, res, next) => {
             }
             message.createdAt = dateConverter(message.createdAt)
         })
+        console.log("latest messages(should be ordered by last created)", res.locals.latestMessages)
         res.locals.latestMessages.reverse();
-        next();
+        return next();
+    })
+    .catch( (err) => {
+        return next(err);
     });
-}
+} //TODO: fix the ordering of the inbox to be last created at the top
 
 let dateConverter = (date) => {
     let month = date.getMonth() + 1;
@@ -59,6 +65,7 @@ let dateConverter = (date) => {
     return newDate;
 }
 
+//gets objects of userMessages between two corresponding users, one of them being the current user. Preps for PUG insertion
 module.exports.getInbox = (req, res, next) => {
     const { Message, User } = req.app.get('models');
     Message.findAll({
@@ -71,37 +78,45 @@ module.exports.getInbox = (req, res, next) => {
         }
     })
     .then( (messages) => {
+        if(messages.length === 0) {
+            res.render('inbox')
+        }
         res.locals.userList = getUserMessageList(req.session.passport.user.id, messages);
         res.locals.latestMessages = [];
+
         for(let i = 0; i < res.locals.userList.length; i++) {
             Message.findAll({
                 raw: true,
                 where: {
-                    [Op.or]: [
-                        {
+                    [Op.or]: [{
                             senderId: req.session.passport.user.id,
                             recipientId: res.locals.userList[i]
                         },
                         {
                             senderId: res.locals.userList[i],
                             recipientId: req.session.passport.user.id
-                        }
-                    ]
+                        }]
                 }
             })
             .then( (userMsgs) => {
-                let latestMessage = userMsgs.reduce(function (a, b) { return a.createdAt > b.createdAt ? a : b; });
+                let latestMessage = userMsgs.reduce(function (acc, cur) { 
+                    return acc.createdAt > cur.createdAt ? acc : cur;
+                });
                 res.locals.latestMessages.push(latestMessage);
-                if(i === res.locals.userList.length - 1) {
-                    next()
+                if(i === res.locals.userList.length - 1) { 
+                    return next();
                 }
-            });
-        }
+            })
+            .catch( (err) => {
+                return next(err);
+            });        }
+    })
+    .catch( (err) => {
+        return next(err);
     });
 }
 
 //a list of the last messsages sent between two users for each user that has messaged
-
 let getUserMessageList = (currentUser, messages) => {
     let uniqueUsers = messages.reduce( (acc, cur) => {
         acc.push(cur.senderId)
@@ -113,29 +128,29 @@ let getUserMessageList = (currentUser, messages) => {
             return arr.indexOf(userId) == i;
         }
     });
-    console.log("unique users", uniqueUsers)
     return uniqueUsers
 }
 
+// gets messages where its the current userid and req.params' id's correspondence
 module.exports.getMessages = (req, res, next) => {
     const { Message, User } = req.app.get('models');
     Message.findAll({
         raw: true,
         where: {
-            [Op.or]: [
-                {
+            [Op.or]: [{
                     senderId: req.session.passport.user.id,
                     recipientId: req.params.recipientId
                 },
                 {
                     senderId: req.params.recipientId,
                     recipientId: req.session.passport.user.id
-                }
-            ]
+                }]
         },
         order: [ ['createdAt'] ]
     })
     .then( (data) => {
         res.status(200).send(data);
-    });
-}
+    })
+    .catch( (err) => {
+        return next(err);
+    });}

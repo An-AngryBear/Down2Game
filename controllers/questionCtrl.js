@@ -1,32 +1,34 @@
 'use strict';
-//TODO line 9 looksfor answers if you go into the user route if a user that doesnt exist,errors
 //gets all the user's answers and sets it to res.locals.usersAnswers, passes to next method
 module.exports.getUserAnswers = (req, res, next) => {
     const { User } = req.app.get('models');
     User.findById(req.params.id)
     .then( (user) => {
-        user.getAnswers({raw: true})
-        .then( (answers) => {
-            let ansIds = answers.map( (answer) => {
-                return answer.QuestionId;
-            });
-            if (res.locals.questions) {
-                let nonAnswered = res.locals.questions.filter( (question) => {
-                    if(ansIds.indexOf(question.id) === -1) {
-                        return question
-                    }
-                });
-                res.locals.nonAnswered = nonAnswered;
-            }
-            res.locals.usersAnswers = answers;
-            next();
+        return user.getAnswers({raw: true})
+    })
+    .then( (answers) => {
+        let ansIds = answers.map( (answer) => {
+            return answer.QuestionId;
         });
+        if (res.locals.questions) {
+            let nonAnswered = res.locals.questions.filter( (question) => {
+                if(ansIds.indexOf(question.id) === -1) {
+                    return question
+                }
+            });
+            res.locals.nonAnswered = nonAnswered;
+        }
+        res.locals.usersAnswers = answers;
+        return next();
+    })
+    .catch( (err) => {
+        return next(err);
     });
 }
 
 //finalizes any database interaction and renders the questions page, sets user info to res.locals
 module.exports.renderQuestPage = (req, res, next) => {
-    res.render('questions', {
+    return res.render('questions', {
         userId: req.session.passport.user.id,
         viewedUser: req.params.id
     });
@@ -38,7 +40,10 @@ module.exports.getQuestions = (req, res, next) => {
     Question.findAll({raw: true})
     .then( (questions) => {
         res.locals.questions = questions;
-        next();
+        return next();
+    })
+    .catch( (err) => {
+        return next(err);
     });
 }
 
@@ -48,9 +53,11 @@ module.exports.getAnswers = (req, res, next) => {
     Answer.findAll( {raw: true} )
     .then( (answers) => {
         res.locals.answers = answers;
-        next();
-    });
-}
+        return next();
+    })
+    .catch( (err) => {
+        return next(err);
+    });}
 
 //posts user's answers
 module.exports.postUserAnswer = (req, res, next) => {
@@ -62,29 +69,39 @@ module.exports.postUserAnswer = (req, res, next) => {
     .then( (user) => {
         userObj = user;
         return userObj.getAnswers({raw: true}) //get user-answers
-    }).then( (answers) => {
+    })
+    .then( (answers) => {
         answerIds = answers.map( (answer) => { //get IDs of answers
             return +answer.id;
         })
         return getIdToRemove(answers, req, userObj)
-    }).then( (idToRemove) => {
+    })
+    .then( (idToRemove) => {
         if(idToRemove) { //if the qeustion has already been answered
-            userObj.removeAnswer(+idToRemove.id) //remove the answer
+            return userObj.removeAnswer(+idToRemove.id) //remove the answer
             .then( () => {
-                userObj.addAnswer(+req.body.AnswerId) //then add the new answer
-                .then( () => {
-                    res.status(200).end();
-                });
-            });
-        } else {
-            userObj.addAnswer(+req.body.AnswerId) //if the question hasn't been answered, add the answer
+                return userObj.addAnswer(+req.body.AnswerId) //then add the new answer
+            })
             .then( () => {
                 res.status(200).end();
+            })
+            .catch( (err) => {
+                return next(err);
+            });
+        } else {
+            return userObj.addAnswer(+req.body.AnswerId) //if the question hasn't been answered, add the answer
+            .then( () => {
+                res.status(200).end();
+            })
+            .catch( (err) => {
+                return next(err);
             });
         }
+    })
+    .catch( (err) => {
+        return next(err);
     });
 }
-
 
 let getIdToRemove = (answers, request, userObj) => {
     return new Promise( (resolve, reject) => {

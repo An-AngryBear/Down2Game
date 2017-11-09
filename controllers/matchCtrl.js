@@ -28,10 +28,12 @@ module.exports.getSimilarUsers = (req, res, next) => {
             });
             counter++;
             if(counter === userAnswerIds.length) {
-                next();
+                return next();
             }
         })
-        .catch( (err) => next(err));
+        .catch( (err) => {
+            return next(err);
+        });
     });
 }
 
@@ -74,9 +76,11 @@ module.exports.matchAlgorithm = (req, res, next) => {
             return parseFloat(b.matchPercent) - parseFloat(a.matchPercent);
         });
         res.locals.usersToShow = matchAdded;
-        next();
+        return next();
     })
-    .catch( (err) => next(err));
+    .catch( (err) => {
+        return next(err)
+    });
 }
 
 let getPercentage = (countObj, questionCount) => {

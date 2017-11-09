@@ -23,6 +23,9 @@ module.exports.getUserInfo = (req, res, next) => {
             userId: req.session.passport.user.id,
             viewedUser: req.params.id
         })
+    })
+    .catch( (err) => {
+        return next(err);
     });
 }
 
@@ -30,12 +33,11 @@ module.exports.getUserId = (req, res, next) => {
     res.redirect(`/user/${req.session.passport.user.id}`);
 }
 
+// multi use function for editing any of the user info one at a time
 module.exports.editUserInfo = (req, res, next) => {
-    console.log("edit user info")
     const { User } = req.app.get('models');
     User.findById(req.session.passport.user.id, {raw: true})
     .then( (data) => {
-        console.log("data", data)
         return User.update({
         screenName: req.body.screenName ? req.body.screenName : data.screenName,
         email: req.body.email ? req.body.email : data.email,
@@ -49,8 +51,10 @@ module.exports.editUserInfo = (req, res, next) => {
         }, {where: {id: req.session.passport.user.id}})
     })
     .then( (data1) => {
-        console.log("data1", data1)
         res.redirect(`/user/${req.session.passport.user.id}`)
+    })
+    .catch( (err) => {
+        return next(err);
     });
 }
 
@@ -76,5 +80,8 @@ module.exports.getScreenName = (req, res, next) => {
     .then( (data) => {
         console.log(data.screenName);
         res.send(data.screenName);
+    })
+    .catch( (err) => {
+        return next(err);
     });
 }

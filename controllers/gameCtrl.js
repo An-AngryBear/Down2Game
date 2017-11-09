@@ -11,7 +11,8 @@ module.exports.getStoredGames = (req, res, next) => {
     .then( (data) => {
         res.locals.storedGames = data;
         next();
-    });
+    })
+    .catch( (err) => next(err));
 }
 
 //gets the user's games and sets to res.locals.userGames, passes to next method
@@ -19,12 +20,13 @@ module.exports.getUserGames = (req, res, next) => {
     const { User } = req.app.get('models');    
     User.findById(req.params.id)
     .then( (user) => {
-        user.getGames({raw:true})
-        .then( (data) => {
-            res.locals.userGames = data;
-            next();
-        });
-    });
+        return user.getGames({raw:true})
+    })
+    .then( (data) => {
+        res.locals.userGames = data;
+        next();
+    })
+    .catch( (err) => next(err));
 }
 
 module.exports.checkGames = (req, res, next) => {
@@ -70,6 +72,7 @@ module.exports.postUserGame = (req, res, next) => {
         .then( (data) => {
             res.redirect(`/user/${req.session.passport.user.id}`)
         })
+        .catch( (err) => next(err));
     } else {
         User.findById(req.session.passport.user.id)
         .then( (user) => {
@@ -83,5 +86,6 @@ module.exports.postUserGame = (req, res, next) => {
         .then( (data) => {
             res.redirect(`/user/${req.session.passport.user.id}`)
         })
+        .catch( (err) => next(err));
     }
 }

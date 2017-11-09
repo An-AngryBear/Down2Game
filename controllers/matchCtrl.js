@@ -18,9 +18,7 @@ module.exports.getSimilarUsers = (req, res, next) => {
             return ans.getUsers({
                 raw: true,
                 where: {
-                    id: {
-                        [Op.not]: req.session.passport.user.id
-                    }
+                    id: { [Op.not]: req.session.passport.user.id }
                 }
             });
         })

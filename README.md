@@ -13,6 +13,7 @@ A full stack app with the purpose of matching video game enthusiasts together to
 - Pug
 - JQuery
 - Bootstrap
+- IGDB API
 
 ## Set up
 
@@ -27,6 +28,8 @@ A full stack app with the purpose of matching video game enthusiasts together to
 - Then seed the database with the ```sequelize db:seed:all``` command.
 
 - create ```/public/values``` folder
+
+- get an API key from [IGDB](https://www.igdb.com/api)
 
 - in this folder create a file called ```igdb-config``` with this inside:
 

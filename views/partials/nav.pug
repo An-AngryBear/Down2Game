@@ -2,7 +2,8 @@ nav(class="navbar navbar-inverse")
     .container-fluid
         .nav-link-container.pull-right
             ul(class="nav navbar-nav")
-                li: a(href="/inbox"): span.glyphicon.glyphicon-envelope
+                if session.passport
+                    li: a(href="/inbox"): span.glyphicon.glyphicon-envelope
                 li(class="dropdown")
                     a(class="dropdown-toggle" data-toggle="dropdown")
                         span.glyphicon.glyphicon-menu-hamburger

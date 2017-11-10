@@ -43,3 +43,9 @@ A full stack app with the purpose of matching video game enthusiasts together to
 
 - To run the project, run ```npm start``` on the command line and use whatever port you specify in your .env on localhost
 
+## Upcoming features
+
+- filter system
+- display that shows users what time a match typically plays (based on timezone)
+- save users as favorites
+

@@ -351,6 +351,10 @@ textarea.user-info {
 
 /* ********* match page styling ************* */
 
+.user-cards { 
+    margin-top: 1em;
+}
+
 .match-user-btn {
     display: block;
 }

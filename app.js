@@ -7,6 +7,7 @@ var session = require('express-session');
 var methodOverride = require('method-override')
 let bodyParser = require('body-parser');
 const flash = require('express-flash');
+let pg = require('pg');
 
 require('dotenv').config();
 const port = process.env.PORT || 4000;

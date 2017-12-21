@@ -23,13 +23,12 @@ let editInfo = (dataName, userData) => {
             resolve(data);
         });
     });
-}
-
+};
 
 $('#edit-blurb').click( function() {
     event.preventDefault();
     $('.blurb-input').show();
-    $('.blurb-display').hide()
+    $('.blurb-display').hide();
     $('#edit-blurb').hide();
 });
 
@@ -98,12 +97,14 @@ $('#timezone').change( function() {
 //enter works to submit text inputs
 $('.blurb-input').keypress( function() {
     if(event.keyCode == 13) {
+        let newInput = $(this).val();
         event.preventDefault();
-        console.log($(this).attr('data'), $(this).val());
-        editInfo($(this).attr('data'), $(this).val())
+        editInfo($(this).attr('data'), newInput)
         .then( (data) => {
-            console.log(data);
-        })
+            $(this).hide();
+            $('.blurb-display').text(newInput);
+            $('.blurb-display').show();
+        });
     }
 });
 

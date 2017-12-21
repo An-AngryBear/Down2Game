@@ -5,6 +5,27 @@
 
 
 // edit button functionality
+
+let editInfo = (dataName, userData) => {
+    console.log("edit called");
+    let args = {};
+    args[dataName] = userData;
+    return new Promise( (resolve, reject) => {
+        $.ajax({
+            type:"PUT",
+            data: args,
+            url: `/user/`,
+            success: function () { },
+            error: function () { }
+        })
+        .then( (data) => {
+            console.log("Success!")
+            resolve(data);
+        });
+    });
+}
+
+
 $('#edit-blurb').click( function() {
     event.preventDefault();
     $('.blurb-input').show();
@@ -78,7 +99,11 @@ $('#timezone').change( function() {
 $('.blurb-input').keypress( function() {
     if(event.keyCode == 13) {
         event.preventDefault();
-        this.form.submit();
+        console.log($(this).attr('data'), $(this).val());
+        editInfo($(this).attr('data'), $(this).val())
+        .then( (data) => {
+            console.log(data);
+        })
     }
 });
 

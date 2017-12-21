@@ -36,6 +36,7 @@ module.exports.getUserId = (req, res, next) => {
 // multi use function for editing any of the user info one at a time
 module.exports.editUserInfo = (req, res, next) => {
     const { User } = req.app.get('models');
+    console.log("*************REQ BODY***************", req.body)
     User.findById(req.session.passport.user.id, {raw: true})
     .then( (data) => {
         return User.update({
@@ -51,7 +52,7 @@ module.exports.editUserInfo = (req, res, next) => {
         }, {where: {id: req.session.passport.user.id}})
     })
     .then( (data1) => {
-        res.redirect(`/user/${req.session.passport.user.id}`)
+        res.status(200).send(data1);
     })
     .catch( (err) => {
         return next(err);

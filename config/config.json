@@ -1,0 +1,23 @@
+{
+  "development": {
+    "database": "down2game",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "username": "postgres",
+    "password": "rosie1987"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "joxvqfwfhnwira",
+    "password": "cb706577e418d95f8c8f6dee21cc46a42188e9acfac045a82470ddcadb9e5d8f",
+    "database": "d4tb21njjchmm",
+    "host": "ec2-23-23-150-141.compute-1.amazonaws.com",
+    "dialect": "postgres"
+}
+}

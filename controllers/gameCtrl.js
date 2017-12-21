@@ -2,7 +2,7 @@
 
 let request = require('request');
 const passport = require('passport');
-let { igdb } = require('../public/values/igdb-config');
+// let { igdb } = require('../public/values/igdb-config');
 
 //gets all stored games and sets to res.locals.storedGames, passes to next method
 module.exports.getStoredGames = (req, res, next) => {
@@ -44,7 +44,7 @@ module.exports.getIGDBgames = (req, res, next) => {
         url: `https://api-2445582011268.apicast.io/games/?search=${searchTerm}&fields=name,game_modes&filter[game_modes][eq]=2&filter[version_parent][not_exists]=1`,
         headers: {
             'Accept': 'application/json',
-            'user-key': igdb().key
+            'user-key': process.env.IGDB_KEY
         }
     }
     request.get(options, function(error, igdbRes, body) {

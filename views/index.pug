@@ -2,12 +2,12 @@ doctype html
 html
   head
     title Down2Game
-    link(rel="stylesheet" href="/public/lib/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
     link(rel="stylesheet" href="/public/css/main.css")
     link(href="https://fonts.googleapis.com/css?family=Orbitron|Press+Start+2P" rel="stylesheet")
 
   body(id="body")
-    script(src="/public/lib/jquery/dist/jquery.min.js")
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
     include partials/nav.pug
     block content
       .welcome
@@ -15,7 +15,7 @@ html
         h5(class="welcome-desc") Welcome to Down2Game! 
         h6(class="welcome-desc") Log in or register to find other gamers, based on your personality, habits, platform, etc
     //- libraries
-    script(src="/public/lib/bootstrap/dist/js/bootstrap.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
 
     //- client modules
     script(src="/public/js/profile.js")

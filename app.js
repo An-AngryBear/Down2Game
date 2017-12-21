@@ -7,6 +7,7 @@ var session = require('express-session');
 var methodOverride = require('method-override')
 let bodyParser = require('body-parser');
 const flash = require('express-flash');
+let pg = require('pg');
 
 require('dotenv').config();
 const port = process.env.PORT || 4000;
@@ -69,6 +70,4 @@ app.use( (err, req, res, next) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
-});
+app.listen(process.env.PORT || 3000);

@@ -5,10 +5,30 @@
 
 
 // edit button functionality
+
+let editInfo = (dataName, userData) => {
+    console.log("edit called");
+    let args = {};
+    args[dataName] = userData;
+    return new Promise( (resolve, reject) => {
+        $.ajax({
+            type:"PUT",
+            data: args,
+            url: `/user/`,
+            success: function () { },
+            error: function () { }
+        })
+        .then( (data) => {
+            console.log("Success!")
+            resolve(data);
+        });
+    });
+};
+
 $('#edit-blurb').click( function() {
     event.preventDefault();
     $('.blurb-input').show();
-    $('.blurb-display').hide()
+    $('.blurb-display').hide();
     $('#edit-blurb').hide();
 });
 
@@ -77,8 +97,14 @@ $('#timezone').change( function() {
 //enter works to submit text inputs
 $('.blurb-input').keypress( function() {
     if(event.keyCode == 13) {
+        let newInput = $(this).val();
         event.preventDefault();
-        this.form.submit();
+        editInfo($(this).attr('data'), newInput)
+        .then( (data) => {
+            $(this).hide();
+            $('.blurb-display').text(newInput);
+            $('.blurb-display').show();
+        });
     }
 });
 

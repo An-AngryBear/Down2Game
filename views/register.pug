@@ -1,21 +1,23 @@
 extends index.pug
 
 block content
-
-    div(class="loginForm welcome")
-        form(action="/register", method="post")
-            label(for="screenname") Screen Name: 
-            input(class="form-control register-input" type="text" id="screenname" placeholder="Screen Name" name="screenName", required)
-            label(for="email") Email: 
-            input(class="form-control register-input" type="text" id="email" placeholder="Email" name="email", required)
-            label(for="password") Password: 
-            input(class="form-control register-input" type="password" id="password" placeholder="Password" name="password", required)
-            label(for="password-confirm") Confirm Password: 
-            input(class="form-control register-input" type="password" id="password-confirm" placeholder="Confirm Password" name="confirmation", required)
-            label(for="birthdate") Birthdate: 
-            input(class="form-control register-input" type="date" id="birthdate" placeholder="Birthdate" name="birthdate", required)
-            label(for="language") Language: 
-            include partials/language.pug
-            label(for="timezone") Timezone:
-            include partials/timezone.pug
-            button(class="btn btn-primary" type="submit") Register
+    body(id="body" class="bg bg-reg")
+        include partials/nav.pug
+        div(class="loginForm welcome")
+            form(action="/register", method="post")
+                label(for="screenname") Screen Name: 
+                input(class="form-control register-input" type="text" id="screenname" placeholder="Screen Name" name="screenName", required)
+                label(for="email") Email: 
+                input(class="form-control register-input" type="text" id="email" placeholder="Email" name="email", required)
+                label(for="password") Password: 
+                input(class="form-control register-input" type="password" id="password" placeholder="Password" name="password", required)
+                label(for="password-confirm") Confirm Password: 
+                input(class="form-control register-input" type="password" id="password-confirm" placeholder="Confirm Password" name="confirmation", required)
+                label(for="birthdate") Birthdate: 
+                input(class="form-control register-input" type="date" id="birthdate" placeholder="Birthdate" name="birthdate", required)
+                label(for="language") Language: 
+                include partials/language.pug
+                label(for="timezone") Timezone:
+                include partials/timezone.pug
+                button(class="btn btn-primary" type="submit") Register
+        include partials/scripts.pug

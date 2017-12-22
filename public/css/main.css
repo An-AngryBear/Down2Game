@@ -1,11 +1,33 @@
-/* index */
-body { 
+/* ****** background images ****** */
+.bg-profile, .bg-match, .bg-quest {
+    background: url(/public/imgs/background.jpg) no-repeat center center fixed;
+}
+
+.bg-reg {
+    background: url(/public/imgs/keyboard.jpg) no-repeat center center fixed; 
+}
+
+.bg-login {
+    background: url(/public/imgs/gamepad.jpeg) no-repeat center center fixed; 
+}
+
+.bg-inbox {
+    background: url(/public/imgs/bluegamepad.jpg) no-repeat center center fixed;
+}
+
+.bg-main {
+    background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed;
+}
+
+.bg {
     background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+
+/* index */
 
 .welcome {
     padding: 1em;
@@ -51,8 +73,6 @@ h5.welcome-desc {
     margin: 1em auto;
 }
 
-
-
 .loginForm {
     margin-top: 1.4em;
     width: 30%;
@@ -62,7 +82,7 @@ h5.welcome-desc {
 
 
 /*********** profile page styling ***********/
-.hidden-game, .hidden-answer-submit, .hidden {
+.hidden-game, .hidden-answer-submit, .isHidden {
     display: none;
 }
 

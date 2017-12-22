@@ -1,10 +1,9 @@
 'use strict';
 
 // edit button functionality
-$('.edit').click( function() {
+$('.edit').click( function(event) {
     $('.input').hide();
     $('.edit').show();
-    console.log("edit click", $(this));
     event.preventDefault();
     $(this).siblings('.input').show();
     $(this).hide();
@@ -15,6 +14,8 @@ $('.input').focusout( function() {
     $('.user-info').show();
     $('.edit').show();
 });
+
+
 
 //filters games in database by search input, waits for user to finish typing
 let timeout = null;
@@ -33,11 +34,10 @@ $('#gameSearch').keyup( function() {
 });
 
 //click enter to submit user info
-$('.input').keypress( function() {
+$('.input').keydown( function(event) {
     if(event.keyCode == 13) {
-        let newInput = $(this).val();
-        console.log("thisvalue", $(this).val());
         event.preventDefault();
+        let newInput = $(this).val();
         editInfo($(this).attr('data'), newInput)
         .then( (data) => {
             $(this).hide();
@@ -51,7 +51,6 @@ $('.input').keypress( function() {
 $(document).on('click', "li.game-options", function() {
     addGame(this.textContent)
     .then( (data) => {
-        console.log("posted");
         $('#game-list').empty();
         $('.game-add-input').val("");
     });
@@ -100,7 +99,6 @@ let editInfo = (dataName, userData) => {
 
 //posts game to DB
 let addGame = (game) => {
-    console.log("GAME", game);
     return new Promise( (resolve, reject) => {
         $.ajax({
             type:"POST",

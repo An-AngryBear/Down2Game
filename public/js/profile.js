@@ -4,7 +4,6 @@
 $('.edit').click( function() {
     $('.input').hide();
     $('.edit').show();
-    console.log("edit click", $(this));
     event.preventDefault();
     $(this).siblings('.input').show();
     $(this).hide();
@@ -15,6 +14,8 @@ $('.input').focusout( function() {
     $('.user-info').show();
     $('.edit').show();
 });
+
+
 
 //filters games in database by search input, waits for user to finish typing
 let timeout = null;

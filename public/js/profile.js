@@ -6,24 +6,6 @@
 
 // edit button functionality
 
-let editInfo = (dataName, userData) => {
-    console.log("edit called");
-    let args = {};
-    args[dataName] = userData;
-    return new Promise( (resolve, reject) => {
-        $.ajax({
-            type:"PUT",
-            data: args,
-            url: `/user/`,
-            success: function () { },
-            error: function () { }
-        })
-        .then( (data) => {
-            console.log("Success!")
-            resolve(data);
-        });
-    });
-};
 
 $('#edit-blurb').click( function() {
     event.preventDefault();
@@ -86,32 +68,26 @@ $('#gameSearch').keyup( function() {
 });
 
 //listens for drop down changes to PUT new data in DB
-$('#language').change( function() {
-    $('#lang-submit').click();    
-});
-    
-$('#timezone').change( function() {
-    $('#timezone-submit').click();    
-});
+// $('#language').change( function() {
+//     $('#lang-submit').click();    
+// });
 
-//enter works to submit text inputs
-$('.blurb-input').keypress( function() {
+// $('#timezone').change( function() {
+//     $('#timezone-submit').click();    
+// });
+
+//click enter to submit open text inputs
+$('.input').keypress( function() {
     if(event.keyCode == 13) {
         let newInput = $(this).val();
+        console.log("thisvalue", $(this).val());
         event.preventDefault();
         editInfo($(this).attr('data'), newInput)
         .then( (data) => {
             $(this).hide();
-            $('.blurb-display').text(newInput);
-            $('.blurb-display').show();
+            $(this).siblings('.user-info').text(newInput);
+            $(this).siblings('.user-info').show();
         });
-    }
-});
-
-$('.email-input').keypress( function() {
-    if(event.keyCode == 13) {
-        event.preventDefault();
-        this.form.submit();
     }
 });
 
@@ -121,7 +97,9 @@ $(document).on('click', "li.game-options", function() {
     $('#hidden-game-submit').click();
 });
 
-//ajax call to game route, hits IGDB API
+// ************* AJAX **************
+
+//call to game route, hits IGDB API
 let getIgdbGames = () => {
     let searchTerm = $('#gameSearch').val();
     let noSpaces = searchTerm.replace(/ /g,"+");
@@ -140,8 +118,23 @@ let getIgdbGames = () => {
             resolve(gamelist);
         }); 
     });
-}
+};
 
-
-
-
+//call to edit user info in database
+let editInfo = (dataName, userData) => {
+    let args = {};
+    args[dataName] = typeof userData == 'string' ? userData : userData[0];
+    console.log(args);
+    return new Promise( (resolve, reject) => {
+        $.ajax({
+            type:"PUT",
+            data: args,
+            url: `/user/`,
+            success: function () { },
+            error: function () { }
+        })
+        .then( (data) => {
+            resolve(data);
+        });
+    });
+};

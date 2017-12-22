@@ -31,47 +31,41 @@ block content
                                     else
                                         p(class="blurb-display welcome-desc no-info") (#{screenName} has not filled out this field)
                 .edits.col-md-6
-                        .edit-forms
-                            .email-edit 
-                                form(method='POST', action=`/user?_method=PUT`)
-                                    h4(class="welcome-desc form-headers") Email
-                                    .user-info-edit
-                                        p(class="user-info email") #{email}
-                                        input(id="email-input" class="input hidden-email email-input form-control" type="text" name="email" value=email) 
-                                        if loggedUser
-                                            span(id="edit-email" role="button" class="edit glyphicon glyphicon-pencil")
-                                h4(class="welcome-desc form-headers") Birthdate
-                                .user-info-edit
-                                    p(class="user-info") #{birthdate}
-                            .language-edit
-                                form(method='POST', action=`/user?_method=PUT`)
-                                    h4(class="language welcome-desc form-headers") Language
-                                    .user-info-edit
-                                        p(class="user-info") #{language}
-                                        if loggedUser
-                                            .hidden-language.language-input.input
-                                                include partials/language
-                                            span(id="edit-language" role="button" class="edit glyphicon glyphicon-pencil")
-                                            button(type="submit" id="lang-submit" class="submit-language edit-submit hidden-language-submit") Submit
-                            .timezone-edit
-                                form(method='POST', action=`/user?_method=PUT`)
-                                    h4(class="timezone welcome-desc form-headers") Timezone
-                                    .user-info-edit
-                                        p(class="user-info") #{timezone}
-                                        if loggedUser
-                                            .hidden-timezone.timezone-input.input
-                                                include partials/timezone.pug
-                                            span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
-                                            button(type="submit" id="timezone-submit" class="submit-timezone edit-submit hidden-timezone-submit") Submit
-                            
-                        if loggedUser && questions.length !== usersAnswers.length
-                            .questions-link
-                                h4(class="welcome-desc"): a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!
-                        if loggedUser && questions.length === usersAnswers.length
-                            a(href="/user/" + viewedUser + "/questions"): button(class="btn btn-primary prof-btns") Review answers
-                            a(href="/user/" + userId + "/matches"): button(class="btn btn-primary prof-btns") See matches!
-                        if !loggedUser
-                            button(id=viewedUser + "-msg-id" type="button" class="btn btn-primary message-btn" data-toggle="modal" data-target="#msg-model") Message This User!
+                    .edit-forms
+                        .email-edit 
+                            h4(class="welcome-desc form-headers") Email
+                            .user-info-edit
+                                p(class="user-info email") #{email}
+                                input(id="email-input" class="input hidden-email email-input form-control" data="email" type="text" name="email" value=email) 
+                                if loggedUser
+                                    span(id="edit-email" role="button" class="edit glyphicon glyphicon-pencil")
+                            h4(class="welcome-desc form-headers") Birthdate
+                            .user-info-edit
+                                p(class="user-info") #{birthdate}
+                        .language-edit
+                            h4(class="language welcome-desc form-headers") Language
+                            .user-info-edit
+                                p(class="user-info") #{language}
+                                if loggedUser
+                                    include partials/language
+                                    span(id="edit-language" role="button" class="edit glyphicon glyphicon-pencil")
+                                    button(type="submit" id="lang-submit" class="submit-language edit-submit hidden-language-submit") Submit
+                        .timezone-edit
+                            h4(class="timezone welcome-desc form-headers") Timezone
+                            .user-info-edit
+                                p(class="user-info") #{timezone}
+                                if loggedUser
+                                    include partials/timezone.pug
+                                    span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
+                                    button(type="submit" id="timezone-submit" class="submit-timezone edit-submit hidden-timezone-submit") Submit
+                    if loggedUser && questions.length !== usersAnswers.length
+                        .questions-link
+                            h4(class="welcome-desc"): a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!
+                    if loggedUser && questions.length === usersAnswers.length
+                        a(href="/user/" + viewedUser + "/questions"): button(class="btn btn-primary prof-btns") Review answers
+                        a(href="/user/" + userId + "/matches"): button(class="btn btn-primary prof-btns") See matches!
+                    if !loggedUser
+                        button(id=viewedUser + "-msg-id" type="button" class="btn btn-primary message-btn" data-toggle="modal" data-target="#msg-model") Message This User!
             .col-sm-4.users-games
                 if loggedUser
                     .games

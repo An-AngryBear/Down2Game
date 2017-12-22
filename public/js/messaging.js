@@ -138,12 +138,11 @@ $('.inbox-btn').click( function() {
     });
 });
 
-$(document).keypress( function() {
+$(document).keypress( function(event) {
     if(event.keyCode == 13 && $('#msg-content').is(':focus')) {
         $('.send-msg').click();
         $('.send-msg-inbox').click();
         $('#msg-content').val('');
-        
     }
 })
 

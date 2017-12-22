@@ -6,53 +6,24 @@
 
 // edit button functionality
 
-
-$('#edit-blurb').click( function() {
-    event.preventDefault();
-    $('.blurb-input').show();
-    $('.blurb-display').hide();
-    $('#edit-blurb').hide();
-});
-
-$('#edit-email').click( function() {
-    event.preventDefault();
-    $('.email-input').show();
-    $('.email').hide();
-});
-
-$('#edit-language').click( function() {
-    event.preventDefault();
-    $('.language-input').show()
-});
-
-$('#edit-timezone').click( function() {
-    event.preventDefault();
-    $('.timezone-input').show();
-});
-
-$('#gameSearch').focus( function() {
-    $('.game-options').removeClass('hidden-list');
-});
-
-$('.edit').mousedown( function() {
-    $('.input').hide();
-    $('.blurb-display').show();
-    $('.edit').show();
-});
-
 $('.edit').click( function() {
+    $('.input').hide();
     $('.edit').show();
+    console.log("edit click", $(this));
+    event.preventDefault();
+    $(this).siblings('.input').show();
     $(this).hide();
+    // $(this).siblings('.user-info').hide();
 });
 
 $('.input').focusout( function() {
+    $(this).hide();
     $('.user-info').show();
     $('.edit').show();
 });
 
 //filters games in database by search input, waits for user to finish typing
 let timeout = null;
-
 $('#gameSearch').keyup( function() {
     clearTimeout(timeout);
     timeout = setTimeout( function() {
@@ -67,16 +38,7 @@ $('#gameSearch').keyup( function() {
     }, 500);
 });
 
-//listens for drop down changes to PUT new data in DB
-// $('#language').change( function() {
-//     $('#lang-submit').click();    
-// });
-
-// $('#timezone').change( function() {
-//     $('#timezone-submit').click();    
-// });
-
-//click enter to submit open text inputs
+//click enter to submit user info
 $('.input').keypress( function() {
     if(event.keyCode == 13) {
         let newInput = $(this).val();

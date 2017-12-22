@@ -62,8 +62,7 @@ h5.welcome-desc {
 
 
 /*********** profile page styling ***********/
-.hidden-email, .hidden-blurb, .hidden-language, .hidden-timezone, .hidden-game,
-.hidden-language-submit, .hidden-timezone-submit, .hidden-answer-submit {
+.hidden-game, .hidden-answer-submit, .hidden {
     display: none;
 }
 

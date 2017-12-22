@@ -18,52 +18,44 @@ block content
                             .blurb
                                 h4(class="welcome-desc") About:
                                 if loggedUser
+                                    span(id="edit-blurb" role="button" class="edit glyphicon glyphicon-pencil")
                                     if blurb
                                         p(class="blurb-display user-info welcome-desc") #{blurb}
-                                        textarea(class="input hidden-blurb blurb-input form-control" data="blurb" maxlength="200" rows="4" name="blurb") #{blurb}
+                                        textarea(class="input hidden blurb-input form-control" data="blurb" maxlength="200" rows="4" name="blurb") #{blurb}
                                     else
                                         p(class="blurb-display user-info welcome-desc") Give a brief description of yourself...
-                                        textarea(class="input hidden-blurb blurb-input user-info" data="blurb" maxlength="200" rows="4" name="blurb")
-                                    span(id="edit-blurb" role="button" class="edit glyphicon glyphicon-pencil")
+                                        textarea(class="input hidden blurb-input user-info" data="blurb" maxlength="200" rows="4" name="blurb")
                                 else
                                     if blurb
                                         p(class="blurb-display welcome-desc") #{blurb}
                                     else
                                         p(class="blurb-display welcome-desc no-info") (#{screenName} has not filled out this field)
-                .edits.col-md-6
+                    .edits.col-md-6
                         .edit-forms
                             .email-edit 
-                                form(method='POST', action=`/user?_method=PUT`)
-                                    h4(class="welcome-desc form-headers") Email
-                                    .user-info-edit
-                                        p(class="user-info email") #{email}
-                                        input(id="email-input" class="input hidden-email email-input form-control" type="text" name="email" value=email) 
-                                        if loggedUser
-                                            span(id="edit-email" role="button" class="edit glyphicon glyphicon-pencil")
+                                h4(class="welcome-desc form-headers") Email
+                                .user-info-edit
+                                    p(class="user-info email") #{email}
+                                    input(id="email-input" class="input hidden email-input form-control" data="email" type="text" name="email" value=email) 
+                                    if loggedUser
+                                        span(id="edit-email" role="button" class="edit glyphicon glyphicon-pencil")
                                 h4(class="welcome-desc form-headers") Birthdate
                                 .user-info-edit
                                     p(class="user-info") #{birthdate}
                             .language-edit
-                                form(method='POST', action=`/user?_method=PUT`)
-                                    h4(class="language welcome-desc form-headers") Language
-                                    .user-info-edit
-                                        p(class="user-info") #{language}
-                                        if loggedUser
-                                            .hidden-language.language-input.input
-                                                include partials/language
-                                            span(id="edit-language" role="button" class="edit glyphicon glyphicon-pencil")
-                                            button(type="submit" id="lang-submit" class="submit-language edit-submit hidden-language-submit") Submit
+                                h4(class="language welcome-desc form-headers") Language
+                                .user-info-edit
+                                    p(class="user-info") #{language}
+                                    if loggedUser
+                                        span(id="edit-language" role="button" class="edit glyphicon glyphicon-pencil")
+                                        include partials/language
                             .timezone-edit
-                                form(method='POST', action=`/user?_method=PUT`)
-                                    h4(class="timezone welcome-desc form-headers") Timezone
-                                    .user-info-edit
-                                        p(class="user-info") #{timezone}
-                                        if loggedUser
-                                            .hidden-timezone.timezone-input.input
-                                                include partials/timezone.pug
-                                            span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
-                                            button(type="submit" id="timezone-submit" class="submit-timezone edit-submit hidden-timezone-submit") Submit
-                            
+                                h4(class="timezone welcome-desc form-headers") Timezone
+                                .user-info-edit
+                                    p(class="user-info") #{timezone}
+                                    if loggedUser
+                                        span(id="edit-timezone" role="button" class="edit glyphicon glyphicon-pencil")
+                                        include partials/timezone.pug
                         if loggedUser && questions.length !== usersAnswers.length
                             .questions-link
                                 h4(class="welcome-desc"): a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!

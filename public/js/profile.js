@@ -1,11 +1,6 @@
 'use strict';
 
-//user to user interaction
-
-
-
 // edit button functionality
-
 $('.edit').click( function() {
     $('.input').hide();
     $('.edit').show();
@@ -13,7 +8,6 @@ $('.edit').click( function() {
     event.preventDefault();
     $(this).siblings('.input').show();
     $(this).hide();
-    // $(this).siblings('.user-info').hide();
 });
 
 $('.input').focusout( function() {
@@ -55,8 +49,12 @@ $('.input').keypress( function() {
 
 //posts game IGDB game to DB
 $(document).on('click', "li.game-options", function() {
-    $('#hidden-gamesearch').val(this.textContent);
-    $('#hidden-game-submit').click();
+    addGame(this.textContent)
+    .then( (data) => {
+        console.log("posted");
+        $('#game-list').empty();
+        $('.game-add-input').val("");
+    });
 });
 
 // ************* AJAX **************
@@ -86,7 +84,6 @@ let getIgdbGames = () => {
 let editInfo = (dataName, userData) => {
     let args = {};
     args[dataName] = typeof userData == 'string' ? userData : userData[0];
-    console.log(args);
     return new Promise( (resolve, reject) => {
         $.ajax({
             type:"PUT",
@@ -100,3 +97,22 @@ let editInfo = (dataName, userData) => {
         });
     });
 };
+
+//posts game to DB
+let addGame = (game) => {
+    console.log("GAME", game);
+    return new Promise( (resolve, reject) => {
+        $.ajax({
+            type:"POST",
+            data: { game },
+            url: `/games/`,
+            success: function () { },
+            error: function () { }
+        })
+        .then( (data) => {
+            resolve(data);
+        });
+    });
+};
+
+//gets user's games from DB

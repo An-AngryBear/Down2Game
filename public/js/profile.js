@@ -1,76 +1,23 @@
 'use strict';
 
-//user to user interaction
-
-
-
 // edit button functionality
-
-let editInfo = (dataName, userData) => {
-    console.log("edit called");
-    let args = {};
-    args[dataName] = userData;
-    return new Promise( (resolve, reject) => {
-        $.ajax({
-            type:"PUT",
-            data: args,
-            url: `/user/`,
-            success: function () { },
-            error: function () { }
-        })
-        .then( (data) => {
-            console.log("Success!")
-            resolve(data);
-        });
-    });
-};
-
-$('#edit-blurb').click( function() {
-    event.preventDefault();
-    $('.blurb-input').show();
-    $('.blurb-display').hide();
-    $('#edit-blurb').hide();
-});
-
-$('#edit-email').click( function() {
-    event.preventDefault();
-    $('.email-input').show();
-    $('.email').hide();
-});
-
-$('#edit-language').click( function() {
-    event.preventDefault();
-    $('.language-input').show()
-});
-
-$('#edit-timezone').click( function() {
-    event.preventDefault();
-    $('.timezone-input').show();
-});
-
-$('#gameSearch').focus( function() {
-    $('.game-options').removeClass('hidden-list');
-});
-
-$('.edit').mousedown( function() {
-    $('.input').hide();
-    $('.blurb-display').show();
-    $('.edit').show();
-});
-
 $('.edit').click( function() {
+    $('.input').hide();
     $('.edit').show();
+    console.log("edit click", $(this));
+    event.preventDefault();
+    $(this).siblings('.input').show();
     $(this).hide();
 });
 
 $('.input').focusout( function() {
+    $(this).hide();
     $('.user-info').show();
     $('.edit').show();
 });
 
 //filters games in database by search input, waits for user to finish typing
 let timeout = null;
-
 $('#gameSearch').keyup( function() {
     clearTimeout(timeout);
     timeout = setTimeout( function() {
@@ -85,43 +32,34 @@ $('#gameSearch').keyup( function() {
     }, 500);
 });
 
-//listens for drop down changes to PUT new data in DB
-$('#language').change( function() {
-    $('#lang-submit').click();    
-});
-    
-$('#timezone').change( function() {
-    $('#timezone-submit').click();    
-});
-
-//enter works to submit text inputs
-$('.blurb-input').keypress( function() {
+//click enter to submit user info
+$('.input').keypress( function() {
     if(event.keyCode == 13) {
         let newInput = $(this).val();
+        console.log("thisvalue", $(this).val());
         event.preventDefault();
         editInfo($(this).attr('data'), newInput)
         .then( (data) => {
             $(this).hide();
-            $('.blurb-display').text(newInput);
-            $('.blurb-display').show();
+            $(this).siblings('.user-info').text(newInput);
+            $(this).siblings('.user-info').show();
         });
-    }
-});
-
-$('.email-input').keypress( function() {
-    if(event.keyCode == 13) {
-        event.preventDefault();
-        this.form.submit();
     }
 });
 
 //posts game IGDB game to DB
 $(document).on('click', "li.game-options", function() {
-    $('#hidden-gamesearch').val(this.textContent);
-    $('#hidden-game-submit').click();
+    addGame(this.textContent)
+    .then( (data) => {
+        console.log("posted");
+        $('#game-list').empty();
+        $('.game-add-input').val("");
+    });
 });
 
-//ajax call to game route, hits IGDB API
+// ************* AJAX **************
+
+//call to game route, hits IGDB API
 let getIgdbGames = () => {
     let searchTerm = $('#gameSearch').val();
     let noSpaces = searchTerm.replace(/ /g,"+");
@@ -140,8 +78,41 @@ let getIgdbGames = () => {
             resolve(gamelist);
         }); 
     });
-}
+};
 
+//call to edit user info in database
+let editInfo = (dataName, userData) => {
+    let args = {};
+    args[dataName] = typeof userData == 'string' ? userData : userData[0];
+    return new Promise( (resolve, reject) => {
+        $.ajax({
+            type:"PUT",
+            data: args,
+            url: `/user/`,
+            success: function () { },
+            error: function () { }
+        })
+        .then( (data) => {
+            resolve(data);
+        });
+    });
+};
 
+//posts game to DB
+let addGame = (game) => {
+    console.log("GAME", game);
+    return new Promise( (resolve, reject) => {
+        $.ajax({
+            type:"POST",
+            data: { game },
+            url: `/games/`,
+            success: function () { },
+            error: function () { }
+        })
+        .then( (data) => {
+            resolve(data);
+        });
+    });
+};
 
-
+//gets user's games from DB

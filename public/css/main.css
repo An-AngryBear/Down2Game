@@ -1,17 +1,14 @@
 /* ****** background images ****** */
-
 .bg-profile, .bg-match, .bg-quest {
-    background: url(/public/imgs/background.jpg) no-repeat center center fixed; 
+    background: url(/public/imgs/background.jpg) no-repeat center center fixed;
 }
 
 .bg-reg {
     background: url(/public/imgs/keyboard.jpg) no-repeat center center fixed; 
-
 }
 
 .bg-login {
     background: url(/public/imgs/gamepad.jpeg) no-repeat center center fixed; 
-
 }
 
 .bg-inbox {
@@ -20,18 +17,16 @@
 
 .bg-main {
     background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed;
-
 }
 
-
-/* index */
-body { 
-    background-color: black;
+.bg {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+
+/* index */
 
 .welcome {
     padding: 1em;

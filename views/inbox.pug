@@ -1,29 +1,34 @@
 extends index.pug
 
 block content
-    h2(class="pix-header") Inbox
-    include partials/message-modal
-    div(id="inbox-container" class="container inbox" data=userId)
-        .list-group
-            if latestMessages
-                each userMsg in latestMessages
-                    if userMsg.senderId === userId
-                        li(id=userMsg.recipientId + "-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model")
-                            .row.inbox-messages
-                                .col-md-4
-                                    p(class="screen-name-inbox" data=userId) To: #{userMsg.screenName} 
-                                .col-md-4
-                                    p(class="message-content-inbox" data=userMsg.screenName) Last Message: #{userMsg.msgContent}
-                                .col-md-4
-                                    p(class="timestamp-inbox") #{userMsg.createdAt}
-                    else
-                        li(id=userMsg.senderId + "-user" role="button" class="list-group-item inbox-btn corresponding-users-post" data-toggle="modal" data-target="#msg-model") 
-                            .row.inbox-messages
-                                .col-md-4 
-                                    p(class="screen-name-inbox" data=userId) From: #{userMsg.screenName} 
-                                .col-md-4
-                                    p(class="message-content-inbox") Last Message: #{userMsg.msgContent}
-                                .col-md-4
-                                    p(class="timestamp-inbox") #{userMsg.createdAt}
-            else
-                h4(class="welcome-desc") There's nothing here
+    body(id="body" class="bg bg-inbox")
+        include partials/nav.pug
+        h2(class="pix-header") Inbox
+        include partials/message-modal
+        div(id="inbox-container" class="container inbox" data=userId)
+            .list-group
+                if latestMessages
+                    each userMsg in latestMessages
+                        if userMsg.senderId === userId
+                            li(id=userMsg.recipientId + "-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model")
+                                .row.inbox-messages
+                                    .col-md-4
+                                        p(class="screen-name-inbox" data=userId) To: #{userMsg.screenName} 
+                                    .col-md-4
+                                        p(class="message-content-inbox" data=userMsg.screenName) Last Message: #{userMsg.msgContent}
+                                    .col-md-4
+                                        p(class="timestamp-inbox") #{userMsg.createdAt}
+                        else
+                            li(id=userMsg.senderId + "-user" role="button" class="list-group-item inbox-btn corresponding-users-post" data-toggle="modal" data-target="#msg-model") 
+                                .row.inbox-messages
+                                    .col-md-4 
+                                        p(class="screen-name-inbox" data=userId) From: #{userMsg.screenName} 
+                                    .col-md-4
+                                        p(class="message-content-inbox") Last Message: #{userMsg.msgContent}
+                                    .col-md-4
+                                        p(class="timestamp-inbox") #{userMsg.createdAt}
+                else
+                    h4(class="welcome-desc") There's nothing here
+        include partials/scripts.pug
+        script(src="/public/js/messaging.js")
+

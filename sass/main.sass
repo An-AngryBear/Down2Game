@@ -18,42 +18,72 @@
 .bg-main
     background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed
 
-
 .bg
-    background-color: white
+    background-color: black
     -webkit-background-size: cover
     -moz-background-size: cover
     -o-background-size: cover
     background-size: cover
 
+// .wrapper
+//     display: flex
+//     min-height: 100vh
 
-/* index */
+// ************NAVBAR************
+                
+.navbar, .navbar-inverse 
+	border-radius: 0
+	border: none
+	margin-bottom: 0
+	min-height: 80px
+
+.nav li 
+	display: inline
+	color: white
+
+.navbar-inverse .navbar-nav > li > a 
+	color: #ffffff
+	font-family: Lato
+	font-size: 1.7em
+	font-weight: 300
+	padding: 30px 25px 33px 25px
+
+.navbar-inverse .navbar-nav li a:hover 
+	background-color: #444444
+	transition: 0.7s all linear
+	height: 100%
+
+
+
+
+// tablet and up
+@media only screen and (min-width : 600px)
+    .wrapper 
+        background-color: black //TEMP
+
+
+// desktop
+@media only screen and (min-width : 900px)
+    .wrapper
+        background-color: black //TEMP
+
+
+
+
+
 
 .welcome
-    padding: 1em
     text-align: center
     color: white
     background: rgba(0, 0, 0, 0.6)
-    width: 40%
     border-radius: 10px
     box-shadow: black 1px 1px 10px
-    margin-top: 1em
-    margin-left: 1em
 
 
 .pix-header
     font-family: 'Press Start 2P', cursive 
     color: white  
     text-align: center
-
-
-h3.pix-header
-    margin-bottom: 1em
-
-
-h5.welcome-desc
-    margin-bottom: 2em
-
 
 .welcome-desc
     font-family: 'Orbitron', sans-serif
@@ -63,22 +93,6 @@ h5.welcome-desc
 
 
 /* *******login******** */
-
-.login-email, .login-pass, .register-input
-    width: 300px
-    margin: 1em auto
-
-
-.login-btn
-    margin: 1em auto
-
-
-.loginForm
-    margin-top: 1.4em
-    width: 30%
-    min-width: 300px
-
-
 
 
 /*********** profile page styling ***********/
@@ -125,85 +139,40 @@ h5.welcome-desc
     text-align: center
 
 /* ****navbar***** */
-.navbar
-    height: 10vh
-    background-color: black
-    box-shadow: black 1px 2px 10px
 
 
-.nav span
-    font-size: 2em
-
-
-.prof-btns
-    display: block
-    width: 90%
-    margin: 1em auto
 
 .prof-select
-    width: 90%
-    margin: 1px auto
     text-align: center
     cursor: pointer
 
 
-#email-input
-    width: 250px
-    margin: 1px auto
-    text-align: center
-
-
 .account-info
-    padding: 25px
     text-align: center
     color: white
-    height: 50vh
     background: rgba(0, 0, 0, 0.7)
     border-radius: 10px
-    margin: 1em auto
     box-shadow: black 1px 1px 10px
-
-/* .account-info
-    background-color: #483A58
-    padding: 25px
-    border-radius: 10px
-    box-shadow: black 1px 2px 10px
-    color: white
- */
 
 .prof-select option:hover
     background-color: lightblue
 
-
 .edit
     color: white
-
 
 .user-info
     color: white
     display: inline
-    padding-right: 10px
-    margin: auto
-
-
 
 textarea.user-info
     color: black
-    display: none
-
-
 
 .user-info-edit
-    display: block
-    width: 95%
-    margin: auto
     text-align: center
-
 
 /********* column and row styling **********/
 .img
     text-align: center
-
 
 .img img
     max-width: 100%
@@ -235,12 +204,8 @@ textarea.user-info
 
 
 .game-list
-    padding: 0
     position: absolute
     background: black
-    margin: auto
-    width: 100%
-    display: block
     text-align: center
     border-bottom-left-radius: 10px
     border-bottom-right-radius: 10px 
@@ -249,16 +214,7 @@ textarea.user-info
 #saved-games-list
     text-align: left
 
-
-.saved-games
-    padding-bottom: 5px
-
-
 /*********** question page styling **********/
-/* .panel-body
-    color: white
-    background: rgba(0, 0, 0, 0.7)
- */
 
 .panel
     background: rgba(0, 0, 0, 0.7)
@@ -274,26 +230,10 @@ textarea.user-info
     border-bottom: black
     color: white
 
-
 .panel-danger > .panel-heading
     background: rgba(52, 11, 11, 0.7)
     border-bottom: black
     color: white
-
-
-.quest-col
-    max-height: 30%
-    min-height: 30%
-
-
-.row.eq-col-height
-    display: flex
-    flex-wrap: wrap
-
-
-/* .row.eq-col-height > [class*='col-']
-    flex-grow: 1
- */
 
 .radio-label
     padding-left: 10px
@@ -301,11 +241,7 @@ textarea.user-info
 
 
 .see-matches-link
-    width: 300px
     text-align: center
-    margin: 1em auto
-    display: block
-
 
 /* ********* match page styling ************* */
 
@@ -375,33 +311,8 @@ textarea.user-info
 .dropdown-opt:hover, .dropdown-opt li:hover
     color: black !important
 
-
-.flex-row
-    display: flex
-    flex-wrap: wrap
-
-.flex-row > [class*='col-']
-    display: flex
-	flex-direction: column
-
-.flex-row .thumbnail,
-.flex-row .caption
-    flex-direction: column
-	display: flex
-	flex: 1 0 auto
-	height: auto
-	position: relative
-
-.flex-text
-    flex-grow: 1
-
-.flex-row img
-    min-width: 0
-	width: 100%
-
 .quest-container
     margin-top: 1em
-
 
 .thumbnail
     background: rgba(0, 0, 0, 0.7)
@@ -414,7 +325,6 @@ textarea.user-info
 .inbox-btn
     font-family: 'Orbitron', sans-serif
     letter-spacing: .2em 
-
 
 li.inbox-btn
     background: rgba(0, 0, 0, 0.8)
@@ -453,8 +363,6 @@ li.inbox-btn:first-child
     background:rgba(255,255,255, 0.5)
     color: white
 
-
-
 ::-webkit-scrollbar
     width: 12px
 
@@ -470,7 +378,6 @@ li.inbox-btn:first-child
 
 #msg-content
     margin-bottom: 1em
-
 
 .modal
     position:absolute
@@ -492,15 +399,13 @@ li.inbox-btn:first-child
 
 .msg-box 
     background: rgba(0, 0, 0, 0)
-    /* background: url(/public/imgs/pixelart.jpg) no-repeat center center fixed  */
     -webkit-background-size: cover
     -moz-background-size: cover
     -o-background-size: cover
     background-size: cover
 
-
 .modal-body
-    height:50vh
+    height: 50vh
     overflow-y: scroll
     background-color: black
     background: rgba(0, 0, 0, 0.7)
@@ -509,10 +414,8 @@ li.inbox-btn:first-child
     -o-background-size: cover
     background-size: cover
 
-
 .modal-title
     color: white
-
 
 .inbox
     margin-top: 2em

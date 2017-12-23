@@ -6,7 +6,7 @@ var jshint = require('gulp-jshint');
 gulp.task('sass', function() {
     gulp.src('sass/**/*.sass')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./public/css/'));
+    .pipe(gulp.dest('public/css/'));
 });
 
 gulp.task('jshint', function () {
@@ -16,6 +16,6 @@ gulp.task('jshint', function () {
 });
 
 gulp.task('default', function() {
-    gulp.watch('sass/**/*.sass',['styles']);
+    gulp.watch('sass/**/*.sass',['sass']);
     gulp.watch('public/js/**/*.js', ['jshint']);
 });

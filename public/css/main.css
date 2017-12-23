@@ -1,532 +1,339 @@
 /* ****** background images ****** */
 .bg-profile, .bg-match, .bg-quest {
-    background: url(/public/imgs/background.jpg) no-repeat center center fixed;
-}
+  background: url(/public/imgs/background.jpg) no-repeat center center fixed; }
 
 .bg-reg {
-    background: url(/public/imgs/keyboard.jpg) no-repeat center center fixed; 
-}
+  background: url(/public/imgs/keyboard.jpg) no-repeat center center fixed; }
 
 .bg-login {
-    background: url(/public/imgs/gamepad.jpeg) no-repeat center center fixed; 
-}
+  background: url(/public/imgs/gamepad.jpeg) no-repeat center center fixed; }
 
 .bg-inbox {
-    background: url(/public/imgs/bluegamepad.jpg) no-repeat center center fixed;
-}
+  background: url(/public/imgs/bluegamepad.jpg) no-repeat center center fixed; }
 
 .bg-main {
-    background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed;
-}
+  background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed; }
 
 .bg {
-    background-color: black;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
-/* index */
+.navbar, .navbar-inverse {
+  border-radius: 0;
+  border: none;
+  margin-bottom: 0;
+  min-height: 80px; }
+
+.nav li {
+  display: inline;
+  color: white; }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #ffffff;
+  font-family: Lato;
+  font-size: 1.7em;
+  font-weight: 300;
+  padding: 30px 25px 33px 25px; }
+
+.navbar-inverse .navbar-nav li a:hover {
+  background-color: #444444;
+  transition: 0.7s all linear;
+  height: 100%; }
+
+@media only screen and (min-width: 600px) {
+  .wrapper {
+    background-color: black; } }
+
+@media only screen and (min-width: 900px) {
+  .wrapper {
+    background-color: black; } }
 
 .welcome {
-    padding: 1em;
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.6);
-    width: 40%;
-    border-radius: 10px;
-    box-shadow: black 1px 1px 10px;
-    margin-top: 1em;
-    margin-left: 1em;
-}
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  box-shadow: black 1px 1px 10px; }
 
 .pix-header {
-    font-family: 'Press Start 2P', cursive; 
-    color: white;  
-    text-align: center;
-}
-
-h3.pix-header {
-    margin-bottom: 1em;
-}
-
-h5.welcome-desc {
-    margin-bottom: 2em;
-}
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  text-align: center; }
 
 .welcome-desc {
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: .2em;  
-    color: white;
-    text-align: center;
-}
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: .2em;
+  color: white;
+  text-align: center; }
 
 /* *******login******** */
-
-.login-email, .login-pass, .register-input {
-    width: 300px;
-    margin: 1em auto;
-}
-
-.login-btn {
-    margin: 1em auto;
-}
-
-.loginForm {
-    margin-top: 1.4em;
-    width: 30%;
-    min-width: 300px;
-}
-
-
-
 /*********** profile page styling ***********/
 .hidden-game, .hidden-answer-submit, .isHidden {
-    display: none;
-}
+  display: none; }
 
 .profile-card {
-    background: rgba(0, 0, 0, 0.7);    
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px black;
-}
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black; }
 
 .users-games {
-    background: rgba(0, 0, 0, 0.7);    
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px black;
-}
-
-.avatar {   
-    border-radius: 10px;
-    width:100%;
-    max-width:250px;
-    max-height:250px;
-}
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black; }
 
 .message-btn {
-    background-color: #576CA8;
-    box-shadow: rgb(213, 205, 205) 1px 2px 10px;
-}
+  background-color: #576CA8;
+  box-shadow: #d5cdcd 1px 2px 10px; }
 
 .game-options {
-    list-style-type: none;
-    cursor:pointer;
-    text-align: center;
-}
-
-.account-info, .search-games {
-    text-align:center;
-}
+  list-style-type: none;
+  text-align: center; }
 
 .avatar-img-div {
-    text-align: center;
-}
+  text-align: center; }
 
 .blurb-edit {
-    color: white;
-    border-right: 2px solid rgba(0, 0, 0, 0.7);
-}
+  color: white;
+  border-right: 2px solid rgba(0, 0, 0, 0.7); }
 
 .account-head {
-    text-align: center;
-}
+  text-align: center; }
+
 /* ****navbar***** */
-.navbar {
-    height: 10vh;
-    background-color: black;
-    box-shadow: black 1px 2px 10px;
-}
-
-.nav span {
-    font-size: 2em;
-}
-
-.prof-btns {
-    display: block;
-    width: 90%;
-    margin: 1em auto;
-}
 .prof-select {
-    width: 90%;
-    margin:1px auto;
-    text-align: center;
-    cursor: pointer;
-}
-
-#email-input {
-    width: 250px;
-    margin:1px auto;
-    text-align: center;
-}
+  text-align: center;
+  cursor: pointer; }
 
 .account-info {
-    padding: 25px;
-    text-align: center;
-    color: white;
-    height:50vh;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    margin: 1em auto;
-    box-shadow: black 1px 1px 10px;
-}
-/* .account-info {
-    background-color: #483A58;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: black 1px 2px 10px;
-    color: white;
-} */
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: black 1px 1px 10px; }
 
 .prof-select option:hover {
-    background-color: lightblue;
-}
+  background-color: lightblue; }
 
 .edit {
-    color: white;
-}
+  color: white; }
 
 .user-info {
-    color: white;
-    display: inline;
-    padding-right: 10px;
-    margin: auto;
-}
-
+  color: white;
+  display: inline; }
 
 textarea.user-info {
-    color: black;
-    display: none;
-}
-
+  color: black; }
 
 .user-info-edit {
-    display: block;
-    width: 95%;
-    margin: auto;
-    text-align: center;
-}
+  text-align: center; }
 
 /********* column and row styling **********/
 .img {
-    text-align: center;
-}
+  text-align: center; }
 
 .img img {
-    max-width: 100%;
-    border: 1px solid black;
-    box-shadow: 1px 1px 10px black;
-    border-radius: 10px;
-}
-
+  max-width: 100%;
+  border: 1px solid black;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 10px; }
 
 .equal {
-    display: flex;
-    display: -webkit-flex;
-    flex-wrap: wrap;
-}
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap; }
 
 .game-add-input {
-    width: 100%;
-}
+  width: 100%; }
 
 .user-game-list {
-    list-style-type: none;
-    text-align: center;
-    color: white;
-}
-
-
-.game-form {
-    position:relative;
-}
+  list-style-type: none;
+  text-align: center;
+  color: white; }
 
 .game-list {
-    padding: 0;
-    position: absolute;
-    background: black;
-    margin: auto;
-    width: 100%;
-    display: block;
-    text-align: center;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; 
-}
+  position: absolute;
+  background: black;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; }
 
 #saved-games-list {
-    text-align: left;
-}
-
-.saved-games {
-    padding-bottom: 5px;
-}
+  text-align: left; }
 
 /*********** question page styling **********/
-/* .panel-body {
-    color: white;
-    background: rgba(0, 0, 0, 0.7);
-} */
-
 .panel {
-    background: rgba(0, 0, 0, 0.7);
-    border: none;   
-    color: white;
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: .2em; 
-    font-size: .8em;
-}
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: .2em;
+  font-size: .8em; }
 
 .panel-success > .panel-heading {
-    background: rgba(13, 52, 11, 0.7);
-    border-bottom: black;
-    color: white;
-}
+  background: rgba(13, 52, 11, 0.7);
+  border-bottom: black;
+  color: white; }
 
 .panel-danger > .panel-heading {
-    background: rgba(52, 11, 11, 0.7);
-    border-bottom: black;
-    color: white;
-}
-
-.quest-col {
-    max-height: 30%;
-    min-height: 30%;
-}
-
-.row.eq-col-height {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-/* .row.eq-col-height > [class*='col-'] {
-    flex-grow: 1;
-} */
+  background: rgba(52, 11, 11, 0.7);
+  border-bottom: black;
+  color: white; }
 
 .radio-label {
-    padding-left: 10px;
-    padding-right: 10px;
-}
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .see-matches-link {
-    width: 300px;
-    text-align: center;
-    margin: 1em auto;
-    display: block;
-}
+  text-align: center; }
 
 /* ********* match page styling ************* */
-
-.user-cards { 
-    margin-top: 1em;
-}
+.user-cards {
+  margin-top: 1em; }
 
 .match-user-btn {
-    display: block;
-}
+  display: block; }
+
 .match-percent, .match-screen-name, .match-blurb {
-    color: white;
-}
+  color: white; }
 
 .match-percent {
-    font-family: 'Press Start 2P', cursive; 
-}
+  font-family: 'Press Start 2P', cursive; }
 
 .match-screen-name, .match-blurb {
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: .2em;  
-}
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: .2em; }
 
 .match-blurb {
-    font-size: .8em;
-}
+  font-size: .8em; }
 
 .match-screen-name, .match-percent {
-    text-align: center;
-    margin-top: 0px;
-    margin-bottom: 5px;
-}
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 5px; }
 
 .filter-btn {
-    display: block;
-    margin: 1em auto;
-}
+  display: block;
+  margin: 1em auto; }
+
 #slide {
-    height: 0px;
-    transition: height 500ms ease;
-    background: rgba(0, 0, 0, 0.5);    
-    overflow: hidden;
-    box-shadow: inset black 0px -1px 10px;
-}
+  height: 0px;
+  transition: height 500ms ease;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  box-shadow: inset black 0px -1px 10px; }
 
 .filter-bar {
-    padding-left: 0;
-    padding-right: 0;
-}
+  padding-left: 0;
+  padding-right: 0; }
 
 .navbar-inverse {
-    margin: 0
-}
+  margin: 0; }
 
 .dropdown-menu {
-    background-color: black;
-    padding-top: 0;
-    padding-bottom: 0;
-}
+  background-color: black;
+  padding-top: 0;
+  padding-bottom: 0; }
 
 .dropdown-opt, .dropdown-opt li {
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: .2em;
-    color: white !important;
-}
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: .2em;
+  color: white !important; }
 
 .dropdown-opt:hover, .dropdown-opt li:hover {
-    color: black !important;
-}
+  color: black !important; }
 
-.flex-row {
-    display: flex;
-	flex-wrap: wrap;
-}
-.flex-row > [class*='col-'] {
-    display: flex;
-	flex-direction: column;
-}
-
-.flex-row .thumbnail,
-.flex-row .caption {
-    flex-direction: column;
-	display: flex;
-	flex: 1 0 auto;
-	height: auto;
-	position: relative;
-}
-.flex-text {
-    flex-grow: 1;
-}
-.flex-row img {
-    min-width: 0;
-	width: 100%;
-}
 .quest-container {
-    margin-top: 1em;
-}
+  margin-top: 1em; }
 
 .thumbnail {
-    background: rgba(0, 0, 0, 0.7);
-    border: none;
-    height: 95%;
-}
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  height: 95%; }
 
 /* ********** message and inbox styling ************ */
-
 .inbox-btn {
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: .2em; 
-}
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: .2em; }
 
 li.inbox-btn {
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    text-align: center;
-    border: 1px solid black    
-}
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  border: 1px solid black; }
 
 li.inbox-btn:first-child {
-    border-bottom: 0px;
-}
+  border-bottom: 0px; }
+
 .user-message {
-    list-style-type: none;
-    padding: 1em;
-    border-radius: 10px;
-    display: block;
-    border: 1px solid grey;
-    box-shadow: grey 1px 1px 5px;
-}
+  list-style-type: none;
+  padding: 1em;
+  border-radius: 10px;
+  display: block;
+  border: 1px solid grey;
+  box-shadow: grey 1px 1px 5px; }
 
 .current-user-msg {
-    text-align: right;
-    background:rgba(44,44,44, 0.5);
-    color: white;
-}
+  text-align: right;
+  color: white; }
 
 .btn-default, .btn-primary, .btn-info {
-    background:rgba(44,44,44, 0.5);
-    color: white;
-    border: 1px solid black;
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: .2em; 
-}
-.other-user-msg {
-    text-align: left;
-    background:rgba(255,255,255, 0.5);
-    color: white;
+  color: white;
+  border: 1px solid black;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: .2em; }
 
-}
+.other-user-msg {
+  text-align: left;
+  color: white; }
 
 ::-webkit-scrollbar {
-    width: 12px;
-}
- 
+  width: 12px; }
+
 ::-webkit-scrollbar-track {
-    border-radius: 10px;
-}
- 
+  border-radius: 10px; }
+
 ::-webkit-scrollbar-thumb {
-    background:rgba(255,255,255, 0.5);
-    border-radius: 10px;
-}
+  border-radius: 10px; }
 
 #msg-content {
-    margin-bottom: 1em;
-}
-
-.modal {
-    position:absolute;
-}
+  margin-bottom: 1em; }
 
 .modal-footer, .modal-content {
-    background: rgba(0, 0, 0, 0.5);
-    border: none
-}
+  background: rgba(0, 0, 0, 0.5);
+  border: none; }
 
 .modal-header {
-    background-color: black;
-    border-bottom: black;
-}
+  background-color: black;
+  border-bottom: black; }
 
 .modal-content {
-    margin-top: 7em;
-}
+  margin-top: 7em; }
 
-.msg-box { 
-    background: rgba(0, 0, 0, 0);
-    /* background: url(/public/imgs/pixelart.jpg) no-repeat center center fixed;  */
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
+.msg-box {
+  background: transparent;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 .modal-body {
-    height:50vh;
-    overflow-y: scroll;
-    background-color: black;
-    background: rgba(0, 0, 0, 0.7);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
+  height: 50vh;
+  overflow-y: scroll;
+  background-color: black;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 .modal-title {
-    color: white;
-}
+  color: white; }
 
 .inbox {
-    margin-top: 2em;
-}
+  margin-top: 2em; }
 
 li.inbox-btn:hover {
-    background-color: black;
-}
+  background-color: black; }

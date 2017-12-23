@@ -1,7 +1,7 @@
 // Sass Variables
 $orbitron: 'Orbitron', sans-serif
 $game-font: 'Press Start 2P', cursive
-$darksteam: #242020
+$darksteam: #292929
 
 
 
@@ -36,11 +36,11 @@ $darksteam: #242020
 // ************NAVBAR************
 
 .navbar
-    background-color: $darksteam
+    background-color: black
     .container
         .navbar-header
         .navbar-collapse
-            background-color: $darksteam
+            background-color: black
             .nav 
                 li
                     display: inline
@@ -55,6 +55,30 @@ $darksteam: #242020
                         transition: 0.7s all linear
                         height: 100%
 
+// ********LOGIN and INDEX**********
+.welcome
+    text-align: center
+    color: white
+    background: rgba(0, 0, 0, 0.6)
+    border-radius: 10px
+    box-shadow: black 1px 1px 10px
+    padding: 1em
+    .pix-header
+    font-family: $game-font
+    color: white  
+    text-align: center
+    .welcome-desc
+        font-family: $orbitron
+        letter-spacing: .2em  
+        color: white
+        text-align: center
+    .login-form
+        .login
+            width: 75%
+            margin: 1em auto
+        .login-btn
+            background-color: #292929
+
 // tablet and up
 @media only screen and (min-width : 768px)
     .wrapper 
@@ -65,29 +89,6 @@ $darksteam: #242020
 @media only screen and (min-width : 992px)
     .wrapper
         background-color: black //TEMP
-
-
-.welcome
-    text-align: center
-    color: white
-    background: rgba(0, 0, 0, 0.6)
-    border-radius: 10px
-    box-shadow: black 1px 1px 10px
-
-
-.pix-header
-    font-family: 'Press Start 2P', cursive 
-    color: white  
-    text-align: center
-
-.welcome-desc
-    font-family: 'Orbitron', sans-serif
-    letter-spacing: .2em  
-    color: white
-    text-align: center
-
-
-/* *******login******** */
 
 
 /*********** profile page styling ***********/

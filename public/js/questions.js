@@ -12,16 +12,15 @@ let postAnswerSelection = (currentUser, userAnswer, questId) => {
             error: function () { }
         })
         .then( (data) => {
-            console.log("Success!")
+            console.log("Success!");
             resolve(data);
         });
     });
-}
+};
 
 let answerCount = parseInt($('.useranswer-length').attr('data'));
 $('.radio-input').click( function() {
     let questionLength = parseInt($('.question-length').attr('data'));
-    console.log("questionlength", questionLength, "answerCount", answerCount)
     let currentUser = $('#quest-container').attr('data');
     let userAnswer = $(this).val();
     let question = $(this).closest('.panel-body').siblings('.panel-heading').attr('id');
@@ -36,7 +35,7 @@ $('.radio-input').click( function() {
                     <div class="col.lg-12">
                         <a class="see-matches-link" href="/user/${currentUser}/matches"><button class="btn btn-primary prof-btns">See Your Matches!</button></a>
                     </div
-                </div>`)
+                </div>`);
             window.location.href="#quest-container";
         }
     }

@@ -10,22 +10,22 @@ $('.send-msg').click( function() {
         $('.msg-box').append(`<li class="user-message current-user-msg">${msgContent}</li><br>`);
         let objDiv = document.getElementById("msg-modal-body");
         objDiv.scrollTop = objDiv.scrollHeight;
-    })
-})
+    });
+});
+
 //send-msg-inbox
 $('.send-msg-inbox').click( function(event) {
     let recipientId = parseInt($(this).attr('id'));
     let messageId = $(`#${recipientId}-user`);
-    let senderId = $('.screen-name-inbox').attr('data')
+    let senderId = $('.screen-name-inbox').attr('data');
     let msgContent = $('#msg-content').val();
-    let date = dateConverter(new Date())
+    let date = dateConverter(new Date());
     console.log(recipientId, msgContent);
     sendMessage(recipientId, msgContent)
     .then( (data) => {
         $('.msg-box').append(`<li class="user-message current-user-msg">${msgContent}</li><br>`);
         let objDiv = document.getElementById("msg-modal-body");
         objDiv.scrollTop = objDiv.scrollHeight;
-        console.log("message data", senderId)
         messageId.remove();
         getCurrentScreenName(recipientId)
         .then( (name) => {
@@ -43,12 +43,12 @@ $('.send-msg-inbox').click( function(event) {
                                             <p class="timestampe-inbox"> ${date}</p>
                                         </div>
                                     </div></li>`); //UPDATE inbox messages without refreshing page by inserting the new row in manually
-        })
-    })
+        });
+    });
 // li(id=userMsg.recipientId + "-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model")
 
 
-}) //TODO update modal header with screen name of other user
+}); //TODO update modal header with screen name of other user
 
 let dateConverter = (date) => {
     let month = date.getMonth() + 1;
@@ -56,7 +56,7 @@ let dateConverter = (date) => {
     let year = date.getFullYear();
     let newDate = `${month}/${day}/${year}`;
     return newDate;
-}
+};
 
 let getCurrentScreenName = (userId) => {
     return new Promise( (resolve, reject) => {
@@ -72,11 +72,10 @@ let getCurrentScreenName = (userId) => {
             }
         })
         .then( (data) => {
-            console.log("id", data)
             resolve(data);
         }); 
-    })
-}
+    });
+};
 
 let sendMessage = (recipientId, msgContent) => {
     return new Promise( (resolve, reject) => {
@@ -100,7 +99,7 @@ let sendMessage = (recipientId, msgContent) => {
             resolve();
         }); 
     });
-}
+};
 
 //Open Message Modal - GET
 
@@ -144,7 +143,7 @@ $(document).keypress( function(event) {
         $('.send-msg-inbox').click();
         $('#msg-content').val('');
     }
-})
+});
 
 let getMessages = (userBeingMessaged) => {
     return new Promise( (resolve, reject) => {
@@ -159,14 +158,12 @@ let getMessages = (userBeingMessaged) => {
             }
         })
         .then( (data) => {
-            console.log("messages", data)
             resolve(data);
         });
     });
-}
+};
 
 $(document).on('hide.bs.modal', '#msg-model', function (event) {
-    console.log("hiding modal");
     $('.msg-box').empty();
     $('#msg-content').val('');
     if(window.location.pathname === '/inbox') {

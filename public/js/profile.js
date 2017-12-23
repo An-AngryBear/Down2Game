@@ -15,8 +15,6 @@ $('.input').focusout( function() {
     $('.edit').show();
 });
 
-
-
 //filters games in database by search input, waits for user to finish typing
 let timeout = null;
 $('#gameSearch').keyup( function() {
@@ -27,7 +25,7 @@ $('#gameSearch').keyup( function() {
             let filter = $('#gameSearch').val().toUpperCase();
             $('#game-list').empty();
             for(let i = 0; i < data.length; i++) {
-                $('#game-list').append(`<li class="game-options"><a class="game-options">${data[i]}</a></li>`)
+                $('#game-list').append(`<li class="game-options"><a class="game-options">${data[i]}</a></li>`);
             }
         });
     }, 500);

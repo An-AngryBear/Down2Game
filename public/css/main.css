@@ -1,4 +1,11 @@
-/* ****** background images ****** */
+@font-face {
+  font-family: "Orbitron";
+  src: url(/public/css/fonts/Orbitron/Orbitron-Regular.ttf); }
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url(/public/css/fonts/Press_Start_2P/PressStart2P-Regular.ttf); }
+
 .bg-profile, .bg-match, .bg-quest {
   background: url(/public/imgs/background.jpg) no-repeat center center fixed; }
 
@@ -99,7 +106,6 @@
 .account-head {
   text-align: center; }
 
-/* ****navbar***** */
 .prof-select {
   text-align: center;
   cursor: pointer; }

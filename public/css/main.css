@@ -22,9 +22,9 @@
   background-size: cover; }
 
 .navbar {
-  background-color: #242020; }
+  background-color: black; }
   .navbar .container .navbar-collapse {
-    background-color: #242020; }
+    background-color: black; }
     .navbar .container .navbar-collapse .nav li {
       display: inline;
       color: white; }
@@ -38,6 +38,27 @@
         transition: 0.7s all linear;
         height: 100%; }
 
+.welcome {
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  box-shadow: black 1px 1px 10px;
+  padding: 1em;
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  text-align: center; }
+  .welcome .welcome-desc {
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: .2em;
+    color: white;
+    text-align: center; }
+  .welcome .login-form .login {
+    width: 75%;
+    margin: 1em auto; }
+  .welcome .login-form .login-btn {
+    background-color: #292929; }
+
 @media only screen and (min-width: 768px) {
   .wrapper {
     background-color: black; } }
@@ -46,25 +67,6 @@
   .wrapper {
     background-color: black; } }
 
-.welcome {
-  text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  box-shadow: black 1px 1px 10px; }
-
-.pix-header {
-  font-family: 'Press Start 2P', cursive;
-  color: white;
-  text-align: center; }
-
-.welcome-desc {
-  font-family: 'Orbitron', sans-serif;
-  letter-spacing: .2em;
-  color: white;
-  text-align: center; }
-
-/* *******login******** */
 /*********** profile page styling ***********/
 .hidden-game, .hidden-answer-submit, .isHidden {
   display: none; }

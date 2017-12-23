@@ -21,33 +21,28 @@
   -o-background-size: cover;
   background-size: cover; }
 
-.navbar, .navbar-inverse {
-  border-radius: 0;
-  border: none;
-  margin-bottom: 0;
-  min-height: 80px; }
+.navbar {
+  background-color: #242020; }
+  .navbar .container .navbar-collapse {
+    background-color: #242020; }
+    .navbar .container .navbar-collapse .nav li {
+      display: inline;
+      color: white; }
+      .navbar .container .navbar-collapse .nav li a {
+        text-align: center;
+        color: #ffffff;
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.7em; }
+      .navbar .container .navbar-collapse .nav li a:hover {
+        background-color: #444444;
+        transition: 0.7s all linear;
+        height: 100%; }
 
-.nav li {
-  display: inline;
-  color: white; }
-
-.navbar-inverse .navbar-nav > li > a {
-  color: #ffffff;
-  font-family: Lato;
-  font-size: 1.7em;
-  font-weight: 300;
-  padding: 30px 25px 33px 25px; }
-
-.navbar-inverse .navbar-nav li a:hover {
-  background-color: #444444;
-  transition: 0.7s all linear;
-  height: 100%; }
-
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
   .wrapper {
     background-color: black; } }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 992px) {
   .wrapper {
     background-color: black; } }
 

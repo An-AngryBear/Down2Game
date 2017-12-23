@@ -1,19 +1,23 @@
+// Sass Variables
+$orbitron: 'Orbitron', sans-serif
+$game-font: 'Press Start 2P', cursive
+$darksteam: #242020
+
+
+
+
 /* ****** background images ****** */
 .bg-profile, .bg-match, .bg-quest
     background: url(/public/imgs/background.jpg) no-repeat center center fixed
 
-
 .bg-reg
     background: url(/public/imgs/keyboard.jpg) no-repeat center center fixed 
-
 
 .bg-login
     background: url(/public/imgs/gamepad.jpeg) no-repeat center center fixed 
 
-
 .bg-inbox
     background: url(/public/imgs/bluegamepad.jpg) no-repeat center center fixed
-
 
 .bg-main
     background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed
@@ -26,50 +30,41 @@
     background-size: cover
 
 // .wrapper
-//     display: flex
-//     min-height: 100vh
+    //     display: flex
+    //     min-height: 100vh
 
 // ************NAVBAR************
-                
-.navbar, .navbar-inverse 
-	border-radius: 0
-	border: none
-	margin-bottom: 0
-	min-height: 80px
 
-.nav li 
-	display: inline
-	color: white
-
-.navbar-inverse .navbar-nav > li > a 
-	color: #ffffff
-	font-family: Lato
-	font-size: 1.7em
-	font-weight: 300
-	padding: 30px 25px 33px 25px
-
-.navbar-inverse .navbar-nav li a:hover 
-	background-color: #444444
-	transition: 0.7s all linear
-	height: 100%
-
-
-
+.navbar
+    background-color: $darksteam
+    .container
+        .navbar-header
+        .navbar-collapse
+            background-color: $darksteam
+            .nav 
+                li
+                    display: inline
+                    color: white
+                    a
+                        text-align: center
+                        color: #ffffff
+                        font-family: $orbitron
+                        font-size: 1.7em
+                    a:hover
+                        background-color: #444444
+                        transition: 0.7s all linear
+                        height: 100%
 
 // tablet and up
-@media only screen and (min-width : 600px)
+@media only screen and (min-width : 768px)
     .wrapper 
         background-color: black //TEMP
 
 
 // desktop
-@media only screen and (min-width : 900px)
+@media only screen and (min-width : 992px)
     .wrapper
         background-color: black //TEMP
-
-
-
-
 
 
 .welcome

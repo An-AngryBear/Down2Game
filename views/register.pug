@@ -3,7 +3,7 @@ extends index.pug
 block content
     body(id="body" class="bg bg-reg")
         include partials/nav.pug
-        div(class="loginForm welcome")
+        div(class="loginForm welcome register")
             form(action="/register", method="post")
                 label(for="screenname") Screen Name: 
                 input(class="form-control register-input" type="text" id="screenname" placeholder="Screen Name" name="screenName", required)

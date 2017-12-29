@@ -29,7 +29,6 @@ $darksteam: #292929
     background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed
 
 .bg
-    // background-color: black
     -webkit-background-size: cover
     -moz-background-size: cover
     -o-background-size: cover
@@ -73,7 +72,7 @@ hr
                         transition: 0.7s all linear
                         height: 100%
 
-// ******** login and index header **********
+// ******** login/index/register styling (mobile and up) **********
 .welcome
     text-align: center
     color: white
@@ -96,6 +95,19 @@ hr
             margin: 1em auto
         .login-btn
             background-color: #292929
+
+.register
+    border-radius: 0
+    form
+        label
+            font-family: $orbitron
+            letter-spacing: .2em
+        .prof-select
+            display: block
+            width: 100%
+            height: 13  vh
+        .btn-primary
+            margin-top: .5em
 
 // ****** profile page styling (mobile and up)******
 
@@ -232,6 +244,18 @@ hr
 // ****** TABLET STYLES ******
 @media only screen and (min-width : 768px)
 
+    // ****** register page styling (tablet) ******
+
+    .register
+        width: 80%
+        border-radius: 10px
+        margin: 1em auto
+        form
+            label
+                margin-top: 1em
+            .btn-primary
+                margin-top: 1.5em
+
     // ****** profile page styling (tablet) ******
     .wrapper
         flex-direction: row
@@ -254,6 +278,15 @@ hr
 // ****** DESKTOP STYLES ******
 
 @media only screen and (min-width : 992px)
+
+    // ****** register page styling (desktop) ******
+    .register
+        width: 40%
+        border-radius: 10px
+        margin: 1em 0 0 1em
+        form
+            label
+            .btn-primary
 
     // ****** profile page styling (desktop) ******
     .wrapper
@@ -282,8 +315,6 @@ hr
             width: 100%
             .pix-header
                 padding-bottom: .8em
-
-/*********** profile page styling ***********/
 
 /********* column and row styling **********/
 .img

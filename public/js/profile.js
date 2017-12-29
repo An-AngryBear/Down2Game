@@ -4,10 +4,12 @@
 $('.edit').click( function(event) {
     $('.info-display').show();
     $('.input').hide();
+    $('.img-input').hide();
     $('.edit').show();
     event.preventDefault();
     $(this).closest('.info').find('.info-display').css('display', 'none');
     $(this).closest('.info').find('.input').css('display', 'block');
+    $(this).closest('.info').find('.img-input').css('display', 'block');
     $(this).hide();
 });
 
@@ -33,9 +35,11 @@ $('.input').keydown( function(event) {
     if(event.keyCode == 13) {
         event.preventDefault();
         let newInput = $(this).val();
+        console.log(newInput);
         editInfo($(this).attr('data'), newInput)
         .then( (data) => {
             $(this).hide();
+            $('.img-input').hide();
             $(this).siblings('.info-display').text(newInput);
             $(this).siblings('.info-display').show();
             $('.edit').show();

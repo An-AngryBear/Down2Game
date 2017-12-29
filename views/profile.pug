@@ -6,11 +6,19 @@ block content
         include partials/message-modal
         .wrapper
             .user-card
-                .img
+                .img.info
                     if avatar
                         img(class="avatar" src=avatar)
                     else
                         img(src="/public/imgs/no_image.jpg")
+                    if loggedUser
+                        a(class="edit" role="button"): p(class="edit-img") Edit Image
+                        .img-input.isHidden
+                            p Enter image URL
+                            if avatar
+                                input(class="input" type="text" data="avatar" value=avatar)
+                            else
+                                input(class="input" type="text")
                 .page-head
                     h3(id="user-name" class="user-name pix-header" data=userId) #{screenName}
                     hr

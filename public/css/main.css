@@ -109,8 +109,18 @@ hr {
         flex: 1;
         color: white; }
     .wrapper .user-card .img {
-      flex: 3; }
+      flex: 3;
+      font-family: "Orbitron", sans-serif;
+      color: white; }
       .wrapper .user-card .img img {
+        width: 100%; }
+      .wrapper .user-card .img .edit-img {
+        margin-top: 1em; }
+      .wrapper .user-card .img .img-input {
+        margin-top: 1em;
+        font-size: .9em;
+        background-color: transparent; }
+      .wrapper .user-card .img input {
         width: 100%; }
     .wrapper .user-card .blurb {
       flex: 2; }
@@ -170,8 +180,9 @@ hr {
   margin: auto;
   background: rgba(0, 0, 0, 0.4);
   color: white;
-  font-size: 1.2em;
-  font-family: "Orbitron", sans-serif; }
+  font-size: 1.1em;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: .1em; }
 
 .info-head {
   margin-left: 1em; }

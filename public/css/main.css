@@ -77,6 +77,25 @@ hr {
   .welcome .login-form .login-btn {
     background-color: #292929; }
 
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  font-family: "Orbitron", sans-serif;
+  text-align: center; }
+  .nav-tabs li a {
+    padding-left: 5px;
+    padding-right: 5px; }
+  .nav-tabs li.active a {
+    height: 100%; }
+  .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
+    background-color: #292929;
+    color: white; }
+
+.plat-tab {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  flex-grow: 1; }
+
 .info-display {
   color: white;
   text-align: center;
@@ -100,27 +119,7 @@ hr {
 .blurb-input {
   display: block; }
 
-.nav-tabs {
-  display: flex;
-  justify-content: center;
-  font-family: "Orbitron", sans-serif;
-  text-align: center; }
-  .nav-tabs li a {
-    padding-left: 5px;
-    padding-right: 5px; }
-  .nav-tabs li.active a {
-    height: 100%; }
-  .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
-    background-color: #292929;
-    color: white; }
-
-.plat-tab {
-  width: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  flex-grow: 1; }
-
 .info-head {
-  width: 50%;
   margin-left: 1em; }
   .info-head .edit-header {
     display: inline;
@@ -154,8 +153,14 @@ hr {
         min-height: 22vh;
         border-radius: 0; }
   .wrapper .user-info-edit {
-    flex: 1; }
+    flex: 1;
+    display: flex;
+    flex-direction: column; }
+    .wrapper .user-info-edit .email-edit, .wrapper .user-info-edit .birthdate-edit, .wrapper .user-info-edit .language-edit, .wrapper .user-info-edit .timezone-edit,
+    .wrapper .user-info-edit .last-logged, .wrapper .user-info-edit .playtime {
+      flex: 1; }
     .wrapper .user-info-edit .btn-container {
+      flex: 1;
       text-align: center; }
   .wrapper .users-games {
     flex: 1; }
@@ -164,11 +169,29 @@ hr {
 
 @media only screen and (min-width: 768px) {
   .wrapper {
-    background-color: black; } }
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .wrapper .user-card .img img {
+      width: 50%; }
+    .wrapper .user-card .blurb .blurb-input {
+      min-height: 19vh; }
+    .wrapper .users-games {
+      min-width: 100%; } }
 
 @media only screen and (min-width: 992px) {
   .wrapper {
-    background-color: black; } }
+    max-width: 80%;
+    margin: 1em auto; }
+    .wrapper .user-card {
+      padding: 2em; }
+      .wrapper .user-card .img img {
+        width: 50%; }
+    .wrapper .user-info-edit {
+      padding: 2em; }
+    .wrapper .users-games {
+      padding: 2em; } }
 
 /*********** profile page styling ***********/
 .hidden-game, .hidden-answer-submit, .isHidden {

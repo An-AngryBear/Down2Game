@@ -10,10 +10,11 @@ html(lang="en")
     link(rel="stylesheet" href="/public/css/main.css")
 
   block content
-    body(id="body" class="bg bg-main wrapper")
+    body(id="body" class="bg bg-main")
       include partials/nav.pug
-      .welcome
-        h3(class="pix-header") Down2Game
-        h5(class="welcome-desc") Welcome to Down2Game! 
-        h6(class="welcome-desc") Log in or register to find other gamers, based on your personality, habits, platform, etc
-      include partials/scripts.pug
+      .wrapper.home-wrapper
+        .welcome
+          h3(class="pix-header") Down2Game
+          h5(class="welcome-desc") Welcome to Down2Game! 
+          h6(class="welcome-desc") Log in or register to find other gamers, based on your personality, habits, platform, etc
+        include partials/scripts.pug

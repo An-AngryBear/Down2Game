@@ -82,55 +82,6 @@ hr {
   .welcome .login-form .login-btn {
     background-color: #292929; }
 
-.nav-tabs {
-  display: flex;
-  justify-content: center;
-  font-family: "Orbitron", sans-serif;
-  text-align: center; }
-  .nav-tabs li a {
-    padding-left: 5px;
-    padding-right: 5px; }
-  .nav-tabs li.active a {
-    height: 100%; }
-  .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
-    background-color: #292929;
-    color: white; }
-
-.plat-tab {
-  width: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  flex-grow: 1; }
-
-.info-display {
-  color: white;
-  text-align: center;
-  font-family: "Orbitron", sans-serif;
-  letter-spacing: .1em;
-  padding: .5em; }
-
-.edit-header {
-  color: white; }
-
-.input {
-  width: 80%;
-  margin: auto;
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
-  font-size: 1.2em;
-  font-family: "Orbitron", sans-serif; }
-
-.info-display {
-  word-wrap: break-word; }
-
-.blurb-input {
-  display: block; }
-
-.info-head {
-  margin-left: 1em; }
-  .info-head .edit-header {
-    display: inline;
-    margin-right: 1em; }
-
 .wrapper {
   display: flex;
   flex-direction: column; }
@@ -156,6 +107,8 @@ hr {
         width: 80%;
         display: block; }
       .wrapper .user-card .blurb .blurb-input {
+        display: block;
+        display: none;
         min-height: 22vh;
         border-radius: 0; }
   .wrapper .user-info-edit {
@@ -173,39 +126,48 @@ hr {
     .wrapper .users-games .owned-games .saved-games-list {
       padding: 0; }
 
-@media only screen and (min-width: 768px) {
-  .wrapper {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap; }
-    .wrapper .user-card .img img {
-      width: 50%; }
-    .wrapper .user-card .blurb .blurb-input {
-      min-height: 19vh; }
-    .wrapper .users-games {
-      min-width: 100%; } }
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  font-family: "Orbitron", sans-serif;
+  text-align: center; }
+  .nav-tabs li a {
+    padding-left: 5px;
+    padding-right: 5px; }
+  .nav-tabs li.active a {
+    height: 100%; }
+  .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
+    background-color: #292929;
+    color: white; }
 
-@media only screen and (min-width: 992px) {
-  .wrapper {
-    max-width: 80%;
-    margin: 1em auto; }
-    .wrapper .user-card {
-      padding: 2em 0 2em 2em; }
-      .wrapper .user-card .img img {
-        width: 50%; }
-    .wrapper .user-info-edit {
-      padding: 2em 2em 0 2em; }
-    .wrapper .users-games {
-      padding: 2em; }
-  .home-wrapper, .login-wrapper {
-    margin: 2em 0 0 2em;
-    max-width: 40%; }
-    .home-wrapper .welcome, .login-wrapper .welcome {
-      width: 100%; }
-      .home-wrapper .welcome .pix-header, .login-wrapper .welcome .pix-header {
-        padding-bottom: .8em; } }
+.plat-tab {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  flex-grow: 1; }
 
-/*********** profile page styling ***********/
+.info-display {
+  color: white;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: .1em;
+  padding: .5em;
+  word-wrap: break-word; }
+
+.input {
+  width: 80%;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 1.2em;
+  font-family: "Orbitron", sans-serif; }
+
+.info-head {
+  margin-left: 1em; }
+  .info-head .edit-header {
+    display: inline;
+    margin-right: 1em;
+    color: white; }
+
 .hidden-game, .hidden-answer-submit, .isHidden {
   display: none; }
 
@@ -238,19 +200,51 @@ hr {
   text-align: center;
   cursor: pointer; }
 
-.account-info {
-  text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  box-shadow: black 1px 1px 10px; }
-
 .prof-select option:hover {
   background-color: lightblue; }
 
 .edit {
   color: white; }
 
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .wrapper .user-card {
+      padding-top: 1em; }
+      .wrapper .user-card .img img {
+        width: 50%; }
+      .wrapper .user-card .blurb .blurb-input {
+        min-height: 19vh; }
+    .wrapper .user-info-edit {
+      padding-top: 1em; }
+    .wrapper .users-games {
+      min-width: 100%; } }
+
+@media only screen and (min-width: 992px) {
+  .wrapper {
+    max-width: 80%;
+    margin: 1em auto; }
+    .wrapper .user-card {
+      padding: 2em 0 2em 2em; }
+      .wrapper .user-card .img img {
+        width: 50%; }
+      .wrapper .user-card .blurb .user-info {
+        width: 100%; }
+    .wrapper .user-info-edit {
+      padding: 2em 2em 0 0; }
+    .wrapper .users-games {
+      padding: 2em; }
+  .home-wrapper, .login-wrapper {
+    margin: 2em 0 0 2em;
+    max-width: 40%; }
+    .home-wrapper .welcome, .login-wrapper .welcome {
+      width: 100%; }
+      .home-wrapper .welcome .pix-header, .login-wrapper .welcome .pix-header {
+        padding-bottom: .8em; } }
+
+/*********** profile page styling ***********/
 /********* column and row styling **********/
 .img {
   text-align: center; }

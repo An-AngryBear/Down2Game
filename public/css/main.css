@@ -22,11 +22,22 @@
   background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed; }
 
 .bg {
-  background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+
+h4, h3 {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700; }
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  width: 80%; }
 
 .navbar {
   background-color: black; }
@@ -48,7 +59,7 @@
 .welcome {
   text-align: center;
   color: white;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   box-shadow: black 1px 1px 10px;
   padding: 1em;
@@ -66,6 +77,70 @@
   .welcome .login-form .login-btn {
     background-color: #292929; }
 
+.info-display {
+  color: white;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: .1em; }
+
+.edit-header {
+  color: white; }
+
+.input {
+  width: 80%;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 1.2em;
+  font-family: "Orbitron", sans-serif; }
+
+.info-display {
+  word-wrap: break-word; }
+
+.blurb-input {
+  display: block; }
+
+.info-head {
+  width: 50%;
+  margin-left: 1em; }
+  .info-head .edit-header {
+    display: inline;
+    margin-right: 1em; }
+
+.wrapper {
+  display: flex;
+  flex-direction: column; }
+  .wrapper .user-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: auto; }
+    .wrapper .user-card .page-head {
+      display: flex;
+      flex-direction: column; }
+      .wrapper .user-card .page-head .user-name {
+        flex: 1;
+        color: white; }
+    .wrapper .user-card .img {
+      flex: 3; }
+      .wrapper .user-card .img img {
+        width: 100%; }
+    .wrapper .user-card .blurb {
+      flex: 2; }
+      .wrapper .user-card .blurb .blurb-display {
+        margin: auto;
+        width: 80%;
+        display: block; }
+      .wrapper .user-card .blurb .blurb-input {
+        min-height: 22vh;
+        border-radius: 0; }
+  .wrapper .user-info-edit {
+    flex: 1; }
+  .wrapper .users-games {
+    flex: 1; }
+    .wrapper .users-games .owned-games .saved-games-list {
+      padding: 0; }
+
 @media only screen and (min-width: 768px) {
   .wrapper {
     background-color: black; } }
@@ -78,15 +153,8 @@
 .hidden-game, .hidden-answer-submit, .isHidden {
   display: none; }
 
-.profile-card {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  box-shadow: 1px 1px 10px black; }
-
-.users-games {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  box-shadow: 1px 1px 10px black; }
+.users-games, .user-info-edit, .user-card {
+  background: rgba(0, 0, 0, 0.7); }
 
 .message-btn {
   background-color: #576CA8;
@@ -94,6 +162,10 @@
 
 .game-options {
   list-style-type: none;
+  cursor: pointer;
+  text-align: center; }
+
+.search-games {
   text-align: center; }
 
 .avatar-img-div {
@@ -123,16 +195,6 @@
 .edit {
   color: white; }
 
-.user-info {
-  color: white;
-  display: inline; }
-
-textarea.user-info {
-  color: black; }
-
-.user-info-edit {
-  text-align: center; }
-
 /********* column and row styling **********/
 .img {
   text-align: center; }
@@ -140,8 +202,7 @@ textarea.user-info {
 .img img {
   max-width: 100%;
   border: 1px solid black;
-  box-shadow: 1px 1px 10px black;
-  border-radius: 10px; }
+  box-shadow: 1px 1px 10px black; }
 
 .equal {
   display: flex;

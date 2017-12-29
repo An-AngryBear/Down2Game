@@ -29,12 +29,24 @@ $darksteam: #292929
     background: url(/public/imgs/ds4.jpeg) no-repeat center center fixed
 
 .bg
-    background-color: black
+    // background-color: black
     -webkit-background-size: cover
     -moz-background-size: cover
     -o-background-size: cover
     background-size: cover
 
+h4, h3
+    text-align: center
+    font-family: $orbitron
+    text-transform: uppercase
+    font-weight: 700
+
+hr
+    margin-top: 10px
+    margin-bottom: 10px
+    color: white
+    width: 80%
+    
 // ****** navbar ******
 .navbar
     background-color: black
@@ -60,7 +72,7 @@ $darksteam: #292929
 .welcome
     text-align: center
     color: white
-    background: rgba(0, 0, 0, 0.6)
+    background: rgba(0, 0, 0, 0.7)
     border-radius: 10px
     box-shadow: black 1px 1px 10px
     padding: 1em
@@ -80,6 +92,73 @@ $darksteam: #292929
         .login-btn
             background-color: #292929
 
+// ****** profile page ******
+.info-display
+    color: white
+    text-align: center
+    font-family: $orbitron
+    letter-spacing: .1em
+
+.edit-header
+    color: white
+
+.input
+    width: 80%
+    margin: auto
+    background: rgba(0, 0, 0, 0.4)
+    color: white
+    font-size: 1.2em
+    font-family: $orbitron
+
+.info-display
+    word-wrap: break-word
+
+.blurb-input 
+    display: block
+
+.info-head
+    width: 50%
+    margin-left: 1em
+    .edit-header
+        display: inline
+        margin-right: 1em
+
+.wrapper
+    display: flex
+    flex-direction: column
+    .user-card
+        flex: 1
+        display: flex
+        flex-direction: column
+        height: auto
+        .page-head
+            display: flex
+            flex-direction: column
+            .user-name
+                flex: 1
+                color: white
+        .img
+            flex: 3
+            img
+                width: 100%
+        .blurb
+            // min-height: 25vh
+            flex: 2
+            .blurb-display
+                margin: auto
+                width: 80%
+                display: block
+            .blurb-input
+                min-height: 22vh
+                border-radius: 0
+    .user-info-edit
+        flex: 1
+    .users-games
+        flex: 1
+        .owned-games
+            .saved-games-list
+                padding: 0
+
 // tablet and up
 @media only screen and (min-width : 768px)
     .wrapper 
@@ -96,18 +175,8 @@ $darksteam: #292929
 .hidden-game, .hidden-answer-submit, .isHidden
     display: none
 
-
-.profile-card
+.users-games, .user-info-edit, .user-card
     background: rgba(0, 0, 0, 0.7)    
-    border-radius: 10px
-    box-shadow: 1px 1px 10px black
-
-
-.users-games
-    background: rgba(0, 0, 0, 0.7)    
-    border-radius: 10px
-    box-shadow: 1px 1px 10px black
-
 
 .message-btn
     background-color: #576CA8
@@ -116,12 +185,12 @@ $darksteam: #292929
 
 .game-options
     list-style-type: none
-    cursor:pointer
+    cursor: pointer
     text-align: center
 
 
-.account-info, .search-games
-    text-align:center
+.search-games
+    text-align: center
 
 .avatar-img-div
     text-align: center
@@ -153,16 +222,6 @@ $darksteam: #292929
 .edit
     color: white
 
-.user-info
-    color: white
-    display: inline
-
-textarea.user-info
-    color: black
-
-.user-info-edit
-    text-align: center
-
 /********* column and row styling **********/
 .img
     text-align: center
@@ -171,9 +230,6 @@ textarea.user-info
     max-width: 100%
     border: 1px solid black
     box-shadow: 1px 1px 10px black
-    border-radius: 10px
-
-
 
 .equal
     display: flex
@@ -206,6 +262,7 @@ textarea.user-info
 
 #saved-games-list
     text-align: left
+    
 
 /*********** question page styling **********/
 

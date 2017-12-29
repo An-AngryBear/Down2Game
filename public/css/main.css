@@ -100,6 +100,17 @@ hr {
 .blurb-input {
   display: block; }
 
+.nav-tabs {
+  display: flex;
+  justify-content: center; }
+  .nav-tabs li.active a {
+    height: 100%; }
+
+.plat-tab {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  flex-grow: 1; }
+
 .info-head {
   width: 50%;
   margin-left: 1em; }
@@ -136,6 +147,8 @@ hr {
         border-radius: 0; }
   .wrapper .user-info-edit {
     flex: 1; }
+    .wrapper .user-info-edit .btn-container {
+      text-align: center; }
   .wrapper .users-games {
     flex: 1; }
     .wrapper .users-games .owned-games .saved-games-list {

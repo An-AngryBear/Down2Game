@@ -41,7 +41,7 @@ module.exports.checkGames = (req, res, next) => {
 module.exports.getIGDBgames = (req, res, next) => {
     let searchTerm = req.params.searchTerm;
     let options = {
-        url: `https://api-2445582011268.apicast.io/games/?search=${searchTerm}&fields=name,game_modes&filter[game_modes][eq]=2&filter[version_parent][not_exists]=1`,
+        url: `https://api-2445582011268.apicast.io/games/?search=${searchTerm}&fields=name,platforms,game_modes&filter[game_modes][eq]=2&filter[version_parent][not_exists]=1&filter[release_dates.platform][any]=48,49,6,130,12,41,9`,
         headers: {
             'Accept': 'application/json',
             'user-key': process.env.IGDB_KEY

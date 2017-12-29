@@ -68,11 +68,12 @@ block content
                 if loggedUser && questions.length !== usersAnswers.length
                     .questions-link
                         h4(class=""): a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!
-                if loggedUser && questions.length === usersAnswers.length
-                    a(href="/user/" + viewedUser + "/questions"): button(class="btn btn-primary prof-btns") Review answers
-                    a(href="/user/" + userId + "/matches"): button(class="btn btn-primary prof-btns") See matches!
-                if !loggedUser
-                    button(id=viewedUser + "-msg-id" type="button" class="btn btn-primary message-btn" data-toggle="modal" data-target="#msg-model") Message This User!
+                .btn-container
+                    if loggedUser && questions.length === usersAnswers.length
+                        a(href="/user/" + viewedUser + "/questions"): button(class="btn btn-primary prof-btns") Review answers
+                        a(href="/user/" + userId + "/matches"): button(class="btn btn-primary prof-btns") See matches!
+                    if !loggedUser
+                        button(id=viewedUser + "-msg-id" type="button" class="btn btn-primary message-btn" data-toggle="modal" data-target="#msg-model") Message This User!
             .users-games
                 if loggedUser
                     .games
@@ -86,6 +87,7 @@ block content
                         if userGames
                             each game in userGames
                                 li(class="user-game-list") #{game.name} 
+                    include partials/owned-games.pug
         include partials/scripts.pug
         script(src="/public/js/profile.js")
         script(src="/public/js/messaging.js")

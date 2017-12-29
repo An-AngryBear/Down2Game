@@ -28,6 +28,7 @@ app.set('view engine', 'pug');
 
 //access to public folder
 app.use('/public', express.static(__dirname + '/public'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 let routes = require('./routes/');
 

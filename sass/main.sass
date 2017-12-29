@@ -35,6 +35,11 @@ $darksteam: #292929
     -o-background-size: cover
     background-size: cover
 
+h2
+    font-family: $game-font
+    color: white
+    text-align: center
+
 h4, h3
     text-align: center
     font-family: $orbitron
@@ -120,6 +125,7 @@ hr
     text-align: center
     font-family: $orbitron
     letter-spacing: .1em
+    padding: .5em
 
 .edit-header
     color: white
@@ -192,7 +198,6 @@ hr
 @media only screen and (min-width : 768px)
     .wrapper
         flex-direction: row
-        align-content: space-between
         justify-content: center
         flex-wrap: wrap
         .user-card
@@ -209,13 +214,16 @@ hr
             min-width: 100%
 
 
-// desktop
+// ****** DESKTOP STYLES ******
+
 @media only screen and (min-width : 992px)
+
+    // ****** profile page styling (desktop) ******
     .wrapper
         max-width: 80%
         margin: 1em auto
         .user-card
-            padding: 2em
+            padding: 2em 0 2em 2em
             .page-head
             .img
                 img
@@ -223,10 +231,19 @@ hr
             .blurb
                 .blurb-input
         .user-info-edit
-            padding: 2em
+            padding: 2em 2em 0 2em
         .users-games
             padding: 2em
 
+    // ****** index/login page styling (desktop) ******
+
+    .home-wrapper, .login-wrapper
+        margin: 2em 0 0 2em
+        max-width: 40%
+        .welcome
+            width: 100%
+            .pix-header
+                padding-bottom: .8em
 
 /*********** profile page styling ***********/
 .hidden-game, .hidden-answer-submit, .isHidden
@@ -454,7 +471,7 @@ li.inbox-btn:first-child
 
 
 .btn-default, .btn-primary, .btn-info
-    background:rgba(44,44,44, 0.5)
+    background: rgba(44,44,44, 0.8)
     color: white
     border: 1px solid black
     font-family: 'Orbitron', sans-serif
@@ -462,7 +479,7 @@ li.inbox-btn:first-child
 
 .other-user-msg
     text-align: left
-    background:rgba(255,255,255, 0.5)
+    background: rgba(44,44,44, 0.8)
     color: white
 
 ::-webkit-scrollbar

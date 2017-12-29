@@ -97,59 +97,7 @@ hr
         .login-btn
             background-color: #292929
 
-// ****** profile page ******
-
-    // ***platform tabs****
-.nav-tabs
-    display: flex
-    justify-content: center
-    font-family: $orbitron
-    text-align: center
-    li a
-        padding-left: 5px
-        padding-right: 5px
-    li.active a
-        height: 100%
-    li.active a, li.active a:focus, li.active a:hover
-        background-color: $darksteam
-        color: white
-        
-.plat-tab
-    width: 100%
-    background: rgba(0, 0, 0, 0.3)
-    flex-grow: 1
-
-
-.info-display
-    color: white
-    text-align: center
-    font-family: $orbitron
-    letter-spacing: .1em
-    padding: .5em
-
-.edit-header
-    color: white
-
-.input
-    width: 80%
-    margin: auto
-    background: rgba(0, 0, 0, 0.4)
-    color: white
-    font-size: 1.2em
-    font-family: $orbitron
-
-.info-display
-    word-wrap: break-word
-
-.blurb-input 
-    display: block
-
-
-.info-head
-    margin-left: 1em
-    .edit-header
-        display: inline
-        margin-right: 1em
+// ****** profile page styling (mobile and up)******
 
 .wrapper
     display: flex
@@ -172,12 +120,16 @@ hr
         .blurb
             flex: 2
             .blurb-display
+
                 margin: auto
                 width: 80%
                 display: block
             .blurb-input
+                display: block
+                display: none
                 min-height: 22vh
                 border-radius: 0
+                
     .user-info-edit
         flex: 1
         display: flex
@@ -194,58 +146,51 @@ hr
             .saved-games-list
                 padding: 0
 
-// tablet and up
-@media only screen and (min-width : 768px)
-    .wrapper
-        flex-direction: row
-        justify-content: center
-        flex-wrap: wrap
-        .user-card
-            
-            .page-head
-            .img
-                img
-                    width: 50%
-            .blurb
-                .blurb-input
-                    min-height: 19vh
-        .user-info-edit
-        .users-games
-            min-width: 100%
+    // ***platform tabs****
+.nav-tabs
+    display: flex
+    justify-content: center
+    font-family: $orbitron
+    text-align: center
+    li a
+        padding-left: 5px
+        padding-right: 5px
+    li.active a
+        height: 100%
+    li.active a, li.active a:focus, li.active a:hover
+        background-color: $darksteam
+        color: white
+        
+.plat-tab
+    width: 100%
+    background: rgba(0, 0, 0, 0.3)
+    flex-grow: 1
 
+    // ******
 
-// ****** DESKTOP STYLES ******
+.info-display
+    color: white
+    text-align: center
+    font-family: $orbitron
+    letter-spacing: .1em
+    padding: .5em
+    word-wrap: break-word
 
-@media only screen and (min-width : 992px)
+.input
+    width: 80%
+    margin: auto
+    background: rgba(0, 0, 0, 0.4)
+    color: white
+    font-size: 1.2em
+    font-family: $orbitron
 
-    // ****** profile page styling (desktop) ******
-    .wrapper
-        max-width: 80%
-        margin: 1em auto
-        .user-card
-            padding: 2em 0 2em 2em
-            .page-head
-            .img
-                img
-                    width: 50%
-            .blurb
-                .blurb-input
-        .user-info-edit
-            padding: 2em 2em 0 2em
-        .users-games
-            padding: 2em
+.info-head
+    margin-left: 1em
+    .edit-header
+        display: inline
+        margin-right: 1em
+        color: white
 
-    // ****** index/login page styling (desktop) ******
-
-    .home-wrapper, .login-wrapper
-        margin: 2em 0 0 2em
-        max-width: 40%
-        .welcome
-            width: 100%
-            .pix-header
-                padding-bottom: .8em
-
-/*********** profile page styling ***********/
 .hidden-game, .hidden-answer-submit, .isHidden
     display: none
 
@@ -267,11 +212,9 @@ hr
 .avatar-img-div
     text-align: center
 
-
 .blurb-edit
     color: white
     border-right: 2px solid rgba(0, 0, 0, 0.7)
-
 
 .account-head
     text-align: center
@@ -280,18 +223,67 @@ hr
     text-align: center
     cursor: pointer
 
-.account-info
-    text-align: center
-    color: white
-    background: rgba(0, 0, 0, 0.7)
-    border-radius: 10px
-    box-shadow: black 1px 1px 10px
-
 .prof-select option:hover
     background-color: lightblue
 
 .edit
     color: white
+
+// ****** TABLET STYLES ******
+@media only screen and (min-width : 768px)
+
+    // ****** profile page styling (tablet) ******
+    .wrapper
+        flex-direction: row
+        justify-content: center
+        flex-wrap: wrap
+        .user-card
+            padding-top: 1em
+            .page-head
+            .img
+                img
+                    width: 50%
+            .blurb
+                .blurb-input
+                    min-height: 19vh
+        .user-info-edit
+            padding-top: 1em
+        .users-games
+            min-width: 100%
+
+// ****** DESKTOP STYLES ******
+
+@media only screen and (min-width : 992px)
+
+    // ****** profile page styling (desktop) ******
+    .wrapper
+        max-width: 80%
+        margin: 1em auto
+        .user-card
+            padding: 2em 0 2em 2em
+            .page-head
+            .img
+                img
+                    width: 50%
+            .blurb
+                .user-info
+                    width: 100%
+        .user-info-edit
+            padding: 2em 2em 0 0
+        .users-games
+            padding: 2em
+
+    // ****** index/login page styling (desktop) ******
+
+    .home-wrapper, .login-wrapper
+        margin: 2em 0 0 2em
+        max-width: 40%
+        .welcome
+            width: 100%
+            .pix-header
+                padding-bottom: .8em
+
+/*********** profile page styling ***********/
 
 /********* column and row styling **********/
 .img

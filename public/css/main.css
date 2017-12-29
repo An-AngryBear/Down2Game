@@ -102,9 +102,17 @@ hr {
 
 .nav-tabs {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  font-family: "Orbitron", sans-serif;
+  text-align: center; }
+  .nav-tabs li a {
+    padding-left: 5px;
+    padding-right: 5px; }
   .nav-tabs li.active a {
     height: 100%; }
+  .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
+    background-color: #292929;
+    color: white; }
 
 .plat-tab {
   width: 100%;

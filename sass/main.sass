@@ -93,6 +93,28 @@ hr
             background-color: #292929
 
 // ****** profile page ******
+
+    // ***platform tabs****
+.nav-tabs
+    display: flex
+    justify-content: center
+    font-family: $orbitron
+    text-align: center
+    li a
+        padding-left: 5px
+        padding-right: 5px
+    li.active a
+        height: 100%
+    li.active a, li.active a:focus, li.active a:hover
+        background-color: $darksteam
+        color: white
+        
+.plat-tab
+    width: 100%
+    background: rgba(0, 0, 0, 0.3)
+    flex-grow: 1
+
+
 .info-display
     color: white
     text-align: center
@@ -116,30 +138,8 @@ hr
 .blurb-input 
     display: block
 
-// ***navtabs****
-.nav-tabs
-    display: flex
-    justify-content: center
-    font-family: $orbitron
-    text-align: center
-    li a
-        padding-left: 5px
-        padding-right: 5px
-    li.active a
-        height: 100%
-    li.active a, li.active a:focus, li.active a:hover
-        background-color: $darksteam
-        color: white
-        
 
-.plat-tab
-    width: 100%
-    background: rgba(0, 0, 0, 0.3)
-    flex-grow: 1
-
-// *******
 .info-head
-    width: 50%
     margin-left: 1em
     .edit-header
         display: inline
@@ -174,7 +174,13 @@ hr
                 border-radius: 0
     .user-info-edit
         flex: 1
+        display: flex
+        flex-direction: column
+        .email-edit, .birthdate-edit, .language-edit, .timezone-edit,
+        .last-logged, .playtime
+            flex: 1
         .btn-container
+            flex: 1
             text-align: center
     .users-games
         flex: 1
@@ -184,14 +190,42 @@ hr
 
 // tablet and up
 @media only screen and (min-width : 768px)
-    .wrapper 
-        background-color: black //TEMP
+    .wrapper
+        flex-direction: row
+        align-content: space-between
+        justify-content: center
+        flex-wrap: wrap
+        .user-card
+            
+            .page-head
+            .img
+                img
+                    width: 50%
+            .blurb
+                .blurb-input
+                    min-height: 19vh
+        .user-info-edit
+        .users-games
+            min-width: 100%
 
 
 // desktop
 @media only screen and (min-width : 992px)
     .wrapper
-        background-color: black //TEMP
+        max-width: 80%
+        margin: 1em auto
+        .user-card
+            padding: 2em
+            .page-head
+            .img
+                img
+                    width: 50%
+            .blurb
+                .blurb-input
+        .user-info-edit
+            padding: 2em
+        .users-games
+            padding: 2em
 
 
 /*********** profile page styling ***********/

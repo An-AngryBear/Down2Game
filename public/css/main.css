@@ -27,6 +27,11 @@
   -o-background-size: cover;
   background-size: cover; }
 
+h2 {
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  text-align: center; }
+
 h4, h3 {
   text-align: center;
   font-family: "Orbitron", sans-serif;
@@ -100,7 +105,8 @@ hr {
   color: white;
   text-align: center;
   font-family: "Orbitron", sans-serif;
-  letter-spacing: .1em; }
+  letter-spacing: .1em;
+  padding: .5em; }
 
 .edit-header {
   color: white; }
@@ -170,7 +176,6 @@ hr {
 @media only screen and (min-width: 768px) {
   .wrapper {
     flex-direction: row;
-    align-content: space-between;
     justify-content: center;
     flex-wrap: wrap; }
     .wrapper .user-card .img img {
@@ -185,13 +190,20 @@ hr {
     max-width: 80%;
     margin: 1em auto; }
     .wrapper .user-card {
-      padding: 2em; }
+      padding: 2em 0 2em 2em; }
       .wrapper .user-card .img img {
         width: 50%; }
     .wrapper .user-info-edit {
-      padding: 2em; }
+      padding: 2em 2em 0 2em; }
     .wrapper .users-games {
-      padding: 2em; } }
+      padding: 2em; }
+  .home-wrapper, .login-wrapper {
+    margin: 2em 0 0 2em;
+    max-width: 40%; }
+    .home-wrapper .welcome, .login-wrapper .welcome {
+      width: 100%; }
+      .home-wrapper .welcome .pix-header, .login-wrapper .welcome .pix-header {
+        padding-bottom: .8em; } }
 
 /*********** profile page styling ***********/
 .hidden-game, .hidden-answer-submit, .isHidden {
@@ -388,6 +400,7 @@ li.inbox-btn:first-child {
   color: white; }
 
 .btn-default, .btn-primary, .btn-info {
+  background: rgba(44, 44, 44, 0.8);
   color: white;
   border: 1px solid black;
   font-family: 'Orbitron', sans-serif;
@@ -395,6 +408,7 @@ li.inbox-btn:first-child {
 
 .other-user-msg {
   text-align: left;
+  background: rgba(44, 44, 44, 0.8);
   color: white; }
 
 ::-webkit-scrollbar {

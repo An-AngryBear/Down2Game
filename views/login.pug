@@ -3,12 +3,13 @@ extends index.pug
 block content
     body(id="body" class="bg bg-login")
         include partials/nav.pug
-        div(class="welcome")
-            h1(class="pix-header") Log In
-            form(class="login-form" action="/login", method="post")
-                input(class="form-control login" type="email" placeholder="email" name="email")
-                input(class="form-control login" type="password" placeholder="password" name="password")
-                button(class="btn btn-primary login-btn" type="submit") LOGIN
-                //- button(class="btn btn-primary login-btn" type="submit") sign up
-        include partials/scripts.pug
-    
+        .wrapper.login-wrapper
+            .welcome
+                h1(class="pix-header") Log In
+                form(class="login-form" action="/login", method="post")
+                    input(class="form-control login" type="email" placeholder="email" name="email")
+                    input(class="form-control login" type="password" placeholder="password" name="password")
+                    button(class="btn btn-primary login-btn" type="submit") LOGIN
+                    //- button(class="btn btn-primary login-btn" type="submit") sign up
+            include partials/scripts.pug
+        

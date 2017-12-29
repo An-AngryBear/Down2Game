@@ -1,16 +1,16 @@
-nav(class="navbar navbar-inverse")
-    .container-fluid
-        .nav-link-container.pull-right
+nav(class="navbar navbar-inverse navbar-static-top" role="navigation")
+    .container
+        .navbar-header
+            button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav")
+                span(class="sr-only") Toggle navigation
+                span(class="icon-bar")
+                span(class="icon-bar")
+                span(class="icon-bar")
+        div(class="collapse navbar-collapse" id="nav")
             ul(class="nav navbar-nav")
+                if !session.passport
+                    li: a(href="/register") Register
+                    li: a(href="/login") Login
                 if session.passport
-                    li: a(href="/inbox"): span.glyphicon.glyphicon-envelope
-                li(class="dropdown")
-                    a(class="dropdown-toggle" data-toggle="dropdown")
-                        span.glyphicon.glyphicon-menu-hamburger
-                    ul(class="dropdown-menu dropdown-menu-right")
-                        li: a(class="dropdown-opt" href="/user") Profile
-                        if !session.passport
-                            li: a(class="dropdown-opt" href="/register") Register
-                            li: a(class="dropdown-opt" href="/login") Login
-                        if session.passport
-                            li: a(class="dropdown-opt" href="/logout") Logout
+                    li: a(href="/user") Profile
+                    li: a(href="/logout") Logout

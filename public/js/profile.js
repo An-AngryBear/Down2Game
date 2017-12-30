@@ -113,4 +113,22 @@ let addGame = (game) => {
     });
 };
 
+//croppie
+var basic = $('#crop-body').croppie({
+    viewport: {
+        width: 200,
+        height: 200
+    },
+    showZoomer: false
+});
+
+$('#crop-modal').on('shown.bs.modal', function (e) {
+    console.log("trigger");
+    basic.croppie('bind', {
+        url: 'https://i.imgur.com/xD9rzSt.jpg',
+    });
+});
+
+
+
 //gets user's games from DB

@@ -172,7 +172,7 @@ hr {
 
 .crop-body {
   height: 350px;
-  background-color: white; }
+  background-color: black; }
 
 .cr-slider {
   border-radius: 10px;
@@ -470,7 +470,7 @@ li.inbox-btn:first-child {
   flex-direction: column; }
 
 .modal-footer, .modal-content {
-  background: rgba(0, 0, 0, 0.5);
+  background: black;
   border: none; }
 
 .modal-footer {

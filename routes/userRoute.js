@@ -3,13 +3,14 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getUserInfo, editUserInfo, getUserId, getScreenName } = require('../controllers/userCtrl');
+const { getUserInfo, editUserInfo, getUserId, getScreenName, saveProfileImg } = require('../controllers/userCtrl');
 const { getStoredGames, getIGDBgames, getUserGames } = require('../controllers/gameCtrl');
 const { getUserAnswers, getQuestions } = require('../controllers/questionCtrl');
 const { renderMatchPage, getSimilarUsers, matchAlgorithm } = require('../controllers/matchCtrl');
 
 
 router.put('/user', isLoggedIn, editUserInfo, getStoredGames, getUserInfo)
+router.put('/user/images', isLoggedIn, saveProfileImg)
 router.get('/user/:id', isLoggedIn, getStoredGames, getQuestions, getUserAnswers, getUserGames, getUserInfo)
 router.get('/user/:id/screenname', isLoggedIn, getScreenName)
 router.get('/user/:id/matches',isLoggedIn, isLoggedUser, getUserAnswers, getSimilarUsers, matchAlgorithm, renderMatchPage) //getUsers, getUserAnswers

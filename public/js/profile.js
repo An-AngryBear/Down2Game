@@ -113,22 +113,54 @@ let addGame = (game) => {
     });
 };
 
-//croppie
-var basic = $('#crop-body').croppie({
-    viewport: {
-        width: 200,
-        height: 200
-    },
-    showZoomer: false
-});
+let addUserImage = (image) => {
+    return new Promise( (resolve, reject) => {
+        $.ajax({
+            type:"PUT",
+            data: { image },
+            url: `/user/images`,
+            success: function () { },
+            error: function () { }
+        })
+        .then( (data) => {
+            console.log("success");
+            resolve(data);
+        });
+    });
+};
 
-$('#crop-modal').on('shown.bs.modal', function (e) {
-    console.log("trigger");
+//******croppie******
+
+var basic;
+//takes image from URL and applies it to the cropper    
+$('#img-submit').on('click', function (e) {
+    basic = $('#crop-body').croppie({
+        viewport: {
+            width: 200,
+            height: 200
+        },
+        showZoomer: false
+    });
+    let imageURL = $('#img-url').val();
+    console.log("trigger", imageURL);
     basic.croppie('bind', {
-        url: 'https://i.imgur.com/xD9rzSt.jpg',
+        url: `${imageURL}`,
     });
 });
 
+$('#save-img').on('click', function (event) {
+    basic.croppie('result', 'base64', {
+        size: {
+            width: 600,
+            height: 600
+        }
+    }).then( (data) => {
+        addUserImage(data)
+        .then( (data2) => {
+            console.log(data2);
+        })
+    })
+})
 
 
 //gets user's games from DB

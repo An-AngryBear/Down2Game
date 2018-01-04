@@ -1,5 +1,9 @@
 'use strict'
 
+var AWS = require('aws-sdk');
+const uuidv4 = require('uuid/v4');
+var s3Bucket = new AWS.S3( { params: {Bucket: 'down2game'} } );
+
 //get user info for display in profile
 module.exports.getUserInfo = (req, res, next) => {
     console.log("get user info")
@@ -36,7 +40,6 @@ module.exports.getUserId = (req, res, next) => {
 // multi use function for editing any of the user info one at a time
 module.exports.editUserInfo = (req, res, next) => {
     const { User } = req.app.get('models');
-    console.log("*************REQ BODY***************", req.body)
     User.findById(req.session.passport.user.id, {raw: true})
     .then( (data) => {
         return User.update({
@@ -84,5 +87,32 @@ module.exports.getScreenName = (req, res, next) => {
     })
     .catch( (err) => {
         return next(err);
+    });
+}
+
+module.exports.saveProfileImg = (req, res, next) => {
+    let image = req.body.image
+    let bucketName = 'down2game'
+    let buf = new Buffer(image.replace(/^data:image\/\w+;base64,/, ""),'base64')
+    let data = {
+        Key: req.body.tempTag ? 'temp/' + req.session.passport.user.id : 'user-imgs/' + req.session.passport.user.id, 
+        Body: buf,
+        ContentEncoding: 'base64',
+        ContentType: 'image/jpeg'
+    };
+    s3Bucket.putObject(data, function(err, data){
+        if (err) { 
+            console.log(err);
+            console.log('Error uploading data: ', data); 
+            res.status(500);
+        } else {
+            console.log('Succesfully uploaded the image!');
+            if(!req.body.tempTag) {
+                req.body.avatar = 'https://s3.us-east-2.amazonaws.com/down2game/user-imgs/' + req.session.passport.user.id
+                return next();
+            } else {
+                return next();
+            }
+        }
     });
 }

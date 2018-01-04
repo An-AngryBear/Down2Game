@@ -4,6 +4,7 @@ block content
     body(id="body" class="bg bg-profile")
         include partials/nav.pug
         include partials/message-modal
+        include partials/croppie-modal
         .wrapper
             .user-card
                 .img.info
@@ -12,9 +13,8 @@ block content
                     else
                         img(src="/public/imgs/no_image.jpg")
                     if loggedUser
-                        a(class="edit" role="button"): p(class="edit-img") Edit Image
+                        button(type="button" class="btn btn-primary btn-lg add-img-btn" data-toggle="modal" data-target="#crop-modal") add image
                         .img-input.isHidden
-                            p(class="") Enter image URL
                             if avatar
                                 input(class="input" type="text" data="avatar" value=avatar)
                             else

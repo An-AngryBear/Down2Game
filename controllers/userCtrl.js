@@ -40,7 +40,6 @@ module.exports.getUserId = (req, res, next) => {
 // multi use function for editing any of the user info one at a time
 module.exports.editUserInfo = (req, res, next) => {
     const { User } = req.app.get('models');
-    console.log("*****************EDIT USER INFO*******************");
     User.findById(req.session.passport.user.id, {raw: true})
     .then( (data) => {
         return User.update({
@@ -93,11 +92,10 @@ module.exports.getScreenName = (req, res, next) => {
 
 module.exports.saveProfileImg = (req, res, next) => {
     let image = req.body.image
-    let keyName = 'user-imgs/uimg' + uuidv4();
     let bucketName = 'down2game'
     let buf = new Buffer(image.replace(/^data:image\/\w+;base64,/, ""),'base64')
-    var data = {
-        Key: 'user-imgs/' + req.session.passport.user.id, 
+    let data = {
+        Key: req.body.tempTag ? 'temp/' + req.session.passport.user.id : 'user-imgs/' + req.session.passport.user.id, 
         Body: buf,
         ContentEncoding: 'base64',
         ContentType: 'image/jpeg'
@@ -108,8 +106,13 @@ module.exports.saveProfileImg = (req, res, next) => {
             console.log('Error uploading data: ', data); 
             res.status(500);
         } else {
-            console.log('succesfully uploaded the image!');
-            res.status(200);
+            console.log('Succesfully uploaded the image!');
+            if(!req.body.tempTag) {
+                req.body.avatar = 'https://s3.us-east-2.amazonaws.com/down2game/user-imgs/' + req.session.passport.user.id
+                return next();
+            } else {
+                return next();
+            }
         }
     });
 }

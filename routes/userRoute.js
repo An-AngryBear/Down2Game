@@ -10,7 +10,7 @@ const { renderMatchPage, getSimilarUsers, matchAlgorithm } = require('../control
 
 
 router.put('/user', isLoggedIn, editUserInfo, getStoredGames, getUserInfo)
-router.put('/user/images', isLoggedIn, saveProfileImg)
+router.put('/user/images', isLoggedIn, saveProfileImg, editUserInfo)
 router.get('/user/:id', isLoggedIn, getStoredGames, getQuestions, getUserAnswers, getUserGames, getUserInfo)
 router.get('/user/:id/screenname', isLoggedIn, getScreenName)
 router.get('/user/:id/matches',isLoggedIn, isLoggedUser, getUserAnswers, getSimilarUsers, matchAlgorithm, renderMatchPage) //getUsers, getUserAnswers

@@ -154,18 +154,20 @@ let addTempImage = (image) => {
 let basic;
 //takes image from URL and applies it to the cropper    
 $('#img-submit').on('click', function (e) {
-    basic = $('#crop-body').croppie({
-        viewport: {
-            width: 200,
-            height: 200
-        },
-        showZoomer: false
-    });
     let imageURL = $('#img-url').val();
     let userID = $('#user-name').attr('data');
+    $('#spinner').show();
     getDataUri(imageURL, function (base64) {
         addTempImage(base64)
         .then( (data) => {
+            $('#spinner').hide();
+            basic = $('#crop-body').croppie({
+                viewport: {
+                    width: 200,
+                    height: 200
+                },
+                showZoomer: false
+            });
             basic.croppie('bind', {
                 url: `https://s3.us-east-2.amazonaws.com/down2game/temp/${userID}`,
             });
@@ -174,11 +176,12 @@ $('#img-submit').on('click', function (e) {
 });
 
 $('#save-img').on('click', function (event) {
-    basic.croppie('result', 'canvas', {
-        size: {
-            width: 400,
-            height: 400
-        }
+    basic.croppie('result', {
+		type: 'base64',
+		size: {
+			width: 400,
+			height: 400
+		}
     }).then( (data) => {
         addUserImage(data)
         .then( (data2) => {

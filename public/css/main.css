@@ -170,14 +170,6 @@ hr {
   background: rgba(0, 0, 0, 0.3);
   flex-grow: 1; }
 
-.crop-body {
-  height: 350px;
-  background-color: black; }
-
-.cr-slider {
-  border-radius: 10px;
-  box-shadow: 0 0 10px #e0e0e0; }
-
 .info-display {
   color: white;
   text-align: center;
@@ -437,10 +429,6 @@ li.inbox-btn:first-child {
   border: 1px solid grey;
   box-shadow: grey 1px 1px 5px; }
 
-.current-user-msg {
-  text-align: right;
-  color: white; }
-
 .btn-default, .btn-primary, .btn-info {
   background: rgba(44, 44, 44, 0.8);
   color: white;
@@ -448,64 +436,71 @@ li.inbox-btn:first-child {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: .2em; }
 
-.other-user-msg {
-  text-align: left;
-  background: rgba(44, 44, 44, 0.8);
-  color: white; }
+.inbox {
+  margin-top: 2em; }
 
-#msg-content {
-  margin-bottom: 1em; }
+li.inbox-btn:hover {
+  background-color: black; }
 
 .modal-dialog {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0; }
+  .modal-dialog .modal-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column; }
+    .modal-dialog .modal-content .modal-header {
+      background-color: black;
+      border-bottom: black;
+      flex: .5; }
+      .modal-dialog .modal-content .modal-header .modal-title {
+        color: white; }
+    .modal-dialog .modal-content .modal-body {
+      flex: 2;
+      overflow-y: scroll;
+      background-color: black;
+      height: 60vh; }
+    .modal-dialog .modal-content .modal-footer {
+      flex: 1; }
+      .modal-dialog .modal-content .modal-footer .modal-input {
+        margin-bottom: 1em; }
+    .modal-dialog .modal-content .modal-footer, .modal-dialog .modal-content .modal-content {
+      background: black;
+      border: none; }
 
-.modal-content {
-  height: auto;
-  min-height: 100%;
-  border-radius: 0;
-  display: flex;
-  flex-direction: column; }
-
-.modal-footer, .modal-content {
-  background: black;
-  border: none; }
-
-.modal-footer {
-  flex: 1; }
-
-.modal-body {
-  flex: 2; }
-
-.modal-header {
-  flex: .5; }
-
-.modal-header {
-  background-color: black;
-  border-bottom: black; }
-
-.msg-box {
-  background: transparent;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
-
-.modal-body {
-  overflow-y: scroll;
-  background-color: black;
-  background: rgba(0, 0, 0, 0.7); }
-
-.modal-title {
+.other-user-msg {
+  text-align: left;
+  background: #494967;
   color: white; }
 
-.inbox {
-  margin-top: 2em; }
+.current-user-msg {
+  text-align: right;
+  background: rgba(77, 140, 80, 0.5);
+  color: white; }
 
-li.inbox-btn:hover {
+.msg-box {
+  padding-left: 0;
+  margin: 0; }
+
+.close {
+  font-size: 53px;
+  font-weight: 700;
+  line-height: .5;
+  color: #8278d4;
+  text-shadow: none;
+  opacity: .4; }
+
+.crop-body {
+  height: 350px;
   background-color: black; }
+
+.cr-slider {
+  border-radius: 10px;
+  box-shadow: 0 0 10px #e0e0e0; }
 
 .spinner {
   margin: 0 auto;

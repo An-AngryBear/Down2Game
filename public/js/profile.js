@@ -151,30 +151,39 @@ let addTempImage = (image) => {
 };
 
 //******croppie******
-let basic;
+
 //takes image from URL and applies it to the cropper    
-$('#img-submit').on('click', function (e) {
-    $('.cr-slider-wrap').remove();
-    $('.cr-boundary').remove();
-    let imageURL = $('#img-url').val();
+let basic;
+
+let initializeCroppie = () => {
     let userID = $('#user-name').attr('data');
-    $('#spinner').show();
-    getDataUri(imageURL, function (base64) {
-        addTempImage(base64)
-        .then( (data) => {
-            $('#spinner').hide();
-            basic = $('#crop-body').croppie({
-                viewport: {
-                    width: 200,
-                    height: 200
-                },
-                showZoomer: false
-            });
-            basic.croppie('bind', {
-                url: `https://s3.us-east-2.amazonaws.com/down2game/temp/${userID}`,
+    basic = $('#crop-body').croppie({
+        viewport: {
+            width: 200,
+            height: 200
+        },
+        showZoomer: false
+    });
+    basic.croppie('bind', {
+        url: `https://s3.us-east-2.amazonaws.com/down2game/temp/${userID}`,
+    });
+};
+
+$('#img-url').on('input', function (e) {
+    clearTimeout(timeout);
+    timeout = setTimeout( function() {
+        let imageURL = $('#img-url').val();
+        $('.cr-slider-wrap').remove();
+        $('.cr-boundary').remove();
+        $('#spinner').show();   
+        getDataUri(imageURL, function (base64) {
+            addTempImage(base64)
+            .then( (data) => {
+                initializeCroppie();
+                $('#spinner').hide();
             });
         });
-    });    
+    }, 500);
 });
 
 $('#save-img').on('click', function (event) {
@@ -190,11 +199,11 @@ $('#save-img').on('click', function (event) {
         $('#spinner').show();
         addUserImage(data)
         .then( (data2) => {
-            console.log("Image added");
             location.reload();
         });
     });
 });
+
 
 let getDataUri = function (url, cb) {
     let xhr = new XMLHttpRequest();

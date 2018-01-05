@@ -1,11 +1,10 @@
 div(class="modal fade" id="crop-modal" tabindex="-1" role="dialog")
   div(class="modal-dialog" role="document")
-    div(class="modal-content")
-      div(class="modal-header")
-        button(type="button" class="close" data-dismiss="modal" aria-label="Close"): span(aria-hidden="true") &times;
+    .modal-content
+      .modal-header
+        button(type="button" class="close" data-dismiss="modal" aria-label="Close"): span(class="close-modal" aria-hidden="true") &times;
         h4(class="modal-title") Crop your image
-
-      div(class="modal-body") 
+      .modal-body
         div(id="crop-body" class="crop-body")
           .spinner.isHidden#spinner
             .rect1
@@ -13,10 +12,6 @@ div(class="modal fade" id="crop-modal" tabindex="-1" role="dialog")
             .rect3
             .rect4
             .rect5
-      div(id="hidden-img" class="isHidden")
       .modal-footer
-        input(id="img-url" class="img-url form-control" type="text" placeholder="Enter Image URL...")                            
-        
-        button(id="img-submit" type="button" class="img-submit btn btn-default") Submit image URL
-        button(type="button" class="btn btn-default" data-dismiss="modal") Close
-        button(id="save-img" type="button" class="btn btn-primary") Save changes
+        input(id="img-url" class="img-url form-control modal-input" type="text" placeholder="Paste URL...")                            
+        button(id="save-img" type="button" class="btn btn-primary") Submit

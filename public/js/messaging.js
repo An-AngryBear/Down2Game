@@ -45,8 +45,6 @@ $('.send-msg-inbox').click( function(event) {
                                     </div></li>`); //UPDATE inbox messages without refreshing page by inserting the new row in manually
         });
     });
-// li(id=userMsg.recipientId + "-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model")
-
 
 }); //TODO update modal header with screen name of other user
 

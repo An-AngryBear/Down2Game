@@ -2,15 +2,12 @@ div(class="modal fade" id="msg-model" tabindex="-1" role="dialog" aria-labelledb
   div(class="modal-dialog" role="document")
     .modal-content
       .modal-header
-        button(type="button" class="close" data-dismiss="modal" aria-label="Close"): span(aria-hidden="true")
-        
+        button(type="button" class="close" data-dismiss="modal" aria-label="Close"): span(class="close-modal" aria-hidden="true") &times;
         h4(class="modal-title" id="myModalLabel") Messages with #{viewedUser}
-      div(class="modal-body" id="msg-modal-body")
+      .modal-body#msg-modal-body
         ul.msg-box
-
       .modal-footer
-        input(id="msg-content" maxlength="200" type="text" class="form-control")
-        button(type="button" class="btn btn-default" data-dismiss="modal") Close
+        input(id="msg-content" maxlength="200" type="text" class="form-control modal-input")
         if viewedUser
           button(id=viewedUser + "-recipient-id" type="button" class="btn btn-primary send-msg") Send
         else

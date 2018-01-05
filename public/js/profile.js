@@ -154,6 +154,8 @@ let addTempImage = (image) => {
 let basic;
 //takes image from URL and applies it to the cropper    
 $('#img-submit').on('click', function (e) {
+    $('.cr-slider-wrap').remove();
+    $('.cr-boundary').remove();
     let imageURL = $('#img-url').val();
     let userID = $('#user-name').attr('data');
     $('#spinner').show();
@@ -183,9 +185,13 @@ $('#save-img').on('click', function (event) {
 			height: 400
 		}
     }).then( (data) => {
+        $('.cr-slider-wrap').hide();
+        $('.cr-boundary').hide();
+        $('#spinner').show();
         addUserImage(data)
         .then( (data2) => {
             console.log("Image added");
+            location.reload();
         });
     });
 });

@@ -24,7 +24,7 @@ app.use(helmet.contentSecurityPolicy({
     defaultSrc: ["'self'"],
     styleSrc: ["'unsafe-inline'", "'self'"],
     imgSrc: ['*'],
-    connectSrc: ["'self'", 'ws:']
+    connectSrc: ["'self'", 'ws:', 'https://cors-anywhere.herokuapp.com']
   }
 }));
 

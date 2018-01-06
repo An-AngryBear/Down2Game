@@ -27,12 +27,11 @@ const RegistrationStrategy = new Strategy(
         {screenName: req.body.screenName} ]
         }
     }).then( (user) => {
-      console.log(user)
-      if (user.screenName == req.body.screenName) {
+      if (user && user.screenName == req.body.screenName) {
         return done(null, false, {
           message: 'That screen name is already taken'
         });
-      } else if (user.email == email) {
+      } else if (user && user.email == email) {
         return done(null, false, {
           message: 'That email is already taken'
         });

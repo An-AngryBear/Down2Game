@@ -1,6 +1,6 @@
 'use strict';
 
-var socket = io();
+const socket = io.connect();
 
 //send-msg profile
 $('.send-msg').click( function() {
@@ -18,9 +18,9 @@ $('.send-msg').click( function() {
 //send-msg-inbox
 $('.send-msg-inbox').click( function(event) {
     let recipientId = parseInt($(this).attr('id'));
+    let msgContent = $('#msg-content').val();
     let messageId = $(`#${recipientId}-user`);
     let senderId = $('.screen-name-inbox').attr('data');
-    let msgContent = $('#msg-content').val();
     let date = dateConverter(new Date());
     console.log(recipientId, msgContent);
     sendMessage(recipientId, msgContent)
@@ -182,3 +182,8 @@ $(document).on('shown.bs.modal', '#msg-model', function (event) {
     let objDiv = document.getElementById("msg-modal-body");
     objDiv.scrollTop = objDiv.scrollHeight;
 });
+
+// SOCKET IO
+
+// var username = $(this).children("input").val();
+// socket.emit("add-user", {"username": username});

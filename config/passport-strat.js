@@ -21,14 +21,20 @@ const RegistrationStrategy = new Strategy(
     };
 
     User.findOne({
+      raw: true,
       where: {
         [Op.or]: [{ email },
         {screenName: req.body.screenName} ]
         }
     }).then( (user) => {
-      if (user) {
+      console.log(user)
+      if (user.screenName == req.body.screenName) {
         return done(null, false, {
-          message: 'That account is already taken'
+          message: 'That screen name is already taken'
+        });
+      } else if (user.email == email) {
+        return done(null, false, {
+          message: 'That email is already taken'
         });
       } else {
           const userPassword = generateHash(password); 

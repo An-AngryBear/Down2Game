@@ -20,4 +20,6 @@ block content
                 label(for="timezone") Timezone:
                 include partials/timezone.pug
                 button(class="btn btn-primary" type="submit") Register
+            if msg
+                p #{msg}
         include partials/scripts.pug

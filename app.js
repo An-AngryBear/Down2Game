@@ -2,12 +2,14 @@
 
 const express = require('express');
 const app = express();
+var http = require('http').Server(app);
 const passport = require('passport')
 var session = require('express-session');
 var methodOverride = require('method-override')
 let bodyParser = require('body-parser');
 const flash = require('express-flash');
 let pg = require('pg');
+var io = require('socket.io')(http);
 
 require('dotenv').config();
 const port = process.env.PORT || 4000;
@@ -55,6 +57,13 @@ app.use(flash());
 
 app.use(routes);
 
+var server = app.listen(process.env.PORT || 3000);
+var io = require('socket.io').listen(server);
+
+io.on('connection', function(socket){
+  console.log('**************a user connected****************');
+});
+
 //error handling
 app.use( (req, res, next) => {
   let error = new Error('sorry, not found.');
@@ -70,5 +79,3 @@ app.use( (err, req, res, next) => {
   err:err
   });
 });
-
-app.listen(process.env.PORT || 3000);

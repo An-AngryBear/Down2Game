@@ -1,5 +1,7 @@
 'use strict';
 
+var socket = io();
+
 //send-msg profile
 $('.send-msg').click( function() {
     let recipientId = parseInt($(this).attr('id'));

@@ -1,7 +1,8 @@
 {
     "node": true,
     "globals": {
-        "$": false
+        "$": false,
+        "io": false
     },
     "browser" : true,
     "esversion": 6

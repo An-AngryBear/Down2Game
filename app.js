@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+var helmet = require('helmet')
 const app = express();
 var http = require('http').Server(app);
 const passport = require('passport')
@@ -13,6 +14,19 @@ var io = require('socket.io')(http);
 
 require('dotenv').config();
 const port = process.env.PORT || 4000;
+
+//security
+app.use(helmet())
+
+//content security policy
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    styleSrc: ["'unsafe-inline'", "'self'"],
+    imgSrc: ['*'],
+    connectSrc: ["'self'", 'ws:']
+  }
+}));
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");

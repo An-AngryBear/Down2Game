@@ -57,13 +57,6 @@ app.use(flash());
 
 app.use(routes);
 
-var server = app.listen(process.env.PORT || 3000);
-var io = require('socket.io').listen(server);
-
-io.on('connection', function(socket){
-  console.log('**************a user connected****************');
-});
-
 //error handling
 app.use( (req, res, next) => {
   let error = new Error('sorry, not found.');
@@ -75,7 +68,41 @@ app.use( (err, req, res, next) => {
   console.log(err)
   res.status(err.status||500);
   res.json({
-  message:"A problem occurred.",
-  err:err
+    message:"A problem occurred.",
+    err:err
   });
+});
+
+var server = app.listen(process.env.PORT || 3000);
+var io = require('socket.io').listen(server);
+var clients = {};
+
+io.on('connection', function(socket){
+  console.log('**************a user connected****************', clients);
+
+  socket.on('add-user', function(data){
+    clients[data.username] = {
+      "socket": socket.id
+    };
+  });
+
+  socket.on('private-message', function(data){
+    console.log("Sending: " + data.content + " to " + data.username);
+    if (clients[data.username]){
+      io.sockets.connected[clients[data.username].socket].emit("add-message", data);
+    } else {
+      console.log("User does not exist: " + data.username); 
+    }
+  });
+
+  //Removing the socket on disconnect
+  socket.on('disconnect', function() {
+  	for(var name in clients) {
+  		if(clients[name].socket === socket.id) {
+  			delete clients[name];
+  			break;
+  		}
+  	}	
+  });
+
 });

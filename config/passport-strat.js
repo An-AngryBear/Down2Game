@@ -2,8 +2,9 @@
 
 const bCrypt = require('bcrypt-nodejs');
 const passport = require('passport');
-
 const { Strategy } = require('passport-local');
+var Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 let User = null;
 
 // Registration authetication.
@@ -20,7 +21,10 @@ const RegistrationStrategy = new Strategy(
     };
 
     User.findOne({
-      where: {email}
+      where: {
+        [Op.or]: [{ email },
+        {screenName: req.body.screenName} ]
+        }
     }).then( (user) => {
       if (user) {
         return done(null, false, {

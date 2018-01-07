@@ -1,10 +1,9 @@
 'use strict';
 
-const socket = io.connect();
-
 //send-msg profile
-$('.send-msg').click( function() {
-    let recipientId = parseInt($(this).attr('id'));
+$('#send-msg').click( function() {
+    console.log("PROFILE TRIGGER");
+    let recipientId = parseInt($(this).attr('data'));
     let msgContent = $('#msg-content').val();
     console.log(recipientId, msgContent);
     sendMessage(recipientId, msgContent)
@@ -17,7 +16,8 @@ $('.send-msg').click( function() {
 
 //send-msg-inbox
 $('.send-msg-inbox').click( function(event) {
-    let recipientId = parseInt($(this).attr('id'));
+    console.log("INBOX TRIGGER");
+    let recipientId = parseInt($(this).attr('data'));
     let msgContent = $('#msg-content').val();
     let messageId = $(`#${recipientId}-user`);
     let senderId = $('.screen-name-inbox').attr('data');
@@ -103,9 +103,10 @@ let sendMessage = (recipientId, msgContent) => {
 
 //Open Message Modal - GET
 
-$('.message-btn').click( function() {
+$('#message-btn').click( function() {
     let currentUser = parseInt($('#user-name').attr('data'));
-    let userBeingMessaged = parseInt($(this).attr('id'));
+    let userBeingMessaged = parseInt($(this).attr('data'));
+    console.log("messed up?", currentUser, userBeingMessaged);
     getMessages(userBeingMessaged)
     .then( (messages) => {
         messages.forEach( (message) => {
@@ -122,8 +123,10 @@ $('.message-btn').click( function() {
 
 //open modal inbox
 $('.inbox-btn').click( function() {
+    let otherUser = parseInt($(this).attr('data'));
     let currentUser = parseInt($('#inbox-container').attr('data'));
     let userBeingMessaged = parseInt($(this).attr('id'));
+    $('#send-msg').attr('data', otherUser);
     getMessages(userBeingMessaged)
     .then( (messages) => {
         messages.forEach( (message) => {

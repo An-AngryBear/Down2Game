@@ -92,20 +92,23 @@ var io = require('socket.io').listen(server);
 var clients = {};
 
 io.on('connection', function(socket){
-  console.log('**************a user connected****************', clients);
+  console.log('**************a user connected****************');
 
   socket.on('add-user', function(data){
-    clients[data.username] = {
+    console.log("***********ADDING USER**************")
+    clients[data.userID] = {
       "socket": socket.id
     };
+    console.log("**************** CLIENTS",clients, "*******************")
   });
 
   socket.on('private-message', function(data){
-    console.log("Sending: " + data.content + " to " + data.username);
-    if (clients[data.username]){
-      io.sockets.connected[clients[data.username].socket].emit("add-message", data);
+    console.log("=============Sending: " + data.content + " to " + data.userID);
+    if (clients[data.userID]){
+      console.log("SENT");
+      io.sockets.connected[clients[data.userID].socket].emit("add-message", data);
     } else {
-      console.log("User does not exist: " + data.username); 
+      console.log("===============User does not exist: " + data.userID); 
     }
   });
 

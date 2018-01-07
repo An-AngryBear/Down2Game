@@ -1,7 +1,7 @@
 extends index.pug
 
 block content
-    body(id="body" class="bg bg-profile")
+    body(id="body" class="bg bg-profile" data=userId)
         include partials/nav.pug
         include partials/message-modal
         include partials/croppie-modal
@@ -91,7 +91,7 @@ block content
                         a(href="/user/" + viewedUser + "/questions"): button(class="btn btn-primary prof-btns") Review answers
                         a(href="/user/" + userId + "/matches"): button(class="btn btn-primary prof-btns") See matches!
                     if !loggedUser
-                        button(id=viewedUser + "-msg-id" type="button" class="btn btn-primary message-btn" data-toggle="modal" data-target="#msg-model") Message This User!
+                        button(id="message-btn" type="button" data=viewedUser + "-msg-id" class="btn btn-primary message-btn" data-toggle="modal" data-target="#msg-model") Message This User!
             
             .users-games
                 if loggedUser
@@ -110,4 +110,5 @@ block content
         include partials/scripts.pug
         script(src="/public/js/profile.js")
         script(src="/public/js/messaging.js")
+        script(src="/public/js/socketio.js")
 

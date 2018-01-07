@@ -1,5 +1,6 @@
 'use strict';
 
+
 // edit button functionality
 $('.edit').click( function(event) {
     $('.info-display').show();

@@ -2,8 +2,9 @@
 
 const bCrypt = require('bcrypt-nodejs');
 const passport = require('passport');
-
 const { Strategy } = require('passport-local');
+var Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 let User = null;
 
 // Registration authetication.
@@ -20,11 +21,19 @@ const RegistrationStrategy = new Strategy(
     };
 
     User.findOne({
-      where: {email}
+      raw: true,
+      where: {
+        [Op.or]: [{ email },
+        {screenName: req.body.screenName} ]
+        }
     }).then( (user) => {
-      if (user) {
+      if (user && user.screenName == req.body.screenName) {
         return done(null, false, {
-          message: 'That account is already taken'
+          message: 'That screen name is already taken'
+        });
+      } else if (user && user.email == email) {
+        return done(null, false, {
+          message: 'That email is already taken'
         });
       } else {
           const userPassword = generateHash(password); 

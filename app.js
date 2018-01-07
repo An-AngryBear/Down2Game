@@ -1,16 +1,32 @@
 'use strict';
 
 const express = require('express');
+var helmet = require('helmet')
 const app = express();
+var http = require('http').Server(app);
 const passport = require('passport')
 var session = require('express-session');
 var methodOverride = require('method-override')
 let bodyParser = require('body-parser');
 const flash = require('express-flash');
 let pg = require('pg');
+var io = require('socket.io')(http);
 
 require('dotenv').config();
 const port = process.env.PORT || 4000;
+
+//security
+app.use(helmet())
+
+//content security policy
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    styleSrc: ["'unsafe-inline'", "'self'"],
+    imgSrc: ['*'],
+    connectSrc: ["'self'", 'ws:', 'https://cors-anywhere.herokuapp.com']
+  }
+}));
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -66,9 +82,44 @@ app.use( (err, req, res, next) => {
   console.log(err)
   res.status(err.status||500);
   res.json({
-  message:"A problem occurred.",
-  err:err
+    message:"A problem occurred.",
+    err:err
   });
 });
 
-app.listen(process.env.PORT || 3000);
+var server = app.listen(process.env.PORT || 3000);
+var io = require('socket.io').listen(server);
+var clients = {};
+
+io.on('connection', function(socket){
+  console.log('**************a user connected****************');
+
+  socket.on('add-user', function(data){
+    console.log("***********ADDING USER**************")
+    clients[data.userID] = {
+      "socket": socket.id
+    };
+    console.log("**************** CLIENTS",clients, "*******************")
+  });
+
+  socket.on('private-message', function(data){
+    console.log("=============Sending: " + data.content + " to " + data.userID);
+    if (clients[data.userID]){
+      console.log("SENT");
+      io.sockets.connected[clients[data.userID].socket].emit("add-message", data);
+    } else {
+      console.log("===============User does not exist: " + data.userID); 
+    }
+  });
+
+  //Removing the socket on disconnect
+  socket.on('disconnect', function() {
+  	for(var name in clients) {
+  		if(clients[name].socket === socket.id) {
+  			delete clients[name];
+  			break;
+  		}
+  	}	
+  });
+
+});

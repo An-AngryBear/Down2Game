@@ -11,44 +11,33 @@ $('#send-msg').click( function() {
         $('.msg-box').append(`<li class="user-message current-user-msg">${msgContent}</li><br>`);
         let objDiv = document.getElementById("msg-modal-body");
         objDiv.scrollTop = objDiv.scrollHeight;
+        updateInbox(recipientId, msgContent);
     });
 });
 
-//send-msg-inbox
-$('.send-msg-inbox').click( function(event) {
-    console.log("INBOX TRIGGER");
-    let recipientId = parseInt($(this).attr('data'));
-    let msgContent = $('#msg-content').val();
-    let messageId = $(`#${recipientId}-user`);
-    let senderId = $('.screen-name-inbox').attr('data');
+let updateInbox = (recipientId, msgContent) => {
     let date = dateConverter(new Date());
-    console.log(recipientId, msgContent);
-    sendMessage(recipientId, msgContent)
-    .then( (data) => {
-        $('.msg-box').append(`<li class="user-message current-user-msg">${msgContent}</li><br>`);
-        let objDiv = document.getElementById("msg-modal-body");
-        objDiv.scrollTop = objDiv.scrollHeight;
-        messageId.remove();
-        getCurrentScreenName(recipientId)
-        .then( (name) => {
-            let screenName = name;
-            $('.list-group').prepend(`
-                                    <li id="${recipientId}-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model"> 
-                                    <div class="row inbox-messages">
-                                        <div class="col-md-4">
-                                            <p class="screen-name-inbox" data="${senderId}"> To: ${screenName}</p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p class="message-content-inbox"> Last Message: ${msgContent}</p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p class="timestampe-inbox"> ${date}</p>
-                                        </div>
-                                    </div></li>`); //UPDATE inbox messages without refreshing page by inserting the new row in manually
-        });
+    let senderId = $('.screen-name-inbox').attr('data');
+    getCurrentScreenName(recipientId)
+    .then( (name) => {
+        let screenName = name;
+        $('.list-group').prepend(`
+            <li id="${recipientId}-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model"> 
+            <div class="row inbox-messages">
+                <div class="col-md-4">
+                    <p class="screen-name-inbox" data="${senderId}"> To: ${screenName}</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="message-content-inbox"> Last Message: ${msgContent}</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="timestampe-inbox"> ${date}</p>
+                </div>
+            </div></li>`); //UPDATE inbox messages without refreshing page by inserting the new row in manually
     });
+}
 
-}); //TODO update modal header with screen name of other user
+// }); //TODO update modal header with screen name of other user
 
 let dateConverter = (date) => {
     let month = date.getMonth() + 1;

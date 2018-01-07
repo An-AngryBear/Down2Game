@@ -48,14 +48,22 @@ module.exports.getUserInformation = (req, res, next) => {
             }
             message.createdAt = dateConverter(message.createdAt)
         })
-        console.log("latest messages(should be ordered by last created)", res.locals.latestMessages)
+        findOtherUser(req, res);
         res.locals.latestMessages.reverse();
+        console.log("latest messages(should be ordered by last created)", res.locals.latestMessages)
         return next();
     })
     .catch( (err) => {
         return next(err);
     });
 } //TODO: fix the ordering of the inbox to be last created at the top
+
+let findOtherUser = (req, res) => {
+    res.locals.latestMessages.forEach( (msg) => {
+        msg.senderId != req.session.passport.user.id ? msg.otherUser = msg.senderId : msg.otherUser = msg.recipientId;
+    });
+}
+
 
 let dateConverter = (date) => {
     let month = date.getMonth() + 1;
@@ -99,9 +107,11 @@ module.exports.getInbox = (req, res, next) => {
                 }
             })
             .then( (userMsgs) => {
+                console.log("userMsgs", userMsgs)
                 let latestMessage = userMsgs.reduce(function (acc, cur) { 
                     return acc.createdAt > cur.createdAt ? acc : cur;
                 });
+                console.log("latestMes", latestMessage)
                 res.locals.latestMessages.push(latestMessage);
                 if(i === res.locals.userList.length - 1) { 
                     return next();

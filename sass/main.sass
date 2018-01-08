@@ -13,6 +13,10 @@ $game-font: 'Press Start 2P', cursive
 $darksteam: #292929
 
 // ****** background images ******
+html
+    min-height: 100%
+    height: 100vh
+
 .bg-profile, .bg-match, .bg-quest
     background: url(/public/imgs/background.jpg) no-repeat center center fixed
 
@@ -33,6 +37,7 @@ $darksteam: #292929
     -moz-background-size: cover
     -o-background-size: cover
     background-size: cover
+    min-height: 100%
 
 h2
     font-family: $game-font
@@ -533,8 +538,8 @@ li.inbox-btn:hover
             .modal-title
                 color: white
         .modal-body
-            flex: 2
-            overflow-y: scroll
+            // flex: 2
+            overflow-y: auto
             background-color: black
             height: 60vh
         .modal-footer

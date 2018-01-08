@@ -8,6 +8,6 @@ module.exports = (sequelize, DataTypes) => {
       Game.belongsToMany(models.User, {
         through: 'UserGames'
       });
-    }
+    };
   return Game;
 };

@@ -10,15 +10,14 @@ var methodOverride = require('method-override')
 let bodyParser = require('body-parser');
 const flash = require('express-flash');
 let pg = require('pg');
-var io = require('socket.io')(http);
 
 require('dotenv').config();
 const port = process.env.PORT || 4000;
 
-//security
+// security
 app.use(helmet())
 
-//content security policy
+// CSP
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
@@ -28,6 +27,7 @@ app.use(helmet.contentSecurityPolicy({
   }
 }));
 
+// CORS
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -87,28 +87,26 @@ app.use( (err, req, res, next) => {
   });
 });
 
-var server = app.listen(process.env.PORT || 3000);
-var io = require('socket.io').listen(server);
-var clients = {};
+let server = app.listen(process.env.PORT || 3000);
+
+// web socket
+let io = require('socket.io').listen(server);
+let clients = {};
 
 io.on('connection', function(socket){
   console.log('**************a user connected****************');
-
   socket.on('add-user', function(data){
-    console.log("***********ADDING USER**************")
     clients[data.userID] = {
       "socket": socket.id
     };
-    console.log("**************** CLIENTS",clients, "*******************")
   });
 
   socket.on('private-message', function(data){
-    console.log("=============Sending: " + data.content + " to " + data.userID);
+    console.log("Sending: " + data.content + " to " + data.userID);
     if (clients[data.userID]){
-      console.log("SENT");
       io.sockets.connected[clients[data.userID].socket].emit("add-message", data);
     } else {
-      console.log("===============User does not exist: " + data.userID); 
+      console.log("User does not exist: " + data.userID); 
     }
   });
 
@@ -121,5 +119,4 @@ io.on('connection', function(socket){
   		}
   	}	
   });
-
 });

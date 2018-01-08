@@ -1,5 +1,6 @@
 'use strict';
 
+let timeout = null;
 
 // edit button functionality
 $('.edit').click( function(event) {
@@ -15,8 +16,6 @@ $('.edit').click( function(event) {
 });
 
 //filters games in database by search input, waits for user to finish typing
-let timeout = null;
-
 $('#gameSearch').keyup( function() {
     clearTimeout(timeout);
     timeout = setTimeout( function() {
@@ -36,7 +35,6 @@ $('.input').keydown( function(event) {
     if(event.keyCode == 13) {
         event.preventDefault();
         let newInput = $(this).val();
-        console.log(newInput);
         editInfo($(this).attr('data'), newInput)
         .then( (data) => {
             $(this).hide();
@@ -194,7 +192,8 @@ $('#save-img').on('click', function (event) {
 			width: 400,
 			height: 400
 		}
-    }).then( (data) => {
+    })
+    .then( (data) => {
         $('.cr-slider-wrap').hide();
         $('.cr-boundary').hide();
         $('#spinner').show();
@@ -205,7 +204,7 @@ $('#save-img').on('click', function (event) {
     });
 });
 
-
+// image proxy
 let getDataUri = function (url, cb) {
     let xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -220,8 +219,3 @@ let getDataUri = function (url, cb) {
     xhr.responseType = 'blob';
     xhr.send();
 };
-    
-
-
-
-//gets user's games from DB

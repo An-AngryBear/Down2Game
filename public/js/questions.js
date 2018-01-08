@@ -1,3 +1,5 @@
+'use strict';
+
 let postAnswerSelection = (currentUser, userAnswer, questId) => {
     console.log("post answer called");
     return new Promise( (resolve, reject) => {

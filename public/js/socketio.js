@@ -3,12 +3,10 @@
 const socket = io.connect();
 
 //add user
-console.log(userID);
-
-if(!userID) {
+let addUser = () => {
     var userID = $('#body').attr('data');
     socket.emit("add-user", {"userID": userID});
-}
+};
 
 $('#send-msg').click( function() {
     socket.emit("private-message", {
@@ -22,3 +20,5 @@ socket.on("add-message", function(data){
     let objDiv = document.getElementById("msg-modal-body");
     objDiv.scrollTop = objDiv.scrollHeight;
 });
+
+addUser();

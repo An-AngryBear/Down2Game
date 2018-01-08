@@ -24,7 +24,11 @@ module.exports.getSimilarUsers = (req, res, next) => {
         })
         .then( (data) => {
             data.forEach( (obj) => {
-                res.locals.userAnswerObj[id] ? res.locals.userAnswerObj[id].push(obj.id) : res.locals.userAnswerObj[id] = [obj.id]
+                if(res.locals.userAnswerObj[id]) {
+                    res.locals.userAnswerObj[id].push(obj.id);
+                } else { 
+                    res.locals.userAnswerObj[id] = [obj.id];
+                }
             });
             counter++;
             if(counter === userAnswerIds.length) {
@@ -35,7 +39,7 @@ module.exports.getSimilarUsers = (req, res, next) => {
             return next(err);
         });
     });
-}
+};
 
 let getIDsToAnswersObj = (matchedUsers) => {
     let countObj = {};
@@ -47,7 +51,7 @@ let getIDsToAnswersObj = (matchedUsers) => {
         countObj[num] = countObj[num] ? countObj[num] + 1 : 1;
     }
     return countObj;
-}
+};
 
 module.exports.matchAlgorithm = (req, res, next) => {
     const { User } = req.app.get('models');
@@ -71,7 +75,7 @@ module.exports.matchAlgorithm = (req, res, next) => {
                     user.matchPercent = Math.round(matchPercent[key] * 100) + "%"; //turns into a whole number and adds % symbol
                 }
             }
-            return user
+            return user;
         }).sort(function(a, b) { //sorts the users by highest match %
             return parseFloat(b.matchPercent) - parseFloat(a.matchPercent);
         });
@@ -79,20 +83,20 @@ module.exports.matchAlgorithm = (req, res, next) => {
         return next();
     })
     .catch( (err) => {
-        return next(err)
+        return next(err);
     });
-}
+};
 
 let getPercentage = (countObj, questionCount) => {
     for(let key in countObj) {
         countObj[key] = countObj[key] / questionCount;
     }
     return countObj;
-}
+};
 
 //finalizes any database interaction and renders the match page with user info
 module.exports.renderMatchPage = (req, res, next) => {
     res.render('match', {
         userId: req.session.passport.user.id
     });
-}
+};

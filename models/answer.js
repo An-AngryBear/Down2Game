@@ -12,6 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       Answer.belongsToMany(models.User, {
         through: 'UserAnswers'
       });
-    }
+    };
   return Answer;
 };

@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { renderInbox, postNewMessage, getMessages, getInbox, getUserInformation } = require('../controllers/messagingCtrl')
+const { renderInbox, postNewMessage, getMessages, getInbox, getUserInformation } = require('../controllers/messagingCtrl');
 
 router.get('/inbox', isLoggedIn, getInbox, getUserInformation, renderInbox);
 router.post('/inbox/message', isLoggedIn, postNewMessage);

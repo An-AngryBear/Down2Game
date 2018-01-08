@@ -12,6 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       Question.hasMany(models.Answer, {
         foreign_key: 'QuestionId'
       });
-    }
+    };
   return Question;
 };

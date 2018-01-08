@@ -10,12 +10,12 @@ gulp.task('sass', function() {
 });
 
 gulp.task('jshint', function () {
-    return gulp.src('public/js/**/*.js')
+    return gulp.src(['public/js/**/*.js', 'routes/*.js', 'controllers/*.js', 'models/*.js', 'migrations/*.js', 'config/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('default', function() {
     gulp.watch('sass/**/*.sass',['sass']);
-    gulp.watch('public/js/**/*.js', ['jshint']);
+    gulp.watch(['public/js/**/*.js', 'routes/*.js', 'controllers/*.js', 'models/*.js', 'migrations/*.js', 'config/*.js'], ['jshint']);
 });

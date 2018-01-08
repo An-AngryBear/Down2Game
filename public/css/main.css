@@ -6,6 +6,10 @@
   font-family: "Press Start 2P";
   src: url(/public/css/fonts/Press_Start_2P/PressStart2P-Regular.ttf); }
 
+html {
+  min-height: 100%;
+  height: 100%; }
+
 .bg-profile, .bg-match, .bg-quest {
   background: url(/public/imgs/background.jpg) no-repeat center center fixed; }
 

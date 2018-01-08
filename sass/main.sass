@@ -33,6 +33,7 @@ $darksteam: #292929
     -moz-background-size: cover
     -o-background-size: cover
     background-size: cover
+    min-height: 100%
 
 h2
     font-family: $game-font
@@ -533,8 +534,8 @@ li.inbox-btn:hover
             .modal-title
                 color: white
         .modal-body
-            flex: 2
-            overflow-y: scroll
+            // flex: 2
+            overflow-y: auto
             background-color: black
             height: 60vh
         .modal-footer

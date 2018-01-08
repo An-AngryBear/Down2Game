@@ -11,6 +11,7 @@ A full stack app with the purpose of matching video game enthusiasts together to
 - Express-Session
 - Passport
 - Pug
+- Socket IO
 - JQuery
 - Bootstrap
 - IGDB API
@@ -27,19 +28,7 @@ A full stack app with the purpose of matching video game enthusiasts together to
 
 - Then seed the database with the ```sequelize db:seed:all``` command.
 
-- create ```/public/values``` folder
-
 - get an API key from [IGDB](https://www.igdb.com/api)
-
-- in this folder create a file called ```igdb-config``` with this inside:
-
-    ```
-    module.exports.igdb = () => {
-        return {
-            key: *****IGDB API KEY HERE*****
-        }
-    }
-    ```
 
 - To run the project, run ```npm start``` on the command line and use whatever port you specify in your .env on localhost
 

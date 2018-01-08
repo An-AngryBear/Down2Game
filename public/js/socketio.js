@@ -18,10 +18,7 @@ $('#send-msg').click( function() {
 });
 
 socket.on("add-message", function(data){
-    console.log("TRIGGER ADD MSG")
     $('.msg-box').append(`<li class="user-message other-user-msg">${data.content}</li><br>`);
     let objDiv = document.getElementById("msg-modal-body");
     objDiv.scrollTop = objDiv.scrollHeight;
 });
-
-// `<li class="user-message current-user-msg">${msgContent}</li><br>`

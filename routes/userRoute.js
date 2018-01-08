@@ -9,16 +9,15 @@ const { getUserAnswers, getQuestions } = require('../controllers/questionCtrl');
 const { renderMatchPage, getSimilarUsers, matchAlgorithm } = require('../controllers/matchCtrl');
 
 
-router.put('/user', isLoggedIn, editUserInfo, getStoredGames, getUserInfo)
-router.put('/user/images', isLoggedIn, saveProfileImg, editUserInfo)
-router.get('/user/:id', isLoggedIn, getStoredGames, getQuestions, getUserAnswers, getUserGames, getUserInfo)
-router.get('/user/:id/screenname', isLoggedIn, getScreenName)
-router.get('/user/:id/matches',isLoggedIn, isLoggedUser, getUserAnswers, getSimilarUsers, matchAlgorithm, renderMatchPage) //getUsers, getUserAnswers
-router.get('/user/:id/:searchTerm', isLoggedIn, getIGDBgames)
-router.get('/user', isLoggedIn, getUserId)
+router.put('/user', isLoggedIn, editUserInfo, getStoredGames, getUserInfo);
+router.put('/user/images', isLoggedIn, saveProfileImg, editUserInfo);
+router.get('/user/:id', isLoggedIn, getStoredGames, getQuestions, getUserAnswers, getUserGames, getUserInfo);
+router.get('/user/:id/screenname', isLoggedIn, getScreenName);
+router.get('/user/:id/matches',isLoggedIn, isLoggedUser, getUserAnswers, getSimilarUsers, matchAlgorithm, renderMatchPage); //getUsers, getUserAnswers
+router.get('/user/:id/:searchTerm', isLoggedIn, getIGDBgames);
+router.get('/user', isLoggedIn, getUserId);
 
 function isLoggedUser(req, res, next) {
-    console.log(req.params.id, req.session.passport.user.id)
     if(req.params.id == req.session.passport.user.id) {
         return next();
     }
@@ -26,7 +25,6 @@ function isLoggedUser(req, res, next) {
 }
 
 function isLoggedIn(req, res, next) {
-    console.log("isLoggedIn?")
     if (req.isAuthenticated())
         return next();
     res.redirect('/login');

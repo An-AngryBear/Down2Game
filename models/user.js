@@ -30,6 +30,6 @@ module.exports = (sequelize, DataTypes) => {
         through: 'UserMatches',
         as: "userTwoId"
       });
-    }
+    };
   return User;
 };

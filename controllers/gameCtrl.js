@@ -15,14 +15,14 @@ module.exports.getStoredGames = (req, res, next) => {
     .catch( (err) => {
         return next(err);
     });
-}
+};
 
 //gets the user's games and sets to res.locals.userGames, passes to next method
 module.exports.getUserGames = (req, res, next) => {
     const { User } = req.app.get('models');    
     User.findById(req.params.id)
     .then( (user) => {
-        return user.getGames({raw:true})
+        return user.getGames({raw:true});
     })
     .then( (data) => {
         res.locals.userGames = data;
@@ -30,12 +30,12 @@ module.exports.getUserGames = (req, res, next) => {
     })
     .catch( (err) => {
         return next(err);
-    });}
+    });
+};
 
 module.exports.checkGames = (req, res, next) => {
-    console.log("locals", res.locals.storedGames)
-    res.status(200).end()
-}
+    res.status(200).end();
+};
 
 //Looks through IGDB API to find multiplayer games that match the user's search query
 module.exports.getIGDBgames = (req, res, next) => {
@@ -46,12 +46,12 @@ module.exports.getIGDBgames = (req, res, next) => {
             'Accept': 'application/json',
             'user-key': process.env.IGDB_KEY
         }
-    }
+    };
     request.get(options, function(error, igdbRes, body) {
         res.locals.igdbResults = body;
         res.status(200).send(body);
     });
-}
+};
 //looks for game in DB, if not there: creates new tow in GAMES, and adds user-game association.
 //if there: adds user-game association
 module.exports.postUserGame = (req, res, next) => {
@@ -67,13 +67,13 @@ module.exports.postUserGame = (req, res, next) => {
         })
         .then( (data) => {
             gameId = data.dataValues.id;
-            return User.findById(req.session.passport.user.id)
+            return User.findById(req.session.passport.user.id);
         })
         .then( (user) => {
             return user.addGame(gameId);
         })
         .then( (data) => {
-            return res.redirect(`/user/${req.session.passport.user.id}`)
+            return res.redirect(`/user/${req.session.passport.user.id}`);
         })
         .catch( (err) => {
             return next(err);
@@ -83,16 +83,16 @@ module.exports.postUserGame = (req, res, next) => {
         .then( (user) => {
             gameId = savedGames.filter( (game) => {
                 if(game.name === req.body.game) {
-                    return game.id
+                    return game.id;
                 }
             });
-            return user.addGame(gameId[0].id)
+            return user.addGame(gameId[0].id);
         })
         .then( (data) => {
-            return res.redirect(`/user/${req.session.passport.user.id}`)
+            return res.redirect(`/user/${req.session.passport.user.id}`);
         })
         .catch( (err) => {
             return next(err);
         });    
     }
-}
+};

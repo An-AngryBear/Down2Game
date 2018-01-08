@@ -2,10 +2,8 @@
 
 //send-msg profile
 $('#send-msg').click( function() {
-    console.log("PROFILE TRIGGER");
     let recipientId = parseInt($(this).attr('data'));
     let msgContent = $('#msg-content').val();
-    console.log(recipientId, msgContent);
     sendMessage(recipientId, msgContent)
     .then( (data) => {
         $('.msg-box').append(`<li class="user-message current-user-msg">${msgContent}</li><br>`);
@@ -33,9 +31,9 @@ let updateInbox = (recipientId, msgContent) => {
                 <div class="col-md-4">
                     <p class="timestampe-inbox"> ${date}</p>
                 </div>
-            </div></li>`); //UPDATE inbox messages without refreshing page by inserting the new row in manually
+            </div></li>`);
     });
-}
+};
 
 // }); //TODO update modal header with screen name of other user
 
@@ -54,7 +52,6 @@ let getCurrentScreenName = (userId) => {
             url: `/user/${userId}/screenname`,
             success: function () {
                 console.log("successful message post");
-                
             },
             error: function () {
                 console.log("error posting message");
@@ -95,7 +92,6 @@ let sendMessage = (recipientId, msgContent) => {
 $('#message-btn').click( function() {
     let currentUser = parseInt($('#user-name').attr('data'));
     let userBeingMessaged = parseInt($(this).attr('data'));
-    console.log("messed up?", currentUser, userBeingMessaged);
     getMessages(userBeingMessaged)
     .then( (messages) => {
         messages.forEach( (message) => {
@@ -170,7 +166,6 @@ $(document).on('hide.bs.modal', '#msg-model', function (event) {
 }); //TODO fix inbox update when modal is closed
 
 $(document).on('shown.bs.modal', '#msg-model', function (event) {
-    console.log("shown modal");
     let objDiv = document.getElementById("msg-modal-body");
     objDiv.scrollTop = objDiv.scrollHeight;
 });

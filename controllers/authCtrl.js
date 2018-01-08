@@ -8,10 +8,7 @@ module.exports.displayRegister = (req, res) => {
 };
 
 module.exports.register = (req, res, next) => {
-    console.log("register function triggered");
-    console.log(req.body)
     if (req.body.password === req.body.confirmation) {
-        console.log("password confirmed");
         passport.authenticate('local-signup', (err, user, msgObj) => { //pipes through passport strategy
           if (err) { 
             console.log(err); 
@@ -26,7 +23,7 @@ module.exports.register = (req, res, next) => {
           });
         })(req, res, next);
     } else {
-    res.render('register', { message: 'Password & password confirmation do not match' })
+    res.render('register', { message: 'Password & password confirmation do not match' });
     }
 };
 
@@ -37,13 +34,12 @@ module.exports.displayLogin = (req, res, next) => {
 
 module.exports.login = (req, res, next) => {
   passport.authenticate('local-signin', (err, user, msgObj) => {
-    console.log(msgObj);
-    if (err) { console.log(err) }
+    if (err) { console.log(err); }
     if (!user) {
-      return res.render('login', msgObj)
+      return res.render('login', msgObj);
     }
     req.logIn(user, err => {
-      if (err) { return next(err) }
+      if (err) { return next(err); }
       req.flash('welcomeBackMsg',`Welcome back, `);
       res.redirect(`/user/${req.session.passport.user.id}`);
     });

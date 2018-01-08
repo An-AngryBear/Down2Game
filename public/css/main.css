@@ -25,7 +25,8 @@
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  min-height: 100%; }
 
 h2 {
   font-family: "Press Start 2P", cursive;
@@ -460,8 +461,7 @@ li.inbox-btn:hover {
       .modal-dialog .modal-content .modal-header .modal-title {
         color: white; }
     .modal-dialog .modal-content .modal-body {
-      flex: 2;
-      overflow-y: scroll;
+      overflow-y: auto;
       background-color: black;
       height: 60vh; }
     .modal-dialog .modal-content .modal-footer {

@@ -69,6 +69,7 @@ let getIgdbGames = () => {
             error: function () { }
         })
         .then( (data) => {
+            console.log(data);
             let parsed = JSON.parse(data);
             let gamelist = parsed.map( (game) => {
                 return game.name;

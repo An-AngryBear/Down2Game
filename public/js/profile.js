@@ -31,10 +31,10 @@ $('#gameSearch').keyup( function() {
     }, 500);
 });
 
-$('.games').on('blur', function() {
+$(document).click(function(){
     $('#game-list').hide();
     $('#gameSearch').val('');
-})
+});
 
 //click enter to submit user info
 $('.input').keydown( function(event) {

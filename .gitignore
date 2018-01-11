@@ -1,5 +1,9 @@
 node_modules
 .env
 public/lib
+<<<<<<< HEAD
 public/values
 
+=======
+public/values
+>>>>>>> c4d2bd6b0aa2406a49e7c084f5e0b716103a3735

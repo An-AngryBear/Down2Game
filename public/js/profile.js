@@ -31,7 +31,7 @@ $('#gameSearch').keyup( function() {
     }, 500);
 });
 
-$('#gameSearch').on('blur', function() {
+$('.games').on('blur', function() {
     $('#game-list').hide();
     $('#gameSearch').val('');
 })

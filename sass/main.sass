@@ -190,6 +190,9 @@ hr
         background-color: $darksteam
         color: white
         
+.plat-link 
+    height:  100%
+
 .plat-tab
     width: 100%
     background: rgba(0, 0, 0, 0.3)
@@ -261,81 +264,6 @@ hr
 .edit
     color: white
 
-// ****** TABLET STYLES ******
-
-@media only screen and (min-width : 768px)
-
-    // ****** register page styling (tablet) ******
-
-    .register
-        width: 80%
-        border-radius: 10px
-        margin: 1em auto
-        form
-            label
-                margin-top: 1em
-            .btn-primary
-                margin-top: 1.5em
-
-    // ****** profile page styling (tablet) ******
-    .wrapper
-        flex-direction: row
-        justify-content: center
-        flex-wrap: wrap
-        .user-card
-            padding-top: 1em
-            .page-head
-            .img
-                img
-                    width: 50%
-            .blurb
-                .blurb-input
-                    min-height: 19vh
-        .user-info-edit
-            padding-top: 1em
-        .users-games
-            min-width: 100%
-
-// ****** DESKTOP STYLES ******
-
-@media only screen and (min-width : 992px)
-
-    // ****** register page styling (desktop) ******
-    .register
-        width: 40%
-        border-radius: 10px
-        margin: 1em 0 0 1em
-        form
-            label
-            .btn-primary
-
-    // ****** profile page styling (desktop) ******
-    .wrapper
-        max-width: 80%
-        margin: 1em auto
-        .user-card
-            padding: 2em 0 2em 2em
-            .page-head
-            .img
-                img
-                    width: 50%
-            .blurb
-                .user-info
-                    width: 100%
-        .user-info-edit
-            padding: 2em 2em 0 0
-        .users-games
-            padding: 2em
-
-    // ****** index/login page styling (desktop) ******
-    .home-wrapper, .login-wrapper
-        margin: 2em 0 0 2em
-        max-width: 40%
-        .welcome
-            width: 100%
-            .pix-header
-                padding-bottom: .8em
-
 /********* column and row styling **********/
 .img
     text-align: center
@@ -365,6 +293,10 @@ hr
 
 
 .game-list
+    padding-left: 1em
+    padding-right: 1em
+    width: 100%
+    z-index: 2
     position: absolute
     background: black
     text-align: center
@@ -631,3 +563,79 @@ li.inbox-btn:hover
   20% 
     transform: scaleY(1.0)
     -webkit-transform: scaleY(1.0)
+
+// ****** TABLET STYLES ******
+
+@media only screen and (min-width : 768px)
+
+    // ****** register page styling (tablet) ******
+
+    .register
+        width: 80%
+        border-radius: 10px
+        margin: 1em auto
+        form
+            label
+                margin-top: 1em
+            .btn-primary
+                margin-top: 1.5em
+
+    // ****** profile page styling (tablet) ******
+    .wrapper
+        flex-direction: row
+        justify-content: center
+        flex-wrap: wrap
+        .user-card
+            padding-top: 1em
+            .page-head
+            .img
+                img
+                    width: 50%
+            .blurb
+                .blurb-input
+                    min-height: 19vh
+        .user-info-edit
+            padding-top: 1em
+        .users-games
+            min-width: 100%
+
+// ****** DESKTOP STYLES ******
+
+@media only screen and (min-width : 992px)
+
+    // ****** register page styling (desktop) ******
+    .register
+        width: 40%
+        border-radius: 10px
+        margin: 1em 0 0 1em
+        form
+            label
+            .btn-primary
+
+    // ****** profile page styling (desktop) ******
+    .wrapper
+        max-width: 80%
+        margin: 1em auto
+        .user-card
+            padding: 2em 0 2em 2em
+            .page-head
+            .img
+                img
+                    width: 50%
+            .blurb
+                .user-info
+                    width: 100%
+        .user-info-edit
+            padding: 2em 2em 0 0
+        .users-games
+            padding: 2em
+
+    // ****** index/login page styling (desktop) ******
+    .home-wrapper, .login-wrapper
+        margin: 2em 0 0 2em
+        max-width: 40%
+        .welcome
+            width: 100%
+            .pix-header
+                padding-bottom: .8em
+

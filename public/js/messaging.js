@@ -6,21 +6,24 @@ $('#send-msg').click( function() {
     let msgContent = $('#msg-content').val();
     sendMessage(recipientId, msgContent)
     .then( (data) => {
+        let otherUser = $('#send-msg').attr('data');
+        console.log(otherUser);
         $('.msg-box').append(`<li class="user-message current-user-msg">${msgContent}</li><br>`);
         let objDiv = document.getElementById("msg-modal-body");
         objDiv.scrollTop = objDiv.scrollHeight;
-        updateInbox(recipientId, msgContent);
+        updateInbox(recipientId, msgContent, otherUser);
     });
 });
 
-let updateInbox = (recipientId, msgContent) => {
+let updateInbox = (recipientId, msgContent, otherUser) => {
+    console.log(otherUser);
     let date = dateConverter(new Date());
     let senderId = $('.screen-name-inbox').attr('data');
     getCurrentScreenName(recipientId)
     .then( (name) => {
         let screenName = name;
         $('.list-group').prepend(`
-            <li id="${recipientId}-user" role="button" class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model"> 
+            <li id="${recipientId}-user" role="button" data=${otherUser} class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model"> 
             <div class="row inbox-messages">
                 <div class="col-md-4">
                     <p class="screen-name-inbox" data="${senderId}"> To: ${screenName}</p>

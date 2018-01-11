@@ -23,12 +23,18 @@ $('#gameSearch').keyup( function() {
         .then( (data) => {
             let filter = $('#gameSearch').val().toUpperCase();
             $('#game-list').empty();
+            $('#game-list').show();
             for(let i = 0; i < data.length; i++) {
                 $('#game-list').append(`<li class="game-options"><a class="game-options">${data[i]}</a></li>`);
             }
         });
     }, 500);
 });
+
+$('#gameSearch').on('blur', function() {
+    $('#game-list').hide();
+    $('#gameSearch').val('');
+})
 
 //click enter to submit user info
 $('.input').keydown( function(event) {

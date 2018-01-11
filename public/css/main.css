@@ -533,7 +533,17 @@ li.inbox-btn:hover {
     .wrapper .user-info-edit {
       padding-top: 1em; }
     .wrapper .users-games {
-      min-width: 100%; } }
+      min-width: 100%; }
+      .wrapper .users-games .games {
+        position: relative; }
+        .wrapper .users-games .games .game-add-input {
+          width: 50%;
+          margin: auto; }
+        .wrapper .users-games .games .game-list {
+          transform: translateX(-50%);
+          left: 50%;
+          padding-left: 0;
+          width: 50%; } }
 
 @media only screen and (min-width: 992px) {
   .register {

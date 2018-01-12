@@ -1,6 +1,7 @@
 const fs = require('fs');
 require('dotenv').config();
 
+console.log("building config...")
 let config = {
     "development": {
         "database": "down2game",
@@ -26,4 +27,6 @@ let config = {
 };
 
 let json = JSON.stringify(config);
-fs.writeFileSync('config/config.json', json, 'utf8');
+fs.writeFile('config/config.json', json, 'utf8', function() {
+  console.log("config.json successfully built!")
+});

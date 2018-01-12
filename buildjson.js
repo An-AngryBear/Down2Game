@@ -27,4 +27,3 @@ let config = {
 
 let json = JSON.stringify(config);
 fs.writeFileSync('config/config.json', json, 'utf8');
-console.log(config);

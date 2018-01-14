@@ -6,8 +6,7 @@ $('#send-msg').click( function() {
     let msgContent = $('#msg-content').val();
     sendMessage(recipientId, msgContent)
     .then( (data) => {
-        let otherUser = $('#send-msg').attr('data');
-        console.log(otherUser);
+        let otherUser = parseInt($('#send-msg').attr('data'));
         $('.msg-box').append(`<li class="user-message current-user-msg">${msgContent}</li><br>`);
         let objDiv = document.getElementById("msg-modal-body");
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -16,13 +15,22 @@ $('#send-msg').click( function() {
 });
 
 let updateInbox = (recipientId, msgContent, otherUser) => {
-    console.log(otherUser);
     let date = dateConverter(new Date());
     let senderId = $('.screen-name-inbox').attr('data');
     getCurrentScreenName(recipientId)
     .then( (name) => {
         let screenName = name;
-        $('.list-group').prepend(`
+        removePrevMessage(otherUser);
+        addInboxMessage(recipientId, otherUser, senderId, screenName, msgContent, date);
+    });
+};
+
+let removePrevMessage = (otherUser) => {
+    $(`.inbox-btn[data="${otherUser}"]`).remove();
+}
+
+let addInboxMessage = (recipientId, otherUser, senderId, screenName, msgContent, date) => {
+    $('.list-group').prepend(`
             <li id="${recipientId}-user" role="button" data=${otherUser} class="list-group-item inbox-btn current-users-post" data-toggle="modal" data-target="#msg-model"> 
             <div class="row inbox-messages">
                 <div class="col-md-4">
@@ -35,8 +43,7 @@ let updateInbox = (recipientId, msgContent, otherUser) => {
                     <p class="timestampe-inbox"> ${date}</p>
                 </div>
             </div></li>`);
-    });
-};
+}
 
 // }); //TODO update modal header with screen name of other user
 
@@ -107,10 +114,8 @@ $('#message-btn').click( function() {
     });
 });
 
-
-
 //open modal inbox
-$('.inbox-btn').click( function() {
+$(document).on('click', '.inbox-btn', function() {
     let otherUser = parseInt($(this).attr('data'));
     let currentUser = parseInt($('#inbox-container').attr('data'));
     let userBeingMessaged = parseInt($(this).attr('id'));
@@ -124,7 +129,7 @@ $('.inbox-btn').click( function() {
                 $('.msg-box').append(`<li class="user-message other-user-msg">${message.msgContent}</li><br>`);
             }
         });
-        $('.send-msg-inbox').attr('id', `${userBeingMessaged}-recipient-id`);
+        // $('.send-msg-inbox').attr('id', `${userBeingMessaged}-recipient-id`);
     });
 });
 

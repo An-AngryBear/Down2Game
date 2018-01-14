@@ -9,6 +9,7 @@ module.exports.getStoredGames = (req, res, next) => {
     const { Game } = req.app.get('models');
     Game.findAll({raw:true})
     .then( (data) => {
+        console.log(data);
         res.locals.storedGames = data;
         return next();
     })
@@ -48,18 +49,43 @@ module.exports.getIGDBgames = (req, res, next) => {
         }
     };
     request.get(options, function(error, igdbRes, body) {
+        console.log("^^^^^^^^^^Results", body)
+        platformFilter(body);
         res.locals.igdbResults = body;
         res.status(200).send(body);
     });
 };
+//6,49,48,130,12,9 filter through array of game 
+let platformFilter = (body) => {
+    let arr = JSON.parse(body);
+    console.log(typeof arr, arr);
+    let a = arr.filter( (game) => {
+        if(game.platforms) {
+            return game.platforms.some(isSupportedPlatform)
+        }
+    }).map( (game) => {
+        return game
+    })
+    console.log("=========a", a);
+
+}
+
+let isSupportedPlatform = (num) => {    
+    return num === (6 || 49 || 48 || 130 || 12 || 9);
+};
+
 //looks for game in DB, if not there: creates new tow in GAMES, and adds user-game association.
 //if there: adds user-game association
 module.exports.postUserGame = (req, res, next) => {
+    console.log("%%%%%%%%%req", req.body)
     const { User, Game } = req.app.get('models');
     let savedGames = res.locals.storedGames;
     let gameNames = savedGames.map( (game) => {
+        console.log("===================game", game);
         return game.name;
     });
+
+    console.log("*********GAMENAMES*********", gameNames);
     let gameId;
     if(gameNames.indexOf(req.body.game) === -1) {
         Game.create({

@@ -27,7 +27,7 @@ let updateInbox = (recipientId, msgContent, otherUser) => {
 
 let removePrevMessage = (otherUser) => {
     $(`.inbox-btn[data="${otherUser}"]`).remove();
-}
+};
 
 let addInboxMessage = (recipientId, otherUser, senderId, screenName, msgContent, date) => {
     $('.list-group').prepend(`
@@ -43,7 +43,7 @@ let addInboxMessage = (recipientId, otherUser, senderId, screenName, msgContent,
                     <p class="timestampe-inbox"> ${date}</p>
                 </div>
             </div></li>`);
-}
+};
 
 // }); //TODO update modal header with screen name of other user
 

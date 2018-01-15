@@ -34,7 +34,7 @@ $('#gameSearch').keyup( function() {
 $(document).click(function(){
     $('#game-list').hide();
     $('#gameSearch').val('');
-});
+}); 
 
 //click enter to submit user info
 $('.input').keydown( function(event) {
@@ -76,8 +76,7 @@ let getIgdbGames = () => {
         })
         .then( (data) => {
             console.log(data);
-            let parsed = JSON.parse(data);
-            let gamelist = parsed.map( (game) => {
+            let gamelist = data.map( (game) => {
                 return game.name;
             });
             resolve(gamelist);

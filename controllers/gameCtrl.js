@@ -49,26 +49,49 @@ module.exports.getIGDBgames = (req, res, next) => {
         }
     };
     request.get(options, function(error, igdbRes, body) {
-        console.log("^^^^^^^^^^Results", body)
-        platformFilter(body);
-        res.locals.igdbResults = body;
-        res.status(200).send(body);
+        let filteredGames = platformFilter(body);
+        res.locals.igdbResults = filteredGames;
+        res.status(200).send(filteredGames);
     });
 };
+
+let platformKey = {
+    6: 'PC',
+    49: 'XBOX1',
+    48: 'PS4',
+    130: 'Switch',
+    12: 'XBOX360',
+    9: 'PS3'
+};
+
+// let divideByPlatform = (arrOfGames) => {
+//     for(let i = 0; i < arrOfGames.length; i++) {
+//         if(arrOfGames[i].platforms.length > 1) {
+
+//         }
+//     }
+// }
+
 //6,49,48,130,12,9 filter through array of game 
 let platformFilter = (body) => {
+    let suppPlats = [6, 49, 48, 130, 12, 9];
     let arr = JSON.parse(body);
-    console.log(typeof arr, arr);
-    let a = arr.filter( (game) => {
+    let filteredGames = arr.filter( (game) => {
         if(game.platforms) {
             return game.platforms.some(isSupportedPlatform)
         }
-    }).map( (game) => {
-        return game
-    })
-    console.log("=========a", a);
-
-}
+    }).map( (g) => {
+        let platforms = [];
+        for(let i = 0; i < g.platforms.length; i++) {
+            if(suppPlats.indexOf(g.platforms[i]) > -1) {
+                platforms.push(g.platforms[i]);
+            }
+        }
+        g.platforms = platforms;
+        return g;
+    });
+    return filteredGames;
+};
 
 let isSupportedPlatform = (num) => {    
     return num === (6 || 49 || 48 || 130 || 12 || 9);
@@ -77,11 +100,18 @@ let isSupportedPlatform = (num) => {
 //looks for game in DB, if not there: creates new tow in GAMES, and adds user-game association.
 //if there: adds user-game association
 module.exports.postUserGame = (req, res, next) => {
-    console.log("%%%%%%%%%req", req.body)
     const { User, Game } = req.app.get('models');
     let savedGames = res.locals.storedGames;
+
+    console.log("saved games", savedGames)
+
+    let storedGames = savedGames.reduce( (acc, cur) => {
+        console.log('===========', cur.name);
+        acc[cur.name] = cur.platform;
+        return acc;
+    }, {});
+    console.log("RESULTS stored", storedGames);
     let gameNames = savedGames.map( (game) => {
-        console.log("===================game", game);
         return game.name;
     });
 

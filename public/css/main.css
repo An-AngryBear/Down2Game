@@ -166,23 +166,32 @@ hr {
   display: flex;
   justify-content: center;
   font-family: "Orbitron", sans-serif;
-  text-align: center; }
+  text-align: center;
+  border-bottom: 1px solid gray; }
   .nav-tabs li a {
     padding-left: 5px;
     padding-right: 5px; }
+  .nav-tabs li a:hover {
+    background-color: #336ab7;
+    color: white;
+    transition: .8s; }
   .nav-tabs li.active a {
     height: 100%; }
   .nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover {
-    background-color: #292929;
-    color: white; }
+    background-color: black;
+    color: white;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray; }
 
 .plat-link {
   height: 100%; }
 
 .plat-tab {
   width: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  flex-grow: 1; }
+  background: rgba(0, 0, 0, 0.4);
+  flex-grow: 1;
+  max-width: 30%; }
 
 .tab-pane {
   padding-top: 1em; }

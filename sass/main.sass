@@ -172,8 +172,14 @@ hr
     .users-games
         flex: 1
         .owned-games
-            .saved-games-list
-                padding: 0
+            .tab-content
+                min-height: 20vh
+
+.game-name, .edit-header
+    text-align: center
+    color: white
+    font-family: $orbitron
+    letter-spacing: .2em
 
     // ***platform tabs****
 .nav-tabs
@@ -198,6 +204,9 @@ hr
     background: rgba(0, 0, 0, 0.3)
     flex-grow: 1
 
+.tab-pane 
+    padding-top: 1em
+    
     // ******
 .info-display
     color: white
@@ -280,8 +289,9 @@ hr
 
 
 .game-add-input
-    width: 100%
-
+    width: 90%
+    margin: auto
+    margin-bottom: 1em
 
 .user-game-list
     list-style-type: none
@@ -603,6 +613,7 @@ li.inbox-btn:hover
                 .game-add-input
                     width: 50%
                     margin: auto
+                    margin-bottom: 1em
                 .game-list
                     transform: translateX(-50%)
                     left: 50%

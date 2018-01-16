@@ -2,16 +2,19 @@
     "Games": [
       {
         "name": "Overwatch",
+        "platform": 6,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
         "name": "Counter-Strike: Global Offensive",
+        "platform": 6,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       },
       {
         "name": "Rocket League",
+        "platform": 48,
         "createdAt": "2017-11-01 14:14:12.314-05",
         "updatedAt": "2017-11-01 14:14:12.314-05"
       }

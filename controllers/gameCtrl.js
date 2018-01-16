@@ -26,13 +26,24 @@ module.exports.getUserGames = (req, res, next) => {
         return user.getGames({raw:true});
     })
     .then( (data) => {
+        console.log("USER GAMES===========", data)
         res.locals.userGames = data;
+        res.locals.userPlats = userPlatforms(data);
         return next();
     })
     .catch( (err) => {
         return next(err);
     });
 };
+
+let userPlatforms = (userGames) => {
+    return userGames.reduce( (acc, cur) => {
+        if(acc.indexOf(cur.platform) == -1) {
+            acc.push(cur.platform);
+        }
+        return acc;
+    }, [])
+}
 
 module.exports.checkGames = (req, res, next) => {
     res.status(200).end();

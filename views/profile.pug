@@ -102,10 +102,6 @@ block content
                         ul(class="game-list" id="game-list")
                 .owned-games
                     h4(class="edit-header") Owned Games
-                    ul(id="saved-games-list" class="saved-games-list")
-                        if userGames
-                            each game in userGames
-                                li(class="user-game-list") #{game.name} 
                     include partials/owned-games.pug
         include partials/scripts.pug
         script(src="/public/js/profile.js")

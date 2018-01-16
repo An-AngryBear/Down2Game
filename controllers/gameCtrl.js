@@ -55,22 +55,18 @@ module.exports.getIGDBgames = (req, res, next) => {
     });
 };
 
-let platformKey = {
-    6: 'PC',
-    49: 'XBOX1',
-    48: 'PS4',
-    130: 'Switch',
-    12: 'XBOX360',
-    9: 'PS3'
-};
-
-// let divideByPlatform = (arrOfGames) => {
-//     for(let i = 0; i < arrOfGames.length; i++) {
-//         if(arrOfGames[i].platforms.length > 1) {
-
-//         }
-//     }
-// }
+let divideByPlatform = (arrOfGames) => {
+    let dividedGames = [];
+    for(let i = 0; i < arrOfGames.length; i++) {
+        for(let p = 0; p < arrOfGames[i].platforms.length; p++) {
+            let game = {};
+            game.name = arrOfGames[i].name;
+            game.platform = arrOfGames[i].platforms[p];
+            dividedGames.push(game);
+        }
+    }
+    return dividedGames;
+}
 
 //6,49,48,130,12,9 filter through array of game 
 let platformFilter = (body) => {
@@ -90,7 +86,7 @@ let platformFilter = (body) => {
         g.platforms = platforms;
         return g;
     });
-    return filteredGames;
+    return divideByPlatform(filteredGames);
 };
 
 let isSupportedPlatform = (num) => {    

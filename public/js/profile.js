@@ -66,6 +66,7 @@ $(document).on('click', "li.game-options", function() {
     .then( (data) => {
         $('#game-list').empty();
         $('.game-add-input').val("");
+        location.reload();
     });
 });
 

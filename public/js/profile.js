@@ -23,12 +23,17 @@ $('#gameSearch').keyup( function() {
     timeout = setTimeout( function() {
         getIgdbGames()
         .then( (data) => {
-            console.log(data);
-            let filter = $('#gameSearch').val().toUpperCase();
-            $('#game-list').empty();
-            $('#game-list').show();
-            for(let i = 0; i < data.length; i++) {
-                $('#game-list').append(`<li class="game-options"><a class="game-options">${data[i]}</a></li>`);
+            if(data) {
+                let formatedData = formatIGDBGames(data);
+                console.log(formatedData);
+                let filter = $('#gameSearch').val().toUpperCase();
+                $('#game-list').empty();
+                $('#game-list').show();
+                for(let i = 0; i < data.length; i++) {
+                    $('#game-list').append(`<li class="game-options" data-name="${data[i].name}" data-platform="${data[i].platform}"><a class="game-options">${formatedData[i]}</a></li>`);
+                }
+            } else {
+                $('#game-list').empty();
             }
         });
     }, 500);
@@ -57,12 +62,14 @@ $('.input').keydown( function(event) {
 
 //posts game IGDB game to DB
 $(document).on('click', "li.game-options", function() {
-    addGame(this.textContent)
+    addGame($(this).attr('data-name'), parseInt($(this).attr('data-platform')))
     .then( (data) => {
         $('#game-list').empty();
         $('.game-add-input').val("");
     });
 });
+
+let letParseGameInfo
 
 // ************* AJAX **************
 
@@ -78,8 +85,7 @@ let getIgdbGames = () => {
             error: function () { }
         })
         .then( (data) => {
-            console.log(data);            
-            resolve(formatIGDBGames(data));
+            resolve(data);
         }); 
     });
 };
@@ -89,12 +95,11 @@ let platformKey = {
     49: 'XBOX1',
     48: 'PS4',
     130: 'Switch',
-    12: 'XBOX360',
+    12: 'XBOX 360',
     9: 'PS3'
 };
 
 let formatIGDBGames = (games) => {
-    console.log(games);
     return games.map( (game) => {
         return `${game.name} - ${platformKey[game.platform]}`
     });
@@ -119,11 +124,11 @@ let editInfo = (dataName, userData) => {
 };
 
 //posts game to DB
-let addGame = (game) => {
+let addGame = (gameName, platform) => {
     return new Promise( (resolve, reject) => {
         $.ajax({
             type:"POST",
-            data: { game },
+            data: { gameName, platform },
             url: `/games/`,
             success: function () { },
             error: function () { }

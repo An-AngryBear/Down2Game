@@ -98,24 +98,24 @@ let isSupportedPlatform = (num) => {
 module.exports.postUserGame = (req, res, next) => {
     const { User, Game } = req.app.get('models');
     let savedGames = res.locals.storedGames;
-
-    console.log("saved games", savedGames)
-
     let storedGames = savedGames.reduce( (acc, cur) => {
-        console.log('===========', cur.name);
         acc[cur.name] = cur.platform;
         return acc;
     }, {});
-    console.log("RESULTS stored", storedGames);
-    let gameNames = savedGames.map( (game) => {
-        return game.name;
-    });
-
-    console.log("*********GAMENAMES*********", gameNames);
     let gameId;
-    if(gameNames.indexOf(req.body.game) === -1) {
+    let stored = false;
+    for(let key in storedGames) {
+        if(req.body.gameName === key && req.body.platform == storedGames[key] ) {
+            stored = true;
+        }
+    }
+    let gameNames;
+
+    if(!stored) {
+        console.log("==========NOT STORED TRIGGER============");
         Game.create({
-            name: req.body.game
+            name: req.body.gameName,
+            platform: req.body.platform
         })
         .then( (data) => {
             gameId = data.dataValues.id;
@@ -131,10 +131,11 @@ module.exports.postUserGame = (req, res, next) => {
             return next(err);
         });
     } else {
+        console.log("========STORED TRIGGER==========")
         User.findById(req.session.passport.user.id)
         .then( (user) => {
             gameId = savedGames.filter( (game) => {
-                if(game.name === req.body.game) {
+                if(game.name === req.body.gameName) {
                     return game.id;
                 }
             });

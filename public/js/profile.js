@@ -15,12 +15,15 @@ $('.edit').click( function(event) {
     $(this).hide();
 });
 
+
+
 //filters games in database by search input, waits for user to finish typing
 $('#gameSearch').keyup( function() {
     clearTimeout(timeout);
     timeout = setTimeout( function() {
         getIgdbGames()
         .then( (data) => {
+            console.log(data);
             let filter = $('#gameSearch').val().toUpperCase();
             $('#game-list').empty();
             $('#game-list').show();
@@ -75,14 +78,27 @@ let getIgdbGames = () => {
             error: function () { }
         })
         .then( (data) => {
-            console.log(data);
-            let gamelist = data.map( (game) => {
-                return game.name;
-            });
-            resolve(gamelist);
+            console.log(data);            
+            resolve(formatIGDBGames(data));
         }); 
     });
 };
+
+let platformKey = {
+    6: 'PC',
+    49: 'XBOX1',
+    48: 'PS4',
+    130: 'Switch',
+    12: 'XBOX360',
+    9: 'PS3'
+};
+
+let formatIGDBGames = (games) => {
+    console.log(games);
+    return games.map( (game) => {
+        return `${game.name} - ${platformKey[game.platform]}`
+    });
+;}
 
 //call to edit user info in database
 let editInfo = (dataName, userData) => {

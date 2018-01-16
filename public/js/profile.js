@@ -15,8 +15,6 @@ $('.edit').click( function(event) {
     $(this).hide();
 });
 
-
-
 //filters games in database by search input, waits for user to finish typing
 $('#gameSearch').keyup( function() {
     clearTimeout(timeout);
@@ -70,8 +68,6 @@ $(document).on('click', "li.game-options", function() {
     });
 });
 
-let letParseGameInfo
-
 // ************* AJAX **************
 
 //call to game route, hits IGDB API
@@ -102,9 +98,9 @@ let platformKey = {
 
 let formatIGDBGames = (games) => {
     return games.map( (game) => {
-        return `${game.name} - ${platformKey[game.platform]}`
+        return `${game.name} - ${platformKey[game.platform]}`;
     });
-;}
+};
 
 //call to edit user info in database
 let editInfo = (dataName, userData) => {
@@ -152,7 +148,6 @@ let addUserImage = (image) => {
             error: function () { }
         })
         .then( (data) => {
-            console.log("then");
             resolve(data);
         });
     });
@@ -171,7 +166,6 @@ let addTempImage = (image) => {
             error: function () { }
         })
         .then( (data) => {
-            console.log("then");
             resolve(data);
         });
     });

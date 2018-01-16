@@ -2,14 +2,12 @@
 
 let request = require('request');
 const passport = require('passport');
-// let { igdb } = require('../public/values/igdb-config');
 
 //gets all stored games and sets to res.locals.storedGames, passes to next method
 module.exports.getStoredGames = (req, res, next) => {
     const { Game } = req.app.get('models');
     Game.findAll({raw:true})
     .then( (data) => {
-        console.log(data);
         res.locals.storedGames = data;
         return next();
     })
@@ -26,7 +24,6 @@ module.exports.getUserGames = (req, res, next) => {
         return user.getGames({raw:true});
     })
     .then( (data) => {
-        console.log("USER GAMES===========", data)
         res.locals.userGames = data;
         res.locals.userPlats = userPlatforms(data);
         return next();
@@ -36,14 +33,15 @@ module.exports.getUserGames = (req, res, next) => {
     });
 };
 
+// gets all unique platforms from a user's games
 let userPlatforms = (userGames) => {
     return userGames.reduce( (acc, cur) => {
         if(acc.indexOf(cur.platform) == -1) {
             acc.push(cur.platform);
         }
         return acc;
-    }, [])
-}
+    }, []);
+};
 
 module.exports.checkGames = (req, res, next) => {
     res.status(200).end();
@@ -66,6 +64,7 @@ module.exports.getIGDBgames = (req, res, next) => {
     });
 };
 
+// adds more game objects to game array for each platform
 let divideByPlatform = (arrOfGames) => {
     let dividedGames = [];
     for(let i = 0; i < arrOfGames.length; i++) {
@@ -77,15 +76,15 @@ let divideByPlatform = (arrOfGames) => {
         }
     }
     return dividedGames;
-}
+};
 
-//6,49,48,130,12,9 filter through array of game 
+//filters out results that don't meet the platform conditions
 let platformFilter = (body) => {
     let suppPlats = [6, 49, 48, 130, 12, 9];
     let arr = JSON.parse(body);
     let filteredGames = arr.filter( (game) => {
         if(game.platforms) {
-            return game.platforms.some(isSupportedPlatform)
+            return game.platforms.some(isSupportedPlatform);
         }
     }).map( (g) => {
         let platforms = [];
@@ -100,6 +99,7 @@ let platformFilter = (body) => {
     return divideByPlatform(filteredGames);
 };
 
+//a check on IGDB ID's to be support platforms
 let isSupportedPlatform = (num) => {    
     return num === (6 || 49 || 48 || 130 || 12 || 9);
 };
@@ -120,10 +120,7 @@ module.exports.postUserGame = (req, res, next) => {
             stored = true;
         }
     }
-    let gameNames;
-
     if(!stored) {
-        console.log("==========NOT STORED TRIGGER============");
         Game.create({
             name: req.body.gameName,
             platform: req.body.platform
@@ -142,7 +139,6 @@ module.exports.postUserGame = (req, res, next) => {
             return next(err);
         });
     } else {
-        console.log("========STORED TRIGGER==========")
         User.findById(req.session.passport.user.id)
         .then( (user) => {
             gameId = savedGames.filter( (game) => {

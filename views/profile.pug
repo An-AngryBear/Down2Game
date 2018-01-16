@@ -73,9 +73,6 @@ block content
                         p(class="info-display") #{timezone}
                         if loggedUser
                             include partials/timezone.pug
-                if loggedUser && questions.length !== usersAnswers.length
-                    .questions-link
-                        h4(class=""): a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!
                 .last-logged
                     .info-head
                         h4(class="edit-header") Last Logged In
@@ -86,6 +83,9 @@ block content
                         h4(class="edit-header") Typically Active
                     .user-info
                         p(class="info-display") 8-12pm central time (TEMP)
+                if loggedUser && questions.length !== usersAnswers.length
+                    .questions-link
+                        h4(class=""): a(href="/user/" + viewedUser + "/questions") Answer These Question to Match With Other Users!
                 .btn-container
                     if loggedUser && questions.length === usersAnswers.length
                         a(href="/user/" + viewedUser + "/questions"): button(class="btn btn-primary prof-btns") Review answers
@@ -94,6 +94,7 @@ block content
                         button(id="message-btn" type="button" data=viewedUser + "-msg-id" class="btn btn-primary message-btn" data-toggle="modal" data-target="#msg-model") Message This User!
             
             .users-games
+                h4(class="edit-header") Owned Games
                 if loggedUser
                     .games#games
                         h4(class="search-games ")
@@ -101,11 +102,6 @@ block content
                         input(id="gameSearch" autocomplete="off" class="form-control game-add-input" placeholder="Add a game..." type='text')
                         ul(class="game-list" id="game-list")
                 .owned-games
-                    h4(class="edit-header") Owned Games
-                    ul(id="saved-games-list" class="saved-games-list")
-                        if userGames
-                            each game in userGames
-                                li(class="user-game-list") #{game.name} 
                     include partials/owned-games.pug
         include partials/scripts.pug
         script(src="/public/js/profile.js")

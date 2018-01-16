@@ -2,7 +2,6 @@
 
 let request = require('request');
 const passport = require('passport');
-// let { igdb } = require('../public/values/igdb-config');
 
 //gets all stored games and sets to res.locals.storedGames, passes to next method
 module.exports.getStoredGames = (req, res, next) => {
@@ -26,11 +25,22 @@ module.exports.getUserGames = (req, res, next) => {
     })
     .then( (data) => {
         res.locals.userGames = data;
+        res.locals.userPlats = userPlatforms(data);
         return next();
     })
     .catch( (err) => {
         return next(err);
     });
+};
+
+// gets all unique platforms from a user's games
+let userPlatforms = (userGames) => {
+    return userGames.reduce( (acc, cur) => {
+        if(acc.indexOf(cur.platform) == -1) {
+            acc.push(cur.platform);
+        }
+        return acc;
+    }, []);
 };
 
 module.exports.checkGames = (req, res, next) => {
@@ -48,22 +58,72 @@ module.exports.getIGDBgames = (req, res, next) => {
         }
     };
     request.get(options, function(error, igdbRes, body) {
-        res.locals.igdbResults = body;
-        res.status(200).send(body);
+        let filteredGames = platformFilter(body);
+        res.locals.igdbResults = filteredGames;
+        res.status(200).send(filteredGames);
     });
 };
+
+// adds more game objects to game array for each platform
+let divideByPlatform = (arrOfGames) => {
+    let dividedGames = [];
+    for(let i = 0; i < arrOfGames.length; i++) {
+        for(let p = 0; p < arrOfGames[i].platforms.length; p++) {
+            let game = {};
+            game.name = arrOfGames[i].name;
+            game.platform = arrOfGames[i].platforms[p];
+            dividedGames.push(game);
+        }
+    }
+    return dividedGames;
+};
+
+//filters out results that don't meet the platform conditions
+let platformFilter = (body) => {
+    let suppPlats = [6, 49, 48, 130, 12, 9];
+    let arr = JSON.parse(body);
+    let filteredGames = arr.filter( (game) => {
+        if(game.platforms) {
+            return game.platforms.some(isSupportedPlatform);
+        }
+    }).map( (g) => {
+        let platforms = [];
+        for(let i = 0; i < g.platforms.length; i++) {
+            if(suppPlats.indexOf(g.platforms[i]) > -1) {
+                platforms.push(g.platforms[i]);
+            }
+        }
+        g.platforms = platforms;
+        return g;
+    });
+    return divideByPlatform(filteredGames);
+};
+
+//a check on IGDB ID's to be support platforms
+let isSupportedPlatform = (num) => {    
+    return num === (6 || 49 || 48 || 130 || 12 || 9);
+};
+
 //looks for game in DB, if not there: creates new tow in GAMES, and adds user-game association.
 //if there: adds user-game association
 module.exports.postUserGame = (req, res, next) => {
     const { User, Game } = req.app.get('models');
     let savedGames = res.locals.storedGames;
-    let gameNames = savedGames.map( (game) => {
-        return game.name;
-    });
+    let storedGames = savedGames.reduce( (acc, cur) => {
+        acc[cur.name] = cur.platform;
+        return acc;
+    }, {});
     let gameId;
-    if(gameNames.indexOf(req.body.game) === -1) {
+    let stored = false;
+    for(let key in storedGames) {
+        if(req.body.gameName === key && req.body.platform == storedGames[key] ) {
+            stored = true;
+        }
+    }
+    if(!stored) {
         Game.create({
-            name: req.body.game
+            name: req.body.gameName,
+            platform: req.body.platform
         })
         .then( (data) => {
             gameId = data.dataValues.id;
@@ -82,7 +142,7 @@ module.exports.postUserGame = (req, res, next) => {
         User.findById(req.session.passport.user.id)
         .then( (user) => {
             gameId = savedGames.filter( (game) => {
-                if(game.name === req.body.game) {
+                if(game.name === req.body.gameName) {
                     return game.id;
                 }
             });

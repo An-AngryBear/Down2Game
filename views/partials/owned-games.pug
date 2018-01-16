@@ -1,35 +1,48 @@
 <ul class="nav nav-tabs">
-  <li class="active plat-tab"><a data-toggle="tab" href="#home">PC</a></li>
-  <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#menu1">XBOX 360</a></li>
-  <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#menu2">PS4</a></li>
-  <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#menu2">PS3</a></li>
-  <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#menu2">XBOX ONE</a></li>
-  <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#menu2">SWITCH</a></li>
+  -console.log(userPlats)
+  if userPlats.indexOf(6) > -1
+    <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#pc">PC</a></li>
+  if userPlats.indexOf(12) > -1
+    <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#360">XBOX 360</a></li>
+  if userPlats.indexOf(48) > -1
+    <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#ps4">PS4</a></li>
+  if userPlats.indexOf(9) > -1
+    <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#ps3">PS3</a></li>
+  if userPlats.indexOf(49) > -1
+    <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#xbox1">XBOX ONE</a></li>
+  if userPlats.indexOf(130) > -1
+    <li class="plat-tab"><a class="plat-link" data-toggle="tab" href="#switch">SWITCH</a></li>
 </ul>
 
 <div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-    <h3>PC</h3>
-    <p>Some content.</p>
-  </div>
-  <div id="menu1" class="tab-pane fade">
-    <h3>PS4</h3>
-    <p>Some content in menu 1.</p>
-  </div>
-  <div id="menu2" class="tab-pane fade">
-    <h3>XBOX1</h3>
-    <p>Some content in menu 2.</p>
-  </div>
-  <div id="menu3" class="tab-pane fade">
-    <h3>XBOX 360</h3>
-    <p>Some content in menu 2.</p>
-  </div>
-  <div id="menu4" class="tab-pane fade">
-    <h3>PS3</h3>
-    <p>Some content in menu 2.</p>
-  </div>
-  <div id="menu5" class="tab-pane fade">
-    <h3>Switch</h3>
-    <p>Some content in menu 2.</p>
-  </div>
+    <div id="pc" class="tab-pane fade">
+      each game in userGames
+          if game && game.platform == 6
+            p.game-name #{game.name}
+    </div>
+    <div id="360" class="tab-pane fade">
+      each game in userGames
+          if game && game.platform == 12
+            p.game-name #{game.name}
+    </div>
+    <div id="ps4" class="tab-pane fade">
+      each game in userGames
+          if game && game.platform == 48
+            p.game-name #{game.name}
+    </div>
+    <div id="ps3" class="tab-pane fade">
+      each game in userGames
+          if game && game.platform == 9
+            p.game-name #{game.name}
+    </div>
+    <div id="xbox1" class="tab-pane fade">
+      each game in userGames
+          if game && game.platform == 49
+            p.game-name #{game.name}
+    </div>
+    <div id="switch" class="tab-pane fade">
+      each game in userGames
+          if game && game.platform == 130
+            p.game-name #{game.name}
+    </div>
 </div>
